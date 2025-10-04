@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 # 🤖 Adam v1 — Modular, Local-First, Self-Updating LLM Assistant
+=======
+    🤖 Adam v1 — Modular, Local-First, Self-Updating LLM Assistant 
+======================================================================
+>>>>>>> b035743 (docs: finalize README install + clean LICENSE; ignore local SHA256SUMS.txt)
 
 Adam is a locally-runnable, plugin-based AI assistant that adapts to your hardware and tasks. Fully offline-first, modular, and built for extensibility.
 
@@ -9,7 +14,12 @@ Adam is a locally-runnable, plugin-based AI assistant that adapts to your hardwa
 
 ---
 
+<<<<<<< HEAD
 ## 🚀 Quick Start
+=======
+    🚀 Quick Start
+======================
+>>>>>>> b035743 (docs: finalize README install + clean LICENSE; ignore local SHA256SUMS.txt)
 
 ```bash
 # 1) create env (or use system Python)
@@ -26,6 +36,7 @@ pip install -r requirements.txt
 python3 run_adam.py --ask "What time is it?"
 If you build the single binary with PyInstaller, the light model may be bundled. For source installs, place it under models/ as shown above.
 
+<<<<<<< HEAD
 📦 Layout
 bash
 Copy code
@@ -51,9 +62,73 @@ python3 run_adam.py --plugin-health
 Light (condenser): models/light-condenser.gguf (download from Releases).
 
 Heavy (executor): auto-selected by hardware audit; downloaded on demand if not present (configurable).
+=======
+---
+
+    📦 Layout
+=================
+
+src/adam/            # core engine
+plugins/             # drop .py to extend Adam (router, local_llm, tools, etc.)
+tools/               # heavier on-demand scripts
+sidecars/            # external services (optional)
+docs/                # specs, runbooks, ADRs
+config/              # YAML/JSON config
+
+---
+
+    🧩 Plugins
+==================
+
+Adam discovers plugins from plugins/.
+
+Examples:
+
+# run a plugin directly
+python3 run_adam.py --plugin memory_write --args '{"content":"Remember this."}'
+
+# health report (no execution)
+python3 run_adam.py --plugin-health
+
+---
+
+    🧠 Models
+==================
+Light (condenser): 
+    models/light-condenser.gguf (download from Releases).
+
+Heavy (executor): 
+    auto-selected by hardware audit; downloaded on demand if not present (configurable).
 
 You can override choices in config/ or via CLI flags.
 
+---
+
+    🧪 Self-Test
+====================
+    
+python3 run_adam.py --self-test
+
+---
+
+    🔐 Offline-First
+=======================
+
+No external APIs by default. Networked features are opt-in and isolated.
+
+---
+
+        🛠 Build
+===============
+
+Single binary:
+
+    pyinstaller --clean -y packaging/adam.spec
+>>>>>>> b035743 (docs: finalize README install + clean LICENSE; ignore local SHA256SUMS.txt)
+
+You can override choices in config/ or via CLI flags.
+
+<<<<<<< HEAD
 🧪 Self-Test
 bash
 Copy code
@@ -149,4 +224,14 @@ Copy code
 ::contentReference[oaicite:0]{index=0}
 
 📜 License
+=======
+Docker:
+    Use the provided Dockerfile (CPU baseline).
+
+---
+
+    📜 License
+==================
+
+>>>>>>> b035743 (docs: finalize README install + clean LICENSE; ignore local SHA256SUMS.txt)
 MIT. See LICENSE.

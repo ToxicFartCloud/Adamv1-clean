@@ -9,3 +9,6 @@ snapshots/
 *.pt
 *.safetensors
 *.tgz
+
+# release assets (local only)
+SHA256SUMS.txt
