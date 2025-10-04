@@ -69,6 +69,84 @@ Copy code
 pyinstaller --clean -y packaging/adam.spec
 Docker:
 Use the provided Dockerfile (CPU baseline).
+## 🔧 Install
+
+Adam runs on Linux and Windows. Choose **From Source** (Python) or **From Binary** (if you downloaded a prebuilt).
+
+---
+
+### 📦 From Source
+
+**Requirements**
+- Python 3.10–3.13
+- Git
+- (Optional) GPU drivers if you’ll run larger models
+
+#### 🐧 Linux
+```bash
+git clone https://github.com/ToxicFartCloud/Adamv1-clean.git
+cd Adamv1-clean
+
+python3 -m venv .venv
+source .venv/bin/activate
+
+pip install -r requirements.txt
+
+# (optional) Download light model from Releases → place at:
+#   models/light-condenser.gguf
+# Then:
+python3 run_adam.py --ask "What time is it?"
+UI needs Tk:
+Ubuntu/Debian: sudo apt install python3-tk
+Fedora: sudo dnf install python3-tkinter
+Arch: sudo pacman -S tk
+
+🪟 Windows 10/11 (PowerShell)
+powershell
+Copy code
+git clone https://github.com/ToxicFartCloud/Adamv1-clean.git
+cd Adamv1-clean
+
+py -3 -m venv .venv
+.venv\Scripts\activate
+
+pip install -r requirements.txt
+
+# (optional) Download light model from Releases → place at:
+#   models\light-condenser.gguf
+# Then:
+python run_adam.py --ask "What time is it?"
+💻 From Binary (optional)
+If you downloaded a prebuilt package:
+
+Linux
+
+bash
+Copy code
+chmod +x ./adam
+./adam --ask "What time is it?"
+Windows
+
+powershell
+Copy code
+.\adam.exe --ask "What time is it?"
+If your binary includes the light model, it’s ready out of the box.
+For source installs, download light-condenser.gguf from the latest Release and place it in models/.
+
+🧠 Models
+Light condenser: models/light-condenser.gguf (download from Releases).
+
+Heavy executor: auto-selected by hardware audit; if missing, Adam can download it on first use (configurable).
+
+✅ Quick Self-Test
+bash
+Copy code
+python3 run_adam.py --self-test
+Having issues? Check logs in logs/ and verify your Python/Tk install.
+
+makefile
+Copy code
+::contentReference[oaicite:0]{index=0}
 
 📜 License
 MIT. See LICENSE.
