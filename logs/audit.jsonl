@@ -1,0 +1,1 @@
+{"timestamp": "2025-09-27T00:53:32.106295+00:00", "user": "Adam", "plugin": "backup.snapshot", "action": "pre", "args": {"tag": "demo", "stamp": "2025-01-01"}, "cwd": "/home/ToxicFartCloud/Projects/Adamv1", "dry_run": true, "ok": true, "reason": "demo", "summary": "Dry-run snapshot plan (pre) captured for tag 'demo'."}

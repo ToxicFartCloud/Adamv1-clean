@@ -1,0 +1,91 @@
+# GMKtec Offload Server — 1‑Page Setup Checklist (Offline)
+
+**Goal:** Stand up a standalone mini‑PC to run *high‑quality, slower* jobs (Qwen3‑Coder‑30B heavy + Qwen2.5‑Coder‑7B checker) for Adam. LAN‑only, offline, no cloud keys.
+
+---
+
+## 0) Fill these in (network plan)
+- Server hostname: `______________`
+- Server static IP (LAN): `______________`
+- Open ports: **11434** (Ollama), **8001** (checker), **8002** (heavy)
+- SSH user: `______________`
+
+---
+
+## 1) System prep (GMKtec, Linux)
+- Update OS & basics: `sudo apt update && sudo apt upgrade -y` *(use your distro’s pkg mgr)*
+- Install toolchain: `sudo apt install -y git build-essential python3-venv python3-pip`
+
+> Tip: Keep the box headless; use SSH.
+
+---
+
+## 2) Model runtime (pick one; Ollama is simplest)
+### Option A — **Ollama** (recommended for simplicity)
+1. Install & enable service (see Ollama docs for your distro). Then:
+   
+   sudo systemctl enable --now ollama
+   # listen on LAN
+   sudo systemctl set-environment OLLAMA_HOST=0.0.0.0
+   sudo systemctl restart ollama
+   
+2. Place/import your **GGUF** models (offline is fine):
+   - Heavy: `Qwen3‑Coder‑30B Q4_K_M` (GGUF)
+   - Checker: `Qwen2.5‑Coder‑7B Q5_K_M` (GGUF)
+   - If files are local, create Modelfiles and run `ollama create <name> -f Modelfile`.
+
+### Option B — **llama.cpp server** (more control, more steps)
+- Build with a BLAS (OpenBLAS or MKL). Run two servers:
+  
+  ./server -m <Qwen2.5‑7B.Q5_K_M.gguf> -c 4096 --port 8001
+  ./server -m <Qwen3‑30B.Q4_K_M.gguf>   -c 8192 --port 8002
+  
+
+---
+
+## 3) Services & ports
+- **Checker service (7B):** expose on **8001** (Ollama route or llama.cpp server)
+- **Heavy service (30B):** expose on **8002**
+- Keep Ollama default API on **11434** for management/tests.
+
+> Optional later: a tiny FastAPI wrapper on :8000 that routes `/ask` → 7B and `/heavy` → 30B.
+
+---
+
+## 4) RAG/Memory (same box, offline)
+- Install Postgres + pgvector; bind to **localhost only** (`listen_addresses='localhost'`).
+- Run memory + RAG plugins against this DB (no external calls).
+
+---
+
+## 5) Validation (5 minutes)
+- From your main PC, replace `<IP>` with the GMKtec IP.
+  
+  # Ollama up?
+  curl -s http://<IP>:11434/api/tags | jq .
+  # Checker (7B) quick probe (Ollama generate example)
+  curl -s http://<IP>:11434/api/generate -d '{"model":"<checker_name>","prompt":"Say hello"}' | head
+  # Heavy (30B) quick probe (llama.cpp server example)
+  curl -s http://<IP>:8002/health
+  
+- In Adam, point the client to the GMKtec IP for `/heavy` tasks; leave normal `/ask` local or route to 7B on :8001.
+
+---
+
+## 6) Operations
+- **Autostart:** ensure systemd services for Ollama / llama.cpp wrappers (or use tmux).
+- **Logs:** write JSON logs to `/var/log/adam_offload/` or your repo’s `logs/`.
+- **Thermals:** limit concurrency on the 30B job; favor overnight queues.
+
+---
+
+## 7) Success criteria
+- 7B responds in < ~2–4s for short prompts (CPU), 30B streams steadily.
+- Adam routes `/heavy` to the GMKtec; normal `/ask` stays responsive.
+- RAG answers include citations from pgvector; no external traffic.
+
+---
+
+## Notes
+- If ports are blocked, add firewall rules (UFW or firewalld) for 11434/8001/8002 on LAN.
+- If you need Modelfile templates for your GGUFs, ask and I’ll generate them.

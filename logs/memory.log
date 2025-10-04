@@ -1,0 +1,27 @@
+Hello from Adam plugin system!
+{"timestamp": "2025-09-29 12:27:33", "content": "Question: What is 2+2?\tResponse: \nThe answer to 2+2 is 4."}
+{"timestamp": "2025-09-29 12:37:51", "content": "Question: Summarize the current memory.\tResponse: \nYou have two documents with scores of 0.95 and 0.88. The first document is located at /path/to/document1.txt, and the second document is located at /path/to/document2.txt. However, the content of the documents (excerpts) is not provided in the current memory."}
+Question: What is 2+2?	Response: 
+The answer to 2+2 is 4.
+Question: test	Response: 
+Since no excerpts are provided, it's not possible to identify the specific content being referenced.
+Question: how are you	Response: 
+I'm doing well, thank you! How about you?
+Question: Write a Python function to calculate Fibonacci recursively	Response: 
+```python
+def fibonacci(n):
+    if n <= 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fibonacci(n-1) + fibonacci(n-2)
+```
+How does the Fibonacci sequence start?
+Question: How do I reverse a string in Python?	Response: 
+```python
+def reverse_string(input_string):
+    return inputkret_string[::-1]
+Question: Hello!	Response: 
+Question: Write a Python function to calculate Fibonacci	Response: Answer to 'You are Adam, an assistant hel...' using model 'mistral-7b-instruct-v0.3-q4_k_m'. This is a simulated response.
+Question: Write code	Response: Answer to 'You are Adam, an assistant hel...' using model 'qwen2.5-14b-instruct-q4_k_m'. This is a simulated response.

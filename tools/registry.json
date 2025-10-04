@@ -1,0 +1,65 @@
+[
+  {
+    "name": "model_update",
+    "module": "resources.tools.model_update_tool",
+    "class": "ModelUpdateTool",
+    "enabled": true,
+    "config": {}
+  },
+  {
+    "name": "hardware_audit",
+    "module": "resources.tools.hardware_audit_tool",
+    "class": "HardwareAuditTool",
+    "enabled": true,
+    "config": {}
+  },
+  {
+    "name": "proc.app",
+    "module": "resources.tools.proc_app_tool",
+    "class": "ProcAppTool",
+    "enabled": true,
+    "config": {}
+  },
+  {
+    "name": "proc.ps",
+    "module": "resources.tools.proc_ps_tool",
+    "class": "ProcPsTool",
+    "enabled": true,
+    "config": {}
+  },
+  {
+    "name": "web.search",
+    "module": "resources.tools.web_search_tool",
+    "class": "WebSearchTool",
+    "enabled": true,
+    "config": {}
+  },
+  {
+    "name": "git.ops",
+    "module": "resources.tools.git_ops_tool",
+    "class": "GitOpsTool",
+    "enabled": true,
+    "config": {}
+  },
+  {
+    "name": "wmgr",
+    "module": "resources.tools.wmgr_tool",
+    "class": "WmgrTool",
+    "enabled": true,
+    "config": {}
+  },
+  {
+    "name": "guard.approval",
+    "module": "resources.tools.guard_approval_tool",
+    "class": "GuardApprovalTool",
+    "enabled": true,
+    "config": {}
+  },
+  {
+    "name": "backup.snapshot",
+    "module": "resources.tools.backup_snapshot_tool",
+    "class": "BackupSnapshotTool",
+    "enabled": true,
+    "config": {}
+  }
+]

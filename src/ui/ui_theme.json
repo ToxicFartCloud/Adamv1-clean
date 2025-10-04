@@ -1,0 +1,19 @@
+{
+  "metadata": {
+    "name": "Midnight Purple",
+    "author": "Designer Name",
+    "description": "A deep, accessible dark theme with soft purple accents."
+  },
+  "colors": {
+    "background": "#1a1a24",
+    "panel": "#222230",
+    "panel_light": "#2a2a3a",
+    "border": "#3c3c4e",
+    "text_primary": "#e6e6f0",
+    "text_secondary": "#b0b0c4",
+    "accent": "#6c5ce7",
+    "accent_fg": "#ffffff",
+    "search_hit_bg": "#f7ec6a",
+    "search_focus_bg": "#ffe066"
+  }
+}

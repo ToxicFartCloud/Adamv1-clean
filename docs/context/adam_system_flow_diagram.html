@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adam — High-Level System Flow</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8; /* A light, clean background */
+        }
+        .flow-box {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        .feedback-label {
+            font-size: 0.8rem;
+            fill: #4a5568;
+        }
+        .arrow-head {
+            fill: #90CDF4;
+        }
+        .arrow-line {
+            stroke: #90CDF4;
+            stroke-width: 2.5;
+        }
+        .feedback-line {
+             stroke: #63B3ED;
+             stroke-width: 2;
+             stroke-dasharray: 4 4;
+        }
+        .feedback-head {
+            fill: #63B3ED;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4 sm:p-6 md:p-8">
+    <div class="w-full max-w-4xl mx-auto">
+        <h1 class="text-2xl sm:text-3xl font-bold text-center text-gray-800 mb-2">Adam</h1>
+        <h2 class="text-lg sm:text-xl text-center text-gray-600 mb-10 sm:mb-16">High-Level System Flow</h2>
+
+        <div class="relative flex flex-col items-center space-y-4">
+            <!-- SVG Layer for Arrows -->
+            <svg class="absolute top-0 left-0 w-full h-full z-0" id="arrow-svg">
+                <!-- Arrow definitions -->
+                <defs>
+                    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                        <polygon points="0 0, 10 3.5, 0 7" class="arrow-head" />
+                    </marker>
+                    <marker id="feedback-arrowhead" markerWidth="8" markerHeight="6" refX="0" refY="3" orient="auto">
+                        <polygon points="0 0, 8 3, 0 6" class="feedback-head" />
+                    </marker>
+                </defs>
+            </svg>
+
+            <!-- Flow Elements -->
+            <div class="z-10 flex flex-col items-center">
+                <!-- User Icon -->
+                <div class="flex items-center justify-center w-16 h-16 bg-white rounded-full shadow-md mb-2">
+                    <svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                </div>
+                <span class="font-semibold text-gray-700">User</span>
+            </div>
+            
+            <div class="z-10 text-gray-400">⬇</div>
+            
+            <div id="ui-box" class="flow-box w-full max-w-xs md:max-w-sm p-4 bg-gradient-to-br from-blue-400 to-blue-500 text-white rounded-xl text-center">
+                <div class="font-bold text-lg">User Interface</div>
+                <div class="text-sm opacity-80 mt-1">Desktop App, Notifications, Chat UI</div>
+            </div>
+
+            <div class="z-10 text-gray-400">⬇</div>
+
+            <div id="core-box" class="flow-box w-full max-w-xs md:max-w-sm p-4 bg-gradient-to-br from-blue-500 to-blue-600 text-white rounded-xl text-center">
+                <div class="font-bold text-lg">Core Runtime</div>
+                <div class="text-sm opacity-80 mt-1">Engine, Orchestration, Memory</div>
+            </div>
+
+            <div class="z-10 text-gray-400">⬇</div>
+
+            <div id="plugins-box" class="flow-box w-full max-w-xs md:max-w-sm p-4 bg-gradient-to-br from-blue-600 to-blue-700 text-white rounded-xl text-center">
+                <div class="font-bold text-lg">Plugins Layer</div>
+                <div class="text-sm opacity-80 mt-1">System Ops, Memory, LLMs, Utilities</div>
+            </div>
+            
+            <div class="z-10 text-gray-400">⬇</div>
+
+            <div id="sidecars-box" class="flow-box w-full max-w-xs md:max-w-sm p-4 bg-gradient-to-br from-blue-700 to-blue-800 text-white rounded-xl text-center">
+                <div class="font-bold text-lg">Sidecars</div>
+                <div class="text-sm opacity-80 mt-1">Planner, GitHub Publisher, SLED Runtime</div>
+            </div>
+
+            <div class="z-10 text-gray-400">⬇</div>
+
+            <div id="cloud-box" class="flow-box w-full max-w-xs md:max-w-sm p-4 bg-gradient-to-br from-blue-800 to-blue-900 text-white rounded-xl text-center">
+                <div class="font-bold text-lg">Cloud & Storage</div>
+                <div class="text-sm opacity-80 mt-1">Projects, Customer Delivery, Subscription</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // This script dynamically draws the feedback loops to ensure they align correctly on different screen sizes.
+        function drawFeedbackLoops() {
+            const svg = document.getElementById('arrow-svg');
+            svg.innerHTML = svg.querySelector('defs').outerHTML; // Clear previous lines but keep defs
+
+            const uiBox = document.getElementById('ui-box').getBoundingClientRect();
+            const coreBox = document.getElementById('core-box').getBoundingClientRect();
+            const pluginsBox = document.getElementById('plugins-box').getBoundingClientRect();
+            const cloudBox = document.getElementById('cloud-box').getBoundingClientRect();
+            
+            const containerRect = svg.getBoundingClientRect();
+            
+            // Function to create a curved path
+            function createCurvedArrow(startX, startY, endX, endY, label, labelYOffset = -10) {
+                const controlX = startX - 120; // Adjust for curve
+                const controlY = startY + (endY - startY) / 2;
+                
+                const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                path.setAttribute('d', `M ${startX} ${startY} Q ${controlX} ${controlY} ${endX} ${endY}`);
+                path.setAttribute('stroke', '#63B3ED');
+                path.setAttribute('stroke-width', '2');
+                path.setAttribute('stroke-dasharray', '4 4');
+                path.setAttribute('fill', 'none');
+                path.setAttribute('marker-end', 'url(#feedback-arrowhead)');
+                svg.appendChild(path);
+
+                const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                text.setAttribute('x', controlX - 20);
+                text.setAttribute('y', controlY);
+                text.setAttribute('class', 'feedback-label');
+                text.setAttribute('text-anchor', 'end');
+                text.textContent = label;
+                svg.appendChild(text);
+            }
+
+            // --- Draw Feedback Loops ---
+            const isMobile = window.innerWidth < 768;
+            const xOffset = isMobile ? (uiBox.width / 2) + 20 : (uiBox.width / 2) + 40;
+
+            // 1. Plugins -> Core
+            const pluginsTop = pluginsBox.top - containerRect.top + pluginsBox.height / 2;
+            const pluginsLeft = pluginsBox.left - containerRect.left;
+            const coreBottom = coreBox.bottom - containerRect.top - (coreBox.height / 2);
+            
+            createCurvedArrow(pluginsLeft, pluginsTop, pluginsLeft, coreBottom, "Plugins Self-Upgrade");
+
+            // 2. Memory (from Core) -> Core
+            const coreTop = coreBox.top - containerRect.top + 15;
+            const coreLeft = coreBox.left - containerRect.left;
+            const coreMiddle = coreBox.top - containerRect.top + coreBox.height / 2;
+            
+            createCurvedArrow(coreLeft, coreMiddle, coreLeft, coreTop, "Memory Feedback");
+            
+            // 3. Logs/Evals (from Cloud) -> Core + Plugins
+            const cloudTop = cloudBox.top - containerRect.top + (cloudBox.height / 2);
+            const cloudRight = cloudBox.right - containerRect.left;
+            const pluginsBottom = pluginsBox.bottom - containerRect.top - (pluginsBox.height/2);
+            const pluginsRight = pluginsBox.right - containerRect.left;
+            
+            const controlX = cloudRight + 120; // Curve to the right
+            const controlY = cloudTop + (pluginsBottom - cloudTop) / 2;
+
+            const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            path.setAttribute('d', `M ${cloudRight} ${cloudTop} Q ${controlX} ${controlY} ${pluginsRight} ${pluginsBottom}`);
+            path.setAttribute('stroke', '#63B3ED');
+            path.setAttribute('stroke-width', '2');
+            path.setAttribute('stroke-dasharray', '4 4');
+            path.setAttribute('fill', 'none');
+            path.setAttribute('marker-end', 'url(#feedback-arrowhead)');
+            svg.appendChild(path);
+
+            const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+            text.setAttribute('x', controlX + 20);
+            text.setAttribute('y', controlY);
+            text.setAttribute('class', 'feedback-label');
+            text.setAttribute('text-anchor', 'start');
+            text.textContent = 'Logs/Evals Improve Core + Plugins';
+            svg.appendChild(text);
+
+        }
+
+        window.onload = drawFeedbackLoops;
+        window.onresize = drawFeedbackLoops;
+    </script>
+</body>
+</html>
+

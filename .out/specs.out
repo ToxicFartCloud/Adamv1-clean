@@ -1,0 +1,9 @@
+The file `./docs/prompts/MASTER-SPECS.md` does not exist.
+
+Here are the files in that directory:
+- `README.md`
+- `T1-anythingllm-port-map.md`
+- `T2-api-contract.md`
+- `T3-provider-ollama.md`
+- `T4-rag-pipeline.md`
+- `T5-tools-mcp.md`

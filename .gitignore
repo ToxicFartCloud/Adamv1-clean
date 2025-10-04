@@ -1,0 +1,11 @@
+# Large/derived — keep OUT of git
+models/
+dist/
+build/
+.venv/
+snapshots/
+*.gguf
+*.bin
+*.pt
+*.safetensors
+*.tgz

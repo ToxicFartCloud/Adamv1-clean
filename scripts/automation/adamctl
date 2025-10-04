@@ -1,0 +1,37 @@
+#!/usr/bin/env python3
+import argparse
+
+def pause_all():
+    print("Pausing all automation...")
+
+def resume_all():
+    print("Resuming all automation...")
+
+def get_status():
+    print("Getting automation status...")
+
+def approve_proposal(proposal_id):
+    print(f"Approving proposal: {proposal_id}")
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="A tiny CLI for Adam automation.")
+    subparsers = parser.add_subparsers(dest="command")
+
+    pause_parser = subparsers.add_parser("pause-all", help="Pause all automation.")
+    resume_parser = subparsers.add_parser("resume", help="Resume all automation.")
+    status_parser = subparsers.add_parser("status", help="Get automation status.")
+    approve_parser = subparsers.add_parser("approve-proposal", help="Approve a proposal.")
+    approve_parser.add_argument("proposal_id", help="The ID of the proposal to approve.")
+
+    args = parser.parse_args()
+
+    if args.command == "pause-all":
+        pause_all()
+    elif args.command == "resume":
+        resume_all()
+    elif args.command == "status":
+        get_status()
+    elif args.command == "approve-proposal":
+        approve_proposal(args.proposal_id)
+    else:
+        parser.print_help()

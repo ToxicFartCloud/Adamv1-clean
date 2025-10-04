@@ -1,0 +1,89 @@
+# Mini Distillation Spec (LoRA/QLoRA on Adam’s Tasks)
+
+## Purpose
+Teach a smaller local model (7B–13B) Adam’s **style, formats, and task behaviors** without full retraining. Use LoRA/QLoRA fine‑tuning on your task data to improve offline performance.
+
+---
+
+## Inputs
+1) **Eval & Logs**
+   - `eval.csv` (from Observability) → source of test prompts and scores.
+   - `runs.csv` + artifacts → collect Adam’s best outputs (especially with cloud/RAG/optimized prompts).
+
+2) **Data Curation**
+   - Extract “good pairs” → `{prompt, expected/approved answer}`.
+   - Filter: only runs with eval score ≥ 0.7 and approved by Mike.
+   - Save dataset as `distill_dataset.jsonl` (1 JSON per line).
+
+3) **Config**
+   - `distill_config.json`:
+     - `base_model`: path to GGUF/HF model (7B/13B)
+     - `adapter_type`: LoRA or QLoRA
+     - `train_steps`: default 500–2000
+     - `batch_size`, `lr`, `eval_steps`
+     - `output_dir`: where adapters saved
+
+---
+
+## Outputs
+- **LoRA adapter weights** under `distill_out/<date>/`
+- Updated `distill_dataset.jsonl` (grows over time)
+- Training logs (`metrics.json`, loss curves)
+- Eval scores (compare base vs. distilled on held‑out eval cases)
+
+---
+
+## Procedure
+1) **Collect Data**
+   - Run script: `adam distill collect`
+   - Pull from `eval.csv` + artifacts; filter by score ≥ 0.7
+   - Save/update `distill_dataset.jsonl`
+
+2) **Train Adapter**
+   - Run `adam distill train --config distill_config.json`
+   - Fine‑tune with LoRA/QLoRA on dataset
+   - Save adapters + logs
+
+3) **Evaluate**
+   - Run `adam distill eval` on held‑out 20% of dataset + eval sheet rows
+   - Compare scores base vs. distilled
+   - Log results in `runs.csv` + artifacts
+
+4) **Apply**
+   - If distilled model beats base (avg score +0.05, no safety regressions), mark as new `offline_model` in router config.
+   - If not, keep base and archive adapters.
+
+5) **Rollback**
+   - Keep last 3 adapters; allow `adam distill rollback <id>`
+
+---
+
+## Observability
+- Each distillation run gets `task_name=distill_train` in `runs.csv`
+- Save dataset stats (# examples, avg length) to artifacts
+- Record eval comparison as table + graph
+
+---
+
+## Safety & Guardrails
+- Dataset is local only (no cloud storage)
+- No secrets or private notes in training data unless explicitly allowed
+- Cap train steps/time (avoid runaway GPU usage)
+- Always evaluate before promoting
+
+---
+
+## Acceptance Criteria
+- `distill_dataset.jsonl` created with ≥ 50 examples (grows over time)
+- Training produces adapter weights + logs
+- Eval shows distilled ≥ base +0.05 average improvement, no regressions on safety/format rows
+- Rollback command restores previous adapter cleanly
+
+---
+
+## Example Conversation Flow
+- Mike: “Adam, collect data for distillation.”
+- Adam: [collects 60 examples, saves dataset]
+- Mike: “Adam, train a distilled model.”
+- Adam: [runs LoRA, saves adapter, evaluates]
+- Adam: “Distilled beats base +0.08 avg score. Promoting to offline_model. Rollback available.”

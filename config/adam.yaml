@@ -1,0 +1,122 @@
+# Adam Configuration File
+# ------------------------
+# This file controls Adam's behavior, model selection, and plugin settings.
+# All paths are relative to the project root.
+
+# UI Settings
+ui:
+  enabled: false
+  theme: dark
+  download_path: models/
+  default_model: light-condenser
+
+# Default model path (used if no routing occurs)
+default_model_path: models/light-condenser.gguf
+
+# Server Configuration (for FastAPI backend)
+server:
+  host: 127.0.0.1
+  port: 8000
+  cors_enabled: false
+  auth:
+    enabled: false
+    token: your-secret-token-here
+    ui_token: ui-specific-token
+
+# Inference Defaults
+inference:
+  default_temperature: 0.7
+  default_gpu_layers: 20
+  max_tokens: 1024
+
+# Plugin-Specific Paths
+plugin_paths:
+  github_publisher:
+    sidecar: ./sidecars/github_publisher
+
+# ➤ MODEL ROUTING CONFIGURATION
+# Controls how Adam selects models based on task type and hardware.
+model_router:
+  # Default model for general tasks (lightweight)
+  default_model: "light-condenser"
+  
+  # Heavy model for complex/code tasks (requires more RAM/VRAM)
+  heavy_model: "Qwen2.5-Coder-14B-Q4_K_M"
+  
+  # Light model used for prompt condensation and chat
+  light_condenser: "light-condenser"
+  
+  # Legacy heuristic triggers (still used as fallback)
+  heavy_triggers:
+    word_count_threshold: 50
+    keywords:
+      - "code"
+      - "analyze"
+      - "review"
+      - "detailed"
+      - "implement"
+      - "debug"
+      - "optimize"
+
+# ➤ TASK CLASSIFICATION (Auto-Detects User Intent)
+# Adam analyzes your query to decide if it's code, reasoning, or chat.
+task_classifier:
+  # Code-related queries → use heavy/default code model
+  code_keywords:
+    - "write a function"
+    - "write code"
+    - "implement"
+    - "code for"
+    - "python"
+    - "javascript"
+    - "java"
+    - "c++"
+    - "rust"
+    - "go"
+    - "bash"
+    - "def "
+    - "function "
+    - "class "
+    - "import "
+    - "from "
+    - "return "
+    - "```"
+    - "```python"
+    - "```js"
+    - "syntax"
+    - "compile"
+    - "debug"
+    - "fix this code"
+    - "why doesn't this work"
+    - "error"
+    - "exception"
+    - "build me a"
+    - "create a"
+    - "generate code"
+  
+  # Reasoning/analysis queries → use reasoning-optimized model
+  reason_keywords:
+    - "explain"
+    - "how does"
+    - "why does"
+    - "compare"
+    - "analyze"
+    - "optimize"
+    - "refactor"
+    - "best practice"
+    - "design pattern"
+    - "difference between"
+    - "pros and cons"
+    - "evaluate"
+    - "assess"
+    - "summarize"
+    - "what is the purpose"
+    - "how would you"
+    - "walk me through"
+    - "teach me"
+    - "understand"
+
+# ➤ RAG (Retrieval-Augmented Generation)
+rag:
+  top_k: 3
+  enabled: true

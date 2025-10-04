@@ -1,0 +1,5 @@
+default_backend: faiss
+faiss:
+  index_path: "data/memory.index"
+  mapping_path: "data/id_to_text.json"
+  model_name: "all-MiniLM-L6-v2"

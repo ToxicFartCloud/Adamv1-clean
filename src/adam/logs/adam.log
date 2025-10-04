@@ -1,0 +1,12 @@
+{"timestamp": "2025-09-26 20:29:23,020", "levelname": "INFO", "message": "Got ask request: 'test'", "name": "adam"}
+{"timestamp": "2025-09-26 20:30:44,377", "levelname": "INFO", "message": "Got ask request: 'test'", "name": "adam"}
+{"timestamp": "2025-09-26 22:49:15,371", "levelname": "INFO", "message": "Executing plugin memory_write with args: {'content': 'Hello from Adam plugin system!'}", "name": "adam"}
+{"timestamp": "2025-09-26 22:49:33,654", "levelname": "INFO", "message": "Self test log entry.", "name": "adam"}
+{"timestamp": "2025-09-26 22:49:33,656", "levelname": "WARNING", "message": "Could not load plugin 'backup_snapshot': No module named 'adam_tools.plugins.utils'", "name": "adam"}
+{"timestamp": "2025-09-26 22:49:33,656", "levelname": "WARNING", "message": "Could not load plugin 'git_ops': No module named 'adam_tools.plugins.utils'", "name": "adam"}
+{"timestamp": "2025-09-26 22:49:33,657", "levelname": "WARNING", "message": "Could not load plugin 'guard_approval': No module named 'adam_tools.plugins.utils'", "name": "adam"}
+{"timestamp": "2025-09-26 22:49:33,658", "levelname": "WARNING", "message": "Could not load plugin 'mcp_adapter': No module named 'adam_tools.plugins.base'", "name": "adam"}
+{"timestamp": "2025-09-26 22:49:33,692", "levelname": "WARNING", "message": "Could not load plugin 'proc_app': No module named 'adam_tools.plugins.utils'", "name": "adam"}
+{"timestamp": "2025-09-26 22:49:33,692", "levelname": "WARNING", "message": "Could not load plugin 'proc_ps': No module named 'adam_tools.plugins.utils'", "name": "adam"}
+{"timestamp": "2025-09-26 22:49:33,693", "levelname": "WARNING", "message": "Could not load plugin 'web_search': No module named 'adam_tools.plugins.utils'", "name": "adam"}
+{"timestamp": "2025-09-26 22:49:33,693", "levelname": "WARNING", "message": "Could not load plugin 'wmgr': No module named 'adam_tools.plugins.utils'", "name": "adam"}

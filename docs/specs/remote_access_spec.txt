@@ -1,0 +1,90 @@
+# Remote Access Spec (Phone/Web via Secure Tunnel)
+
+## Purpose
+Let Mike use Adam from a phone or remote PC safely. Provide a minimal **web UI** and optional **chat bot** endpoint, accessible only through a secure tunnel (Tailscale).
+
+---
+
+## Access Model
+- **Default:** Private network access via **Tailscale** (no public ports).  
+- **Auth:** Tailscale identity + per-user **API token** in `~/.adam/remote_users.json`.  
+- **Permissions:** Per-user command **whitelist** (which runbooks/commands are allowed).
+
+---
+
+## Deliverables
+1) **Remote Service**
+   - **FastAPI** on localhost (e.g., `127.0.0.1:8787`) with two routes:
+     - `POST /api/run` — body: `{ "command": "runbook_market_watch", "args": {...} }`
+     - `GET /api/status` — returns router status, last runs, health
+   - Token auth via `Authorization: Bearer <token>`
+   - Logs every request (user, route, command, IP, result).
+
+2) **Web UI (Minimal)**
+   - Single-page UI (HTML/JS) served by FastAPI:
+     - Shows current **router status** and **last 10 runs**.
+     - A dropdown of **allowed tasks** (from user whitelist).
+     - A **Run** button that calls `/api/run` and prints result summary.
+   - Store static files under `~/.adam/web/`.
+
+3) **Chat Bot (Optional)**
+   - Adapter for **Telegram** *or* **Discord**:
+     - Commands: `/status`, `/list`, `/run <task>`
+     - Requires mapping chat user → token in `remote_users.json`
+     - All actions logged same as web UI.
+
+4) **Security**
+   - **No public exposure**: bind only to `127.0.0.1`; rely on Tailscale to reach it remotely.
+   - **Command Whitelist** per user; deny by default.
+   - **Rate limit**: simple token bucket (e.g., 10 req/min per token).
+   - **Redaction**: server-side redacts secrets from responses/logs.
+
+5) **Observability**
+   - Write to `runs.csv` with `task_name=remote_run` and `route` used.
+   - Save request/response metadata under `artifacts/<date>/<run_id>/remote.json`.
+   - `GET /api/status` aggregates last 24h runs + average eval score if available.
+
+6) **Config & Files**
+   - `~/.adam/remote_users.json` example:
+     ```json
+     {
+       "users": [
+         {
+           "name": "Mike",
+           "token": "REDACTED",
+           "whitelist": ["runbook_market_watch", "adam list", "adam status"]
+         }
+       ]
+     }
+     ```
+   - `~/.adam/remote_config.json`:
+     - `{ "bind": "127.0.0.1:8787", "rate_limit": {"rpm": 10}, "ui_enabled": true, "bot": {"telegram": false, "discord": false} }`
+
+7) **CLI Control**
+   - `adam remote start|stop|status`
+   - `adam remote add-user <name>` (generates token)
+   - `adam remote whitelist <name> <command>`
+
+---
+
+## Safety & Guardrails
+- Never accept shell commands from remote; only mapped **whitelisted** commands/runbooks.
+- No file uploads from web UI.
+- Show a **preview** of actions before running (if command is destructive).
+- All failures must return safe error messages (no stack traces to client).
+
+---
+
+## Acceptance Criteria
+- From a second device on Tailscale, Mike can open the web UI and:
+  - See router status and last runs.
+  - Run a whitelisted task and receive a concise result.
+- `/api/run` requires a valid token and a whitelisted command.
+- All remote actions are logged and appear in `runs.csv` with artifacts saved.
+
+---
+
+## Example Conversation Flow
+- Mike (phone): opens web UI via Tailscale → taps **Run “Market Watch”**.
+- Adam: executes runbook, logs artifacts, and shows result summary in UI.
+- Mike: sends `/status` in Telegram (optional); bot returns last 3 runs and route mode.

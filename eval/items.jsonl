@@ -1,0 +1,14 @@
+{"prompt": "Explain what a function is in one sentence.", "answer": "A function maps inputs to outputs."}
+{"prompt": "List three Linux commands for file inspection.", "answer": "ls, cat, and file."}
+{"prompt": "Translate to French: good morning", "answer": "bonjour"}
+{"prompt": "2+2=", "answer": "4"}
+{"prompt": "Name a prime number between 10 and 20.", "answer": "11"}
+{"prompt": "Write a one-line Python lambda that squares x.", "answer": "lambda x: x*x"}
+{"prompt": "What is the capital of Japan?", "answer": "Tokyo"}
+{"prompt": "Finish the proverb: A stitch in time...", "answer": "saves nine"}
+{"prompt": "Give a JSON key for a user id.", "answer": "\"user_id\""}
+{"prompt": "Name a programming language that runs on the JVM.", "answer": "Java"}
+{"prompt": "Spell the word 'synchronization'.", "answer": "synchronization"}
+{"prompt": "Complete: The quick brown fox jumps over the...", "answer": "lazy dog"}
+{"prompt": "Unix tool to compare two files line by line?", "answer": "diff"}
+{"prompt": "One word antonym of 'empty'.", "answer": "full"}

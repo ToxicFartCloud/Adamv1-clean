@@ -1,0 +1,53 @@
+# Adam's To-Do List Index (Hybrid Style — Enablers First)
+
+Adam can reference tasks by **ID number** or by **filename**. Items that unlock other tasks are listed first.
+
+---
+
+## Current Tasks (ordered by impact)
+
+1. **observe_eval_spec.txt**  
+   - Title: Observability & Eval (Foundation)  
+   - Purpose: Standard run logs + tiny evaluation sheet + rubric. Boosts all future tasks.
+
+2. **rag_starter_spec.txt**  
+   - Title: RAG Starter (Docs + Citations)  
+   - Purpose: Ingest your docs locally, build an index, and answer with citations.
+
+3. **runbook_market_watch_spec.txt**  
+   - Title: Runbook — Market Watch  
+   - Purpose: Daily/weekly operational procedure to fetch prices, score triggers, request approval, and create reminders.
+
+4. **external_tester_bot_spec.txt**  
+   - Title: External Tester Bot  
+   - Purpose: Run builds/tests on a separate laptop in a clean environment and report results back.
+
+5. **market_watcher_bot_spec.txt**  
+   - Title: Market-Watcher Bot  
+   - Purpose: Track PC part prices/availability, detect buy windows, and alert Mike.
+
+6. **model_router_policy_spec.txt**  
+   - Title: Model Router Policy  
+   - Purpose: Smartly decide when to use local models, burst to cloud, or fall back offline.
+
+7. **prompt_optimization_loop_spec.txt**  
+   - Title: Prompt Optimization Loop (GEPA‑style)  
+   - Purpose: Self‑tune prompts using your eval sheet; promote only verified winners with rollback.
+
+8. **packaging_spec.txt**  
+   - Title: Packaging (Installable Adam)  
+   - Purpose: Make Adam installable as a package with CLI commands, configs, and selftests.
+
+9. **remote_access_spec.txt**  
+   - Title: Remote Access (Phone/Web)  
+   - Purpose: Access Adam from phone/remote PC via secure tunnel with token auth and command whitelist.
+
+10. **mini_distillation_spec.txt**  
+   - Title: Mini Distillation (LoRA/QLoRA)  
+   - Purpose: Fine‑tune smaller local models with Adam’s approved outputs to improve offline quality.
+
+---
+
+## Notes
+- Adam should read a spec, confirm with Mike, then proceed.
+- Mike can ask by ID (e.g., "Do Task 10") or by filename (e.g., "Do mini_distillation_spec.txt").

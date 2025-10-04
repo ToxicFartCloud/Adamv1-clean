@@ -1,0 +1,56 @@
+# Market-Watcher Bot Spec (for Adam's To-Do List)
+
+## Purpose
+A lightweight side-bot that tracks PC part prices/availability, detects good buy windows, and alerts Mike with summaries + optional calendar reminders.
+
+## Tasks
+1. **Fetch prices & stock**
+   - Sources: PCPartPicker, Amazon (Keepa API), optional NowInStock.
+   - Fields: {part_name, price, retailer, in_stock, date}.
+
+2. **Store data**
+   - Datastore: `market.db` (SQLite) or `market.csv`.
+   - Append daily snapshots (lightweight).
+
+3. **Analyze trends**
+   - Metrics: last price, 7-day avg, 30-day avg, % from 30-day, in-stock streak.
+   - Triggers: 
+     - Buy if `price <= target_price` OR `price <= 30-day avg * (1 - drop_pct)`.
+     - AND `in_stock_days >= stable_days`.
+
+4. **Report results**
+   - Daily summary table: part, last price, % vs 30-day avg, trend arrow (↑↓).
+   - Trigger alerts: "4090 at $X (-12% vs 30-day), in stock 5 days → buy window triggered."
+
+5. **Calendar integration**
+   - Option A: generate `.ics` file with reminder ("Buy GPU window Aug 30–Sep 3").
+   - Option B: push directly to Google Calendar (with auth).
+
+6. **Noise control**
+   - Max 1 alert per part per day.
+   - Cool-off: 72 hours after a buy/skip decision.
+
+## Policy Examples
+- GPUs: Buy when ≤ MSRP -10% AND stable in stock ≥ 5 days.
+- CPUs: Buy at MSRP or below when next-gen launch is near (30–60 days).
+- RAM/Storage: Buy at flash sale dips ≥ 15% below 30-day avg.
+- PSU/Case/Cooling: Buy when trusted brand discount appears.
+
+## Output Format
+- **Daily summary:** table in text.  
+- **Alerts:** concise sentence + (optional) calendar event created.  
+- **Stored data:** CSV/SQLite logs for history.
+
+## Privacy & Safety
+- Respect API terms/rate limits.  
+- Store only pricing/stock data (no personal data).  
+- Run locally, not in the cloud.
+
+---
+
+## Example Conversation Flow
+- Mike: "Adam, run the Market-Watcher."  
+- Adam: [runs fetch + analysis]  
+- Adam: "Summary: 4090 = $2,249 (-11% vs 30-day), 3 days in stock. 7950X = stable MSRP. No triggers yet."  
+- Mike: "Approve GPU buy window alerts."  
+- Adam: [creates calendar entry: 'Watch RTX 4090 price Aug 25–28']  

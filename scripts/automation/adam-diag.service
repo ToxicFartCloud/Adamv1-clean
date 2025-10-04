@@ -1,0 +1,8 @@
+[Unit]
+Description=Adam Diagnostics Cron Job
+
+[Service]
+ExecStart=/home/ToxicFartCloud/Projects/Adamv1/scripts/automation/diag_cron.sh
+
+[Install]
+WantedBy=multi-user.target

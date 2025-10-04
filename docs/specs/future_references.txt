@@ -1,0 +1,14 @@
+# Future References (Short-Term vs Maybe Someday)
+
+## 🛠️ Short-Term / DIY Goals
+- **Cloud GPU Options (Runpod, Paperspace)** → offload heavy tasks without buying big GPUs.
+  - ⚠️ Add **Bank Check Guardrail** before auto-launching cloud instances.
+- **Pin Log Integration** → rolling .txt of your Pins Adam can read.
+- **No-Code AI Builders** (Voiceflow, Lindy, BuildAI, etc.) → easy packaging/assistant experiments.
+- **AGENTS.md Setup** → add `AGENTS.md` alongside README to guide Adam (and any future agents) with project setup, coding style, and task rules.
+- **n8n Workflow Automation** → open-source, self-hosted workflow builder for orchestrating Adam’s tasks, reminders, and AI pipelines.
+
+## 🚀 Maybe Someday / Big Goals
+- **Google Codelab — End-to-End AI Agents (SDLC)** → full dev lifecycle automation, more than you need now.
+- **Seed-OSS-36B (ByteDance)** → powerful open-source model rivaling DeepSeek, but needs serious GPU power.
+- **LangGraph + ART Integration** → use reinforcement training to let Adam learn from his workflows, optimize tool use, and evolve autonomously.

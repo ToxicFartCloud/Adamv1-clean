@@ -1,0 +1,89 @@
+# Prompt Optimization Loop Spec (GEPA‑style Self‑Tuning)
+
+## Purpose
+Continuously improve Adam’s prompts and tool instructions **without model retraining**. Uses small, safe experiments and your existing eval sheet to keep only winners.
+
+---
+
+## Inputs
+- `eval.csv` (from Observability & Eval): rows of tasks/cases with expected outcomes and scores.
+- Seed prompts/templates currently used by Adam (system + tool messages), stored as text files under `prompts/`.
+- Config file: `prompt_opt_config.json` (defined below).
+
+## Outputs
+- Updated prompt variants under `prompts/variants/` (timestamped).
+- A *current best* symlink or file: `prompts/ACTIVE_<name>.txt` that Adam actually uses.
+- Experiment logs under `artifacts/<date>/<run_id>/prompt_opt/` (metrics, diffs, win/loss notes).
+- `runs.csv` entry for each optimization run; optional `eval.csv` rows per case.
+
+---
+
+## Method (GEPA at a glance)
+1) **Generate**: create small prompt variations (1–3 changes each) from the active prompt.
+2) **Evaluate**: run each variant on a **fixed mini‑suite** of eval cases (5–15 rows selected from `eval.csv`). Score with your rubric.
+3) **Pick**: compare against the current ACTIVE prompt. Keep a variant **only if** it wins by ≥ Δ (e.g., +0.05 average score) with no regression on must‑pass tests.
+4) **Apply**: promote the winner to `ACTIVE_<name>.txt` and archive the previous one.
+5) **Repeat**: cap per‑day runs to avoid churn; rotate eval cases to prevent overfitting.
+
+---
+
+## Config (`prompt_opt_config.json`)
+- `prompts`: list of prompt names/files to optimize (e.g., `["system_core.txt", "rag_answer.txt"]`)
+- `mini_suite_size`: 10 (how many eval rows to test each round)
+- `improvement_delta`: 0.05 (minimum average gain to accept)
+- `must_pass_tags`: ["safety","format"] (eval rows with these tags must never regress)
+- `max_variants_per_round`: 5
+- `rounds_per_day`: 1
+- `cooldown_hours`: 24 (no re-opt if last change < cooldown)
+- `explore_ratio`: 0.3 (mix of random vs. guided edits)
+- `seed`: 42 (for reproducibility)
+
+---
+
+## Variant Generation Rules
+- **Small, readable edits** only: reword a directive, reorder bullets, add/trim an example.
+- Do **not** change core safety rules or remove guardrails.
+- Keep diffs explicit; save a `diff.txt` alongside each variant.
+- For templates with placeholders, do not alter placeholder names.
+
+---
+
+## Evaluation Procedure
+1) Select the mini‑suite (random but stratified by tags/skills).
+2) Run ACTIVE prompt → record scores (baseline).
+3) Run each variant → record scores per case.
+4) Compute average, stddev, wins/losses vs baseline, and check **must‑pass** rows.
+5) If top variant beats baseline by ≥ `improvement_delta` and all must‑pass rows succeed → **promote**.
+6) Otherwise, **discard** variants (log why) and keep baseline.
+
+---
+
+## Observability & Artifacts
+- Log to `runs.csv` with `task_name=prompt_opt`, `route` used, and `notes` (which prompt, delta).
+- Save: selected eval rows (`suite.csv`), baseline+variant scores (`scores.csv`), and chosen diff.
+- Write a 5–10 line human summary: what changed, why it won/lost, next idea.
+
+---
+
+## Safety & Guardrails
+- Never touch secrets, file paths, or API keys in prompts.
+- No self-modification loops: only 1 optimization round per day.
+- Rollback: keep the last 3 ACTIVE versions; allow `adam prompts rollback <name>` to the previous one instantly.
+- If average score drops two days in a row, auto‑rollback and pause optimization for 72 hours.
+
+---
+
+## Acceptance Criteria
+- `prompt_opt_config.json` exists with reasonable defaults.
+- First optimization run generates ≥1 variant, evaluates on a mini‑suite, and logs artifacts.
+- Promotion only occurs on a verified win (≥ delta, no must‑pass regressions).
+- `ACTIVE_<name>.txt` switches atomically; rollback command works.
+- Daily cap (cooldown) enforced.
+
+---
+
+## Example Conversation Flow
+- Mike: “Adam, run prompt optimization for `rag_answer.txt`.”
+- Adam: [selects 10 eval rows, tests baseline + 3 variants]  
+- Adam: “No winners today. Best variant +0.03 < +0.05 threshold. Keeping baseline. Next try tomorrow.”
+- (Later) Adam: “Winner found: +0.07, no regressions. Promoted and logged. Diff attached.”
