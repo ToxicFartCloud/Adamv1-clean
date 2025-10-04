@@ -1,0 +1,70 @@
+# External Tester Bot (Side-Bot for Clean Testing)
+
+## Purpose
+Run builds and tests on a **separate lightweight machine** to avoid bias, resource contention, and “works on my box” issues. The tester only executes and measures—no code editing.
+
+## Architecture (simple)
+- **Workstation (Adam):** packages artifacts + test plan, triggers runs, reviews results.
+- **Tester Laptop:** pulls artifact, provisions clean env, runs tests, records results, returns a short report.
+- **Transport:** SSH/SCP or Tailscale file share (read-only from tester to artifact store).
+
+## Prereqs
+- Tester machine: Linux (Ubuntu/Fedora), 8–16 GB RAM, 256+ GB SSD, stable network.
+- Access: SSH key-based auth from workstation → tester OR a Tailscale shared folder.
+- Tools: Python 3.x, `venv` and/or Docker (either is fine), `curl`, `tar`/`unzip`.
+- A shared **artifact directory** accessible by the tester (e.g., `~/artifacts/`).
+
+## Data & Files
+- **Build Artifact:** zip/wheel/docker image created by Adam (contains code + pinned deps).
+- **Test Plan:** `test_plan.txt` – commands to run, expected outcomes, timeouts.
+- **Run Record:** small JSON/CSV (`runs.csv`) with: run_id, part, commit/tag, start/end, result, notes.
+- **Logs/Artifacts:** store stdout/stderr, coverage.xml, junit.xml if available.
+
+## Tasks (Tester Bot behavior)
+1. **Fetch**
+   - Pull the latest artifact + `test_plan.txt` from the artifact directory (by run_id or tag).
+2. **Provision**
+   - Create a fresh Python venv (or Docker container). Never re-use old envs.
+   - Install pinned dependencies from the artifact (requirements/lockfile).
+3. **Execute**
+   - Run each command in `test_plan.txt` with per-step **timeouts**.
+   - Capture stdout/stderr to timestamped log files.
+4. **Measure**
+   - Collect basic metrics: total runtime, peak memory (if available), exit codes.
+   - Optional: simple network checks (ping/DNS) if test plan requests.
+5. **Report**
+   - Write a concise **verdict**: PASS / FAIL / FLAKY with bullet reasons.
+   - Produce a one-page `report.txt` + a JSON summary for machines.
+6. **Clean Up**
+   - Delete the venv/container and temp files to ensure a clean slate each run.
+
+## Safety & Guardrails
+- **Least privilege:** Tester only reads artifacts; it never writes back to source or repo.
+- **No secrets:** No long-lived keys on tester; pass ephemeral tokens via env vars if needed.
+- **Resource caps:** Per-test timeouts; limit network calls; no root unless explicitly required.
+- **No invasive actions:** No process injection, no system config changes.
+
+## Run Cadence
+- **On-demand:** Adam triggers a run after packaging a change.
+- **Scheduled:** Optional daily cron run for the latest stable branch/tag.
+
+## Reporting Format (short & human-friendly)
+- **Header:** run_id, commit/tag, start/end time.
+- **Summary:** PASS/FAIL/FLAKY + 2–4 bullets (e.g., “unit tests 58/58 OK”, “lint clean”, “latency +11% vs last run”).
+- **Details:** link/paths to logs and artifacts.
+- **Next steps (if FAIL):** the first failing test + suggested fix direction.
+
+## Acceptance Criteria
+- Fresh environment every run (no cross-run residue).
+- Reproducible setup from artifact alone (no hidden system deps).
+- Clear PASS/FAIL verdict with logs attached.
+- Auto-clean on completion (success or failure).
+- Run history persisted in `runs.csv` (or `runs.db` if SQLite preferred).
+
+## Example Conversation Flow
+- Mike: “Adam, package today’s build and send to the tester.”
+- Adam: [creates artifact + test_plan.txt, uploads to artifacts]
+- Adam → Tester: “Run job #123 (branch main, tag v0.6).”
+- Tester: [provisions clean env, runs tests, captures logs, posts report]
+- Adam: “Tester report: PASS. 58 tests, lint clean, runtime -6% vs last.”
+- Mike: “Approve release.”

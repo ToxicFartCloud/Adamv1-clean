@@ -1,0 +1,57 @@
+# Observability & Eval Spec (Foundation Task)
+
+## Purpose
+Give Adam reliable sight and feedback: consistent run logs + a tiny evaluation sheet. This makes every future task (RAG, Runbooks, Router, Distillation) smarter and safer.
+
+## Deliverables
+1) **Run Logging**
+   - Create a standard run record for every task Adam executes.
+   - Required fields (one line per run): `timestamp_start, timestamp_end, task_name, spec_file, status(PASS|FAIL|FLAKY), notes, artifacts_path`
+   - Store in a lightweight **CSV** (preferred for simplicity). Name: `runs.csv`
+   - For each run, also save a short human log: `logs/<YYYY-MM-DD>/<run_id>_summary.txt`
+
+2) **Eval Sheet (Tiny)**
+   - A single **CSV** that tracks task-specific quality over time. Name: `eval.csv`
+   - Columns: `date, task_name, prompt_or_case, expected_outcome, actual_outcome, score(0-1), comments`
+   - Start with **10–20 rows** covering your common scenarios (coding tips, market watcher summaries, diagnostics recommendations, etc.).
+
+3) **Scoring Rubric (Short)**
+   - Keep a text file `eval_rubric.txt` that explains how to score 0/0.5/1 for your typical outputs.
+   - Example guideline:
+     - **1.0**: Complete, accurate, useful, minimal fixes needed.
+     - **0.5**: Partially useful; missing detail or 1 correction needed.
+     - **0.0**: Off-target, incorrect, or unsafe to act on.
+
+4) **Pass/Fail Policy (Minimum)**
+   - A run **PASSes** if: no errors, meets acceptance criteria of its spec, and (if applicable) eval score ≥ 0.7.
+   - A run is **FLAKY** if: intermittent failures or unclear output—must add a note with next-step investigation.
+   - A run **FAILs** if: errors, missing deliverables, or eval score < 0.7.
+
+5) **Artifacts Convention**
+   - Place any outputs (reports, summaries, tables) under `artifacts/<YYYY-MM-DD>/<run_id>/`.
+   - Reference that path in `runs.csv: artifacts_path`.
+   - Never overwrite artifacts; create a new run_id each time.
+
+## Workflow
+1) Before executing a spec, Adam generates a `run_id` and opens a new log entry (pending).
+2) Execute the task in small increments; on completion, write final status to `runs.csv`.
+3) If the task has human‑judge outputs, add/append a row to `eval.csv` with a score.
+4) Save a 5–10 line summary to `logs/.../_summary.txt` including acceptance checkmarks.
+5) If FAIL/FLAKY, include first failing item + suggested fix direction.
+
+## Acceptance Criteria
+- `runs.csv` exists and receives a new line per task run.
+- `eval.csv` exists with at least 10 initial cases and is updated after relevant runs.
+- `eval_rubric.txt` exists with clear 1.0/0.5/0.0 guidance.
+- Logs and artifacts saved under date/run_id folders.
+- Adam can produce a **one-paragraph daily recap** of runs + average eval score.
+
+## Safety & Scope
+- No external network calls are required for this task.
+- Do not modify existing project files; only create the logging/eval assets.
+- Keep storage tiny (CSV + small text files). Rotate if any single day exceeds 50MB.
+
+## Example Conversation Flow
+- Mike: “Adam, apply the Observability & Eval spec.”
+- Adam: [creates `runs.csv`, `eval.csv`, `eval_rubric.txt`, and folders; records first sample entries]
+- Adam: “Setup complete. I’ll log all future runs and keep eval scores updated.”

@@ -1,0 +1,68 @@
+# Model Registry and Configuration
+# Defines available models, their capabilities, and how to access them.
+
+schema:
+  version: 1
+  models:
+    - name: string
+      type: enum(llm, embedding, ranking)
+      adapter: string # e.g., llama_cpp, hf_pipeline
+      path: string # Filesystem path or model identifier
+      params: object # Adapter-specific parameters
+
+# Sample Configuration
+models:
+  - name: "qwen2.5-coder-14b-q5km"
+    type: "llm"
+    adapter: "llama_cpp"
+    path: "/path/to/models/qwen2.5-coder-14b-q5km.gguf"
+    params:
+      n_gpu_layers: -1
+      n_ctx: 4096
+
+  - name: "bge-m3"
+    type: "embedding"
+    adapter: "hf_pipeline"
+    path: "BAAI/bge-m3"
+    params: {}
+    
+  - name: "qwen3-coder-30b-q4km"
+    path: "models/qwen3-coder-30b-q4km.gguf"
+    task: "code"
+    hardware:
+      min_ram_gb: 32
+      min_vram_per_gpu_gb: 16
+      gpu_layers: 35
+    quantization: "q4km"
+    description: "High accuracy for complex code generation."
+
+  - name: "qwen3-storyteller-7b-q5km"
+    path: "models/qwen3-storyteller-7b-q5km.gguf"
+    task: "creative"
+    hardware:
+      min_ram_gb: 10
+      min_vram_per_gpu_gb: 4
+      gpu_layers: 15
+    quantization: "q5km"
+    description: "Optimized for storytelling and dialogue."
+
+  - name: "qwen2.5-analyst-32b-q3km"
+    path: "models/qwen2.5-analyst-32b-q3km.gguf"
+    task: "analysis"
+    hardware:
+      min_ram_gb: 32
+      min_vram_per_gpu_gb: 8
+      gpu_layers: 35
+    quantization: "q3km"
+    description: "Deep analysis, summarization, research."
+
+  - name: "phi-3-mini-4k-instruct-q4km"
+    path: "models/phi-3-mini-4k-instruct-q4km.gguf"
+    task: "general"
+    hardware:
+      min_ram_gb: 8
+      min_vram_per_gpu_gb: 0  # CPU-only OK
+      gpu_layers: 10
+    quantization: "q4km"
+    description: "Lightweight generalist for low-resource systems."
+

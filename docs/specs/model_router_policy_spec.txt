@@ -1,0 +1,75 @@
+# Model Router Policy Spec (Local → Cloud Burst → Offline)
+
+## Purpose
+Give Adam a clear decision policy for **which model to use** depending on task size, complexity, and system conditions.  
+Ensures cost control, performance, and resilience.
+
+---
+
+## Routing Tiers
+1. **Local Default (fastest, cheapest)**
+   - Models: Ollama / LM Studio (DeepSeek, LLaMA‑based, etc.)
+   - Use for: short answers, routine tasks, runbooks, file ops, monitoring.
+   - Limits: context ≤ 8k tokens; latency target < 2s first token.
+
+2. **Cloud Burst (power mode)**
+   - Models: Cloud API (OpenAI GPT‑4.1, Anthropic, Lambda DeepSeek, etc.)
+   - Use for: long reasoning, creative writing, multi‑step planning, >8k context tasks.
+   - Trigger conditions:  
+     - Context > local max  
+     - Local eval score < 0.6 on 2 consecutive runs  
+     - Explicit override: “Use cloud mode”
+   - Guardrails: summarize task + inputs before sending; redact sensitive data.
+
+3. **Offline Fallback (resilience)**
+   - Models: GGUF quantized model (already on workstation)
+   - Use when: no internet or APIs unreachable.
+   - Limits: smaller context; lower accuracy/fluency.
+   - Always log “offline mode engaged.”
+
+---
+
+## Controls & Config
+- Config file `router_config.json` with:
+  - `local_model`: name/id
+  - `cloud_model`: name/id
+  - `offline_model`: name/id
+  - `context_thresholds`: {local: 8000, cloud: 32000}
+  - `eval_threshold`: 0.6
+  - `max_retries`: 2
+- CLI: `adam route status` (print current mode + reasons)
+- Allow per‑task override: “Force local/cloud/offline.”
+
+---
+
+## Observability Hooks
+- Log route decision in `runs.csv` (new field: `route=local|cloud|offline`).
+- Save router rationale (why that tier chosen) in artifacts log.
+- If failover triggered, include error code + retry count.
+
+---
+
+## Safety & Guardrails
+- Never send secrets or raw credentials to cloud.
+- Warn before cloud use if task may exceed cost budget.
+- Always provide summary of what data was sent to cloud.
+- Offline mode: degrade gracefully, don’t silently fail.
+
+---
+
+## Acceptance Criteria
+- Adam can show current route via `adam route status`.
+- Router decisions appear in `runs.csv` with rationale.
+- Cloud burst only triggered under listed conditions or explicit override.
+- Offline fallback activates if no internet, with log note.
+
+---
+
+## Example Conversation Flow
+- Mike: “Adam, run the diagnostics runbook.”  
+- Adam: [checks inputs] “Context ~2k, local model OK.” → Runs locally.  
+- Mike: “Adam, plan a 20‑step training curriculum with sources.”  
+- Adam: [checks inputs] “>8k context, local too small. Routing to Cloud (DeepSeek‑Lambda). Summary of data sent: …”  
+- Mike: “Approve.”  
+- Adam: [executes in cloud mode, logs decision].  
+- Internet drops → retry → fallback offline.  

@@ -1,0 +1,4 @@
+# one plugin per line; '#' are comments
+memory_write
+memory_search
+memory_summarize

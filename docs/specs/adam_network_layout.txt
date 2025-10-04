@@ -1,0 +1,45 @@
+# Adam Network Layout (3-Machine + Cloud Burst)
+
+## Current Roles
+
+### 1. Laptop (Tester Bot)
+- **Purpose**: Acts as an "outside source" perspective for Adam.
+- **Tasks**:
+  - Run lightweight test scripts or bots.
+  - Validate Adam’s outputs from another device.
+  - Simulate end-user interactions.
+
+### 2. Gaming PC (Dev + Workhorse)
+- **Purpose**: Primary development and creative station.
+- **Tasks**:
+  - Coding Adam’s core.
+  - Art/design work.
+  - General software dev and testing.
+- **Note**: Keep Adam’s heavy runtime tasks off this machine to stay responsive.
+
+### 3. EVO-X2 Mini PC (AI Brain)
+- **Purpose**: Dedicated AI workstation.
+- **Specs**: AMD Ryzen AI Max+ 395, up to 128GB LPDDR5X, dual M.2 storage.
+- **Tasks**:
+  - Host Adam’s main backend services (chat, RAG, eval, plugins).
+  - Heavy inference tasks (LLMs, embeddings, batch jobs).
+  - Training or fine-tuning (LoRA/QLoRA scale).
+  - Central "brain" node in the home network.
+
+## Future Expansion
+
+### Cloud Burst (Runpod / Paperspace)
+- **Purpose**: Handle compute-heavy overflow jobs.
+- **Tasks**:
+  - Training large models beyond local limits.
+  - Big data processing or multi-node orchestration.
+- **Guardrail**: Always check **Bank Account balance** before spin-up.
+
+## Orchestration Plan
+- **n8n** (self-hosted) can manage workflow orchestration between Laptop, Gaming PC, EVO-X2, and Cloud.
+- Adam should understand which machine to use for which task and request confirmation if unsure.
+
+## Benefits
+- Keeps dev responsive (PC free from heavy loads).
+- Separates testing vs. production vs. dev.
+- Expandable: new nodes (servers, cloud) can join later.

@@ -1,0 +1,68 @@
+# Packaging Spec (Installable Adam on Linux)
+
+## Purpose
+Make Adam behave like a proper installable program: single‑command setup, clean entrypoint, easy upgrades. This enables Remote Access and future distribution.
+
+---
+
+## Deliverables
+1) **Project Structure**
+   - `setup.py` or `pyproject.toml` for pip installation.
+   - Source under `adam/` package.
+   - Entry point CLI: `adam` (installed to PATH).
+   - Config files in `~/.adam/` (user home).
+
+2) **Installer & Uninstaller**
+   - Command: `pip install .` from repo root sets everything up.
+   - Provide uninstall: `pip uninstall adam` removes package cleanly.
+   - Optional: `.deb` or AppImage for one‑file install.
+
+3) **Config Profiles**
+   - `~/.adam/config.json` with fields:  
+     - `mode` (dev/prod)  
+     - `models` (local, cloud, offline names)  
+     - `paths` (todo folder, knowledge base, artifacts, logs)  
+   - Adam loads this at startup; allow `adam config edit` to open.
+
+4) **Entry Commands**
+   - `adam run <taskfile>` → run a task spec.  
+   - `adam list` → show tasks in todo index.  
+   - `adam status` → print router status, active prompts, health.  
+   - `adam logs` → show last N runs (tail of runs.csv).
+
+5) **Smoke Tests**
+   - `adam selftest` command runs basic checks:  
+     - Can import package.  
+     - Paths accessible.  
+     - Can log a dummy run.  
+     - Can load models (local/offline).
+
+6) **Observability Hooks**
+   - Log packaging version in `runs.csv` (`version` field).  
+   - Save smoke test results to `artifacts/<date>/selftest/`.  
+   - Report PASS/FAIL to user in one paragraph.
+
+---
+
+## Acceptance Criteria
+- `pip install .` works on fresh Linux VM → `adam` available in PATH.
+- Config created at `~/.adam/config.json` on first run.  
+- CLI commands (`run`, `list`, `status`, `logs`, `selftest`) work as described.  
+- `adam selftest` produces artifacts and passes on clean install.  
+- Uninstall removes CLI and package but keeps `~/.adam/` (user data).
+
+---
+
+## Safety & Scope
+- Package only Adam’s safe/core functions.  
+- Never auto‑run tasks at install.  
+- Store data under user’s home; never system‑wide changes.  
+- Keep dependencies minimal.
+
+---
+
+## Example Conversation Flow
+- Mike: “Adam, package yourself for install.”  
+- Adam: [creates setup files] “Done. Try: pip install .”  
+- Mike: [installs on VM, runs `adam selftest`]  
+- Adam: “PASS: all core functions available, version 0.1.0.”

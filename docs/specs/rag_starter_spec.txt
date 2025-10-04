@@ -1,0 +1,64 @@
+# RAG Starter Spec (Retrieval‑Augmented Generation, Foundation)
+
+## Purpose
+Enable Adam to answer with **your own sources** (notes, specs, logs) and include **citations**. Small, local-first, and easy to expand later.
+
+## Deliverables
+1) **Docs Ingest (Local)**
+   - Supported inputs (initial): `.txt`, `.md`, `.pdf` (text-only extraction), `.json` (values only).
+   - Folder to watch: `knowledge_base/`
+   - Output: a normalized `documents.csv` with columns: `doc_id, path, title, chunk_id, chunk_text, created_at, updated_at`.
+   - Chunking: plain paragraph/sentence chunks; target 300–800 tokens per chunk.
+
+2) **Embeddings & Index**
+   - Default: **local embeddings** via a small open model (no external API required).
+   - Vector store: **SQLite + FAISS/SQLite-VSS** (single-file DB). Name: `kb_index.db`.
+   - Saved fields per chunk: `doc_id, chunk_id, vector, text, metadata(title, path, timestamp)`.
+
+3) **Query Pipeline**
+   - Input: user question.
+   - Retrieve top `k` chunks (default `k=5`, max `k=10`). Re-rank by simple score (similarity + recency).
+   - Compose an answer **only** from retrieved chunks + model’s reasoning.
+   - **Citations**: append as `[(Title or Filename, lines/section)]` per paragraph or bullet.
+   - If nothing relevant (score below threshold), say so and suggest adding docs.
+
+4) **Controls & Config**
+   - Config file `rag_config.json` with:
+     - `embedder`: `"local"` (default), placeholder for `"api"` later.
+     - `k`: 5, `k_max`: 10, `score_threshold`: sensible default.
+     - `paths`: `knowledge_base/`, output DB paths, logs/artifacts paths.
+   - CLI/entrypoint: `adam rag query "<question>"` and `adam rag ingest`.
+
+5) **Observability Hooks**
+   - Log each RAG call to `runs.csv` (from Observability spec) with `task_name="rag_query"`.
+   - Save retrieved chunk IDs + scores to `artifacts/<date>/<run_id>/retrieval.json`.
+   - If human-judged, add an `eval.csv` row with score and which citations helped.
+
+6) **Safety & Privacy**
+   - All processing local. No external calls in the starter.
+   - Skip files over a configurable size (default 25 MB) unless overridden.
+   - Ignore files in `knowledge_base/private/` unless explicitly flagged to include.
+
+## Workflow
+1) **Ingest**: scan `knowledge_base/`, chunk, embed, and store in `kb_index.db`; update `documents.csv`.
+2) **Query**: given a question, retrieve top `k` chunks; assemble an answer with inline citations.
+3) **Evaluate**: log run; optionally add an `eval.csv` entry (score 0/0.5/1) using the existing rubric.
+
+## Acceptance Criteria
+- `knowledge_base/` exists with at least 3 sample docs processed.
+- `kb_index.db` created; `documents.csv` populated; ingest is idempotent (re-ingest updates modified files).
+- `adam rag query` returns an answer that includes **at least one citation** when sources exist.
+- Retrieval artifacts saved to `artifacts/.../retrieval.json`; `runs.csv` gets an entry per query.
+- If no relevant chunks, the answer states that clearly and suggests adding docs.
+
+## Nice-to-Have (optional, do later)
+- Simple re-ranker (e.g., BM25 + vector hybrid) for better results.
+- PDF page numbers in citations.
+- Section-aware chunking for Markdown headings.
+- Toggle to include **“verbatim snippet”** blocks (≤ 3 lines) with each citation.
+
+## Example Conversation Flow
+- Mike: “Adam, apply the RAG Starter Spec.”
+- Adam: [creates `knowledge_base/`, `documents.csv`, `kb_index.db`; ingests sample docs]
+- Mike: “Adam, use RAG to answer: What’s our Market Watch policy?”
+- Adam: [retrieves chunks, answers with citations] “(Market‑Watcher Bot Spec, lines 20–35)”

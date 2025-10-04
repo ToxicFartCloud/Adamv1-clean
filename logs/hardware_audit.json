@@ -1,0 +1,30 @@
+{
+  "ok": true,
+  "error": null,
+  "data": {
+    "os": {
+      "system": "Linux",
+      "release": "6.16.4-108.bazzite.fc42.x86_64",
+      "machine": "x86_64",
+      "is_macos": false,
+      "is_ios": false,
+      "is_linux": true,
+      "is_windows": false
+    },
+    "cpu_cores": 12,
+    "ram_gb": 62,
+    "gpu": {
+      "gpus": [
+        {
+          "name": "NVIDIA GeForce RTX 4070 SUPER",
+          "vram_gb": 11,
+          "vendor": "NVIDIA"
+        }
+      ],
+      "count": 1
+    },
+    "disk": {
+      "note": "Detailed disk info available with force=True"
+    }
+  }
+}

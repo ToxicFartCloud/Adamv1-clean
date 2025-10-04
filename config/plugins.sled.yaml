@@ -1,0 +1,9 @@
+# SLED plugin config
+host: 127.0.0.1
+port: 8010
+model_path: /path/to/local/model
+tokenizer_path: /path/to/local/model
+layers: last_k
+k: 8
+weighting: uniform
+timeout_s: 120

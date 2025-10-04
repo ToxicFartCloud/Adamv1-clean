@@ -1,0 +1,93 @@
+# Runbook: Market Watch (Operational Procedure)
+
+## Purpose
+Provide a **repeatable, auditable** procedure Adam follows to monitor GPU/CPU/RAM/SSD prices and decide when to alert Mike. Uses existing specs:
+- Observability & Eval (logging/eval)
+- Market‑Watcher Bot (data fetch, scoring)
+- (Optionally) RAG Starter (to cite prior notes/policies)
+
+## Scope
+Covers the **daily/weekly routine**, triggers, and approval gates. No new scraping code here—this orchestrates what already exists.
+
+---
+
+## Inputs
+- Config: `market_watch_config.json` with:
+  - `parts`: [{name, msrp, target_price, retailers[]}]
+  - `rules`: {drop_pct, stable_days, cooldown_hours}
+  - `schedule`: {daily_check_hour, weekly_summary_day}
+- Data sources: defined in Market‑Watcher Bot (PCPartPicker, Keepa optional)
+- Policies: your “Buy policy” from the Bot spec
+
+## Outputs
+- Daily summary (text) saved to `artifacts/<date>/<run_id>/daily_summary.txt`
+- Weekly summary (Mon) saved to `artifacts/<date>/<run_id>/weekly_summary.txt`
+- Zero or more `.ics` reminders for active buy windows
+- `runs.csv` entry; optional `eval.csv` row with usefulness score
+
+---
+
+## Procedure (Daily)
+1) **Start Run**
+   - Generate `run_id`; open `runs.csv` pending entry: `task_name=market_watch_runbook`
+
+2) **Fetch & Update**
+   - Invoke **Market‑Watcher Bot** to fetch prices/stock for all parts in config.
+   - Append rows to the bot datastore (CSV/SQLite).
+
+3) **Analyze & Score**
+   - Compute: last price, 7‑day and 30‑day averages, % below 30‑day.
+   - Check triggers:
+     - Price <= target_price OR <= (30‑day avg * (1 - drop_pct))
+     - AND in_stock_days >= stable_days
+     - AND outside cooldown window
+
+4) **Decide & Prepare Output**
+   - If no triggers: write a brief daily summary (top movers; notable dips).
+   - If triggers fire: draft **Buy Window Recommendation** block per part:
+     - Part, current price, % vs 30‑day, in‑stock streak, retailers, confidence.
+     - Include **proposed .ics event** window (3–5 days) with reminder time.
+
+5) **(Optional) RAG Context**
+   - If RAG is configured, cite prior notes/policies that influenced the decision (filename + lines).
+
+6) **Approval Gate**
+   - Stop and present summary + recommendations to Mike.
+   - Only upon “Approve” create `.ics` files and (if enabled) insert calendar events.
+
+7) **Finalize & Log**
+   - Save outputs in `artifacts/<date>/<run_id>/`
+   - Close `runs.csv` entry with PASS/FAIL/FLAKY and artifact path.
+   - Optionally add `eval.csv` row (0/0.5/1) for usefulness of today’s guidance.
+
+---
+
+## Procedure (Weekly Summary)
+- On the scheduled day (config), aggregate last 7 days:
+  - Median price, best price, volatility, number of in‑stock days per part.
+  - List any missed opportunities (dropped > X% without trigger due to stability/cooldown) for tuning rules.
+  - Save as `weekly_summary.txt`; prompt Mike if rule tweaks are suggested.
+
+---
+
+## Safety & Guardrails
+- No purchases or calendar edits without **explicit approval**.
+- Respect rate limits of sources; back off on errors; never hammer sites.
+- Cooldown to avoid spammy alerts (e.g., 72 hours per part).
+- Clear **confidence** field on each recommendation (Low/Med/High) and why.
+
+---
+
+## Acceptance Criteria
+- Running the runbook produces a daily summary file and closes a run log entry.
+- Triggered recommendations include all required fields + proposed .ics.
+- Weekly summary aggregates trends and suggests rule tweaks when relevant.
+- No calendar/event creation happens without Mike’s explicit “Approve”.
+
+---
+
+## Example Conversation Flow
+- Mike: “Adam, run the Market Watch Runbook.”
+- Adam: [fetch + analyze] “Daily summary ready. 1 recommendation: 4090 at $2,199 (‑12% vs 30‑day), in‑stock 6 days, confidence: Medium. Approve to create reminder?”
+- Mike: “Approve.”
+- Adam: [creates .ics + logs artifacts] “Done. Reminder saved; run logged.”

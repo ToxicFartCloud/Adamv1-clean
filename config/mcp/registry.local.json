@@ -1,0 +1,36 @@
+{
+  "servers": [
+    {
+      "name": "local_fs",
+      "description": "Local server for sandboxed filesystem operations.",
+      "protocol": "local",
+      "connection": {
+        "type": "python_module",
+        "module": "adam_tools.mcp_servers.filesystem",
+        "config": {
+          "sandbox_root": "./data/sandbox"
+        }
+      },
+      "tools": [
+        {
+          "name": "list_files",
+          "description": "Lists files in a subdirectory of the sandbox.",
+          "args": { "path": { "type": "string", "required": true } }
+        }
+      ]
+    },
+    {
+      "name": "local_shell",
+      "description": "Local server for running a safe echo command.",
+      "protocol": "local",
+      "connection": { "type": "python_module", "module": "adam_tools.mcp_servers.shell" },
+      "tools": [
+        {
+          "name": "run_echo",
+          "description": "Echoes back the provided text via the shell.",
+          "args": { "text": { "type": "string", "required": true } }
+        }
+      ]
+    }
+  ]
+}

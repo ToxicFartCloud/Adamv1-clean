@@ -1,0 +1,76 @@
+# Tech Watch Bot Spec (Scan for Useful AI/Hardware Jumps)
+
+## Purpose
+Continuously scan reputable sources for **practical, low-cost tech** Mike can try soon, and **big leaps** to bookmark for later. Output short, evidence-backed notes and avoid spam.
+
+## Scope
+- News & releases about: models (local/OSS + APIs), tools (RAG, eval, distillation), hardware (GPUs/VRAM, accelerators), platforms (LM Studio/Ollama updates), no‑code assistants.
+- Classify each find into: **Short‑Term / DIY** vs **Maybe Someday / Big Goals**.
+
+## Inputs
+- Config file: `tech_watch_config.json`
+  - `sources_rss`: list of RSS/Atom URLs (prefer official feeds)
+  - `sources_api`: optional APIs (Hugging Face model hub, arXiv cs.AI)
+  - `keywords_any`: e.g., ["GGUF", "LoRA", "QLoRA", "R1", "DeepSeek", "Ollama", "LM Studio", "SillyTavern", "RAG", "FAISS", "embeddings", "vLLM"]
+  - `keywords_block`: e.g., ["NFT", "crypto airdrop"]
+  - `schedule`: { "daily_hour": 9, "weekly_digest_day": "Mon" }
+  - `rate_limits`: { "per_domain_rpm": 10 }
+  - `notify_policy`: { "daily_summary": true, "instant_alert": true }
+  - `max_items_per_run`: 20
+
+## Data Sources (initial set)
+- **AI/Models**: Hugging Face new releases & trending, OpenAI/Anthropic/Lambda model pages, DeepSeek blog, Meta AI, Google AI.
+- **Tools/Infra**: Ollama, LM Studio, vLLM, LangChain, LlamaIndex, Milvus/FAISS, Weaviate.
+- **Research/News**: arXiv cs.AI & cs.LG (titles/abstracts only), MarkTechPost AI, VentureBeat AI, SCMP Tech.
+- **Hardware**: NVIDIA blog, AMD blog, major OEM newsrooms.
+- Use RSS/Atom or public APIs when available; otherwise skip (no scraping beyond TOS).
+
+## Relevance Scoring (0–10)
+Score each item by:
+- **DIY fit (0–4)**: can Mike try on a single PC with modest cost?
+- **Impact (0–3)**: how much does it improve Adam’s roadmap (RAG, eval, router, distill, packaging, remote)?
+- **Clarity (0–2)**: clear docs/examples?
+- **Licensing (0–1)**: permissive for personal use?
+Add tags: ["DIY"] or ["Someday"]. Thresholds: ≥6 → include; 4–5 → include only in weekly; <4 → ignore.
+
+## Outputs
+- **Evidence Pack (JSONL)** per run in `artifacts/<date>/<run_id>/tech_watch.jsonl`
+  - fields: `title, url, date, source, summary, score, tags, category, notes`
+- **Daily Summary** (text): top 3 items with one‑line why-it-matters.
+- **Weekly Digest** (text): best-of‑week + “watchlist” carried items.
+- Optional: create Pin-style reminders for 1–2 highest DIY items if `notify_policy.instant_alert` is true (approval gate).
+
+## Workflow (Daily)
+1) Start run → log `task_name=tech_watch_run` to `runs.csv`.
+2) Fetch feeds/APIs (respect rate limits; cache ETags/Last‑Modified).
+3) Filter by `keywords_any`/`keywords_block` and deduplicate by URL/title.
+4) Score relevance; classify **DIY** vs **Someday**.
+5) Save evidence pack; write **daily summary**.
+6) Ask Mike: “Approve alerts for items A/B?” If approved, create reminders or Pins.
+7) Close run → save artifacts path, PASS/FAIL.
+
+## Weekly Procedure
+- Aggregate highest scores of the last 7 days.
+- Output `weekly_digest.txt` with short explanations and links.
+- Suggest updates to `keywords_any` if many good items were missed.
+
+## Observability Hooks
+- Update `runs.csv` with route used and item counts.
+- If RAG is enabled, create a `tech_notes.md` snippet for the knowledge base (so Adam can cite later).
+
+## Safety & Privacy
+- No login‑required sources; no scraping behind auth; respect robots.txt.
+- Avoid copying full articles; store brief summaries + links.
+- Don’t auto-execute downloads; only suggest with approval.
+
+## Acceptance Criteria
+- A daily run produces `tech_watch.jsonl` and `daily_summary.txt` with at least 1 meaningful item (or “no matches today”).
+- Weekly digest is created on schedule.
+- Items are classified with scores and DIY/Someday tags.
+- Alerts/reminders happen only on approval.
+
+## Example Conversation
+- Mike: “Adam, run Tech Watch.”
+- Adam: “3 items found. DIY: ‘New GGUF quant of DeepSeek‑R1 with 32k context (score 8)’. Approve alert?”
+- Mike: “Approve for that one; skip others.”
+- Adam: “Alert created, summary saved; run logged.”

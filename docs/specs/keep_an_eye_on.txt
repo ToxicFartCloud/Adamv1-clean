@@ -1,0 +1,9 @@
+# Keep an Eye On Log
+
+## Entries
+
+2. **Hierarchical Reasoning Models (HRM / CEO–Worker loops)**
+   - Source: Medium explainer “The Loop is Back: Why HRM is the most exciting AI architecture in years”
+   - Description: Two-clock architecture with a slow **planner (CEO)** and fast **executor (Worker)** that iterate; shows strong results on closed‑world reasoning (Sudoku, ARC-AGI, mazes).
+   - Why to Watch: Could deliver deeper reasoning with limited compute via **adaptive halting** and **nested loops**; promising as a bolt‑on specialist next to a general LLM.
+   - Green-light Triggers: Open weights running on a single GPU/PC; plug-ins/nodes for LangGraph/LangChain/n8n; consistent benchmark gains vs CoT/ToT; permissive license; clear step/budget caps.

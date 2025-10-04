@@ -1,0 +1,6 @@
+adam
+config
+data
+logs
+server
+ui

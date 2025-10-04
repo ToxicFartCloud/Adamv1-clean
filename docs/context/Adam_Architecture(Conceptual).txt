@@ -1,0 +1,36 @@
+🖼 Adam Architecture (Conceptual Layout)
+1. User Interaction Layer
+UI (src/adam/ui/app.py + assets)
+Notifications, chats, saved sessions (ui_data)
+📌 Purpose: Human interface (desktop assistant UI).
+
+2. Core Runtime
+Core Engine (src/adam/core.py)
+Run Entry (run_adam.py)
+Server Runtime (src/adam/server/main.py)
+Logging & Memory (src/adam/utils/*, /snapshots, /logs)
+📌 Purpose: Adam’s brain — handles requests, memory, logic, plugin orchestration.
+
+3. Plugin Ecosystem
+System Plugins: hardware_audit, backup_snapshot, proc_app, proc_ps
+Cognitive Plugins: memory_search, memory_write, memory_summarize
+LLM/Model Plugins: ollama_llm, model_router, model_update
+Utility Plugins: git_ops, guard_approval, Web Search, wmgr
+📌 Purpose: Extend Adam’s abilities; modular approach allows upgrades, safe experiments, AI↔AI comms.
+
+4. Sidecars & Distributed Services
+Director (planning, routing): /sidecars/director
+GitHub Publisher: /sidecars/github_publisher
+SLED Runtime: /sidecars/sled
+📌 Purpose: Externalized services for heavy lifting, orchestration, and third-party integrations.
+
+5. Supporting Infrastructure
+Configs (/config/*.yaml) → Controls plugins, models, registry.
+Docs/Specs (/docs/specs) → Technical blueprints.
+Eval & Tests (/eval, /tests) → Continuous improvement, safety, feedback cycle.
+📌 Purpose: Keep Adam testable, configurable, and maintainable.
+
+6. Cloud & Storage Layer
+First release: Google Cloud storage integration (WIP).
+Future: Self-hosted cloud/DAO-driven infra.
+📌 Purpose: Deliver customer projects + manage storage lifecycle (30-day free → subscription).

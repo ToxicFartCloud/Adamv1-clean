@@ -1,0 +1,4 @@
+{"task_id": "task_001", "type": "direct_call", "query": "What is the capital of France?"}
+{"task_id": "task_002", "type": "director_guided", "query": "What is the capital of France?"}
+{"task_id": "task_003", "type": "direct_call", "query": "Write a python function to calculate the factorial of a number."}
+{"task_id": "task_004", "type": "director_guided", "query": "Write a python function to calculate the factorial of a number."}

@@ -1,0 +1,747 @@
+{"ts": "2025-09-13T03:26:56.513696Z", "event": "config_default_used", "reason": "file_missing", "path": "config/adam.yaml"}
+{"ts": "2025-09-13T03:26:56.516626Z", "event": "config_default_used", "reason": "file_missing", "path": "config/adam.yaml"}
+{"ts": "2025-09-13T03:26:56.516671Z", "event": "self_test_log", "detail": "hello"}
+{"ts": "2025-09-13T03:26:56.517055Z", "event": "plugin_import_failed", "plugin": "memory_write", "error": "No module named 'adam_tools.plugins.memory_write'"}
+{"ts": "2025-09-13T03:26:56.517159Z", "event": "plugin_import_failed", "plugin": "memory_search", "error": "No module named 'adam_tools.plugins.memory_search'"}
+{"ts": "2025-09-13T03:26:56.517243Z", "event": "plugin_import_failed", "plugin": "memory_summarize", "error": "No module named 'adam_tools.plugins.memory_summarize'"}
+{"ts": "2025-09-13T03:26:56.517299Z", "event": "ask", "model": "qwen2.5-coder-14b-q5km", "heavy": false, "q_len": 17}
+{"ts": "2025-09-13T03:42:49.593380+00:00", "event": "config_default_used", "reason": "file_missing", "path": "config/adam.yaml"}
+{"ts": "2025-09-13T03:42:49.596239+00:00", "event": "config_default_used", "reason": "file_missing", "path": "config/adam.yaml"}
+{"ts": "2025-09-13T03:42:49.596288+00:00", "event": "self_test_log", "detail": "hello"}
+{"ts": "2025-09-13T03:42:49.596650+00:00", "event": "plugin_import_failed", "plugin": "memory_write", "error": "No module named 'adam_tools.plugins.memory_write'"}
+{"ts": "2025-09-13T03:42:49.596750+00:00", "event": "plugin_import_failed", "plugin": "memory_search", "error": "No module named 'adam_tools.plugins.memory_search'"}
+{"ts": "2025-09-13T03:42:49.596834+00:00", "event": "plugin_import_failed", "plugin": "memory_summarize", "error": "No module named 'adam_tools.plugins.memory_summarize'"}
+{"ts": "2025-09-13T03:42:49.596890+00:00", "event": "ask", "model": "qwen2.5-coder-14b-q5km", "heavy": false, "q_len": 17}
+{"ts": "2025-09-13T03:43:12.157462+00:00", "event": "config_default_used", "reason": "file_missing", "path": "config/adam.yaml"}
+{"ts": "2025-09-13T03:43:32.455717+00:00", "event": "config_default_used", "reason": "file_missing", "path": "config/adam.yaml"}
+{"ts": "2025-09-13T04:07:02.538231+00:00", "event": "config_default_used", "reason": "file_missing", "path": "config/adam.yaml"}
+{"ts": "2025-09-13T04:07:02.541157+00:00", "event": "config_default_used", "reason": "file_missing", "path": "config/adam.yaml"}
+{"ts": "2025-09-13T04:07:02.541209+00:00", "event": "self_test_log", "detail": "hello"}
+{"ts": "2025-09-13T04:07:02.541555+00:00", "event": "plugin_import_failed", "plugin": "memory_write", "error": "No module named 'adam_tools.plugins.memory_write'"}
+{"ts": "2025-09-13T04:07:02.541645+00:00", "event": "plugin_import_failed", "plugin": "memory_search", "error": "No module named 'adam_tools.plugins.memory_search'"}
+{"ts": "2025-09-13T04:07:02.541722+00:00", "event": "plugin_import_failed", "plugin": "memory_summarize", "error": "No module named 'adam_tools.plugins.memory_summarize'"}
+{"ts": "2025-09-13T04:07:02.541778+00:00", "event": "ask", "model": "qwen2.5-coder-14b-q5km", "heavy": false, "q_len": 17}
+{"ts": "2025-09-13T04:12:34.437177+00:00", "event": "config_loaded", "path": "config/adam.yaml", "keys": ["logging", "path", "plugins", "search_path", "list", "models", "default", "heavy", "rag", "embedding_model_path", "vector_store", "kind", "dsn"]}
+{"ts": "2025-09-13T04:12:34.440141+00:00", "event": "config_loaded", "path": "config/adam.yaml", "keys": ["logging", "path", "plugins", "search_path", "list", "models", "default", "heavy", "rag", "embedding_model_path", "vector_store", "kind", "dsn"]}
+{"ts": "2025-09-13T04:12:34.440192+00:00", "event": "self_test_log", "detail": "hello"}
+{"ts": "2025-09-13T04:15:26.068760+00:00", "event": "config_loaded", "path": "config/adam.yaml", "keys": ["logging", "path", "plugins", "search_path", "list", "models", "default", "heavy", "rag", "embedding_model_path", "vector_store", "kind", "dsn"]}
+{"ts": "2025-09-13T04:15:26.071665+00:00", "event": "config_loaded", "path": "config/adam.yaml", "keys": ["logging", "path", "plugins", "search_path", "list", "models", "default", "heavy", "rag", "embedding_model_path", "vector_store", "kind", "dsn"]}
+{"ts": "2025-09-13T04:15:26.071722+00:00", "event": "self_test_log", "detail": "hello"}
+{"ts": "2025-09-13T04:39:11.868882+00:00", "event": "config_loaded", "path": "config/adam.yaml", "keys": ["logging", "path", "plugins", "search_path", "list", "models", "default", "heavy", "rag", "embedding_model_path", "vector_store", "kind", "dsn"]}
+{"ts": "2025-09-13T04:39:11.871824+00:00", "event": "config_loaded", "path": "config/adam.yaml", "keys": ["logging", "path", "plugins", "search_path", "list", "models", "default", "heavy", "rag", "embedding_model_path", "vector_store", "kind", "dsn"]}
+{"ts": "2025-09-13T04:39:11.871875+00:00", "event": "self_test_log", "detail": "hello"}
+{"ts": "2025-09-13T04:45:26.150397+00:00", "event": "config_loaded", "path": "config/adam.yaml", "keys": ["logging", "path", "plugins", "search_path", "list", "models", "default", "heavy", "rag", "embedding_model_path", "vector_store", "kind", "dsn"]}
+{"ts": "2025-09-13T04:45:26.154185+00:00", "event": "config_loaded", "path": "config/adam.yaml", "keys": ["logging", "path", "plugins", "search_path", "list", "models", "default", "heavy", "rag", "embedding_model_path", "vector_store", "kind", "dsn"]}
+{"ts": "2025-09-13T04:45:26.154264+00:00", "event": "self_test_log", "detail": "hello"}
+{"ts": "2025-09-13T07:58:47.066465+00:00", "event": "config_loaded", "path": "config/adam.yaml", "keys": ["logging", "path", "plugins", "search_path", "list", "models", "default", "heavy", "rag", "embedding_model_path", "vector_store", "kind", "dsn"]}
+{"ts": "2025-09-13T07:58:47.072058+00:00", "event": "config_loaded", "path": "config/adam.yaml", "keys": ["logging", "path", "plugins", "search_path", "list", "models", "default", "heavy", "rag", "embedding_model_path", "vector_store", "kind", "dsn"]}
+{"ts": "2025-09-13T07:58:47.072112+00:00", "event": "self_test_log", "detail": "hello"}
+{"ts": "2025-09-13T07:58:47.074159+00:00", "event": "ask", "model": "qwen2.5-coder-14b-q5km", "heavy": false, "q_len": 17}
+{"ts": "2025-09-13T08:00:17.596032+00:00", "event": "config_loaded", "path": "config/adam.yaml", "keys": ["logging", "path", "plugins", "search_path", "list", "models", "default", "heavy", "rag", "embedding_model_path", "vector_store", "kind", "dsn"]}
+{"ts": "2025-09-13T08:00:17.599274+00:00", "event": "config_loaded", "path": "config/adam.yaml", "keys": ["logging", "path", "plugins", "search_path", "list", "models", "default", "heavy", "rag", "embedding_model_path", "vector_store", "kind", "dsn"]}
+{"ts": "2025-09-13T08:00:17.599327+00:00", "event": "self_test_log", "detail": "hello"}
+{"ts": "2025-09-13T08:00:17.599929+00:00", "event": "ask", "model": "qwen2.5-coder-14b-q5km", "heavy": false, "q_len": 17}
+{"ts": "2025-09-13T08:01:36.630619+00:00", "event": "config_loaded", "path": "config/adam.yaml", "keys": ["logging", "path", "plugins", "search_path", "list", "models", "default", "heavy", "rag", "embedding_model_path", "vector_store", "kind", "dsn"]}
+{"ts": "2025-09-13T08:01:36.633620+00:00", "event": "config_loaded", "path": "config/adam.yaml", "keys": ["logging", "path", "plugins", "search_path", "list", "models", "default", "heavy", "rag", "embedding_model_path", "vector_store", "kind", "dsn"]}
+{"ts": "2025-09-13T08:01:36.633680+00:00", "event": "self_test_log", "detail": "hello"}
+{"ts": "2025-09-13T08:01:36.634243+00:00", "event": "ask", "model": "qwen2.5-coder-14b-q5km", "heavy": false, "q_len": 17}
+{"ts": "2025-09-13T08:04:33.869392+00:00", "event": "config_loaded", "path": "config/adam.yaml", "keys": ["logging", "path", "plugins", "search_path", "list", "models", "default", "heavy", "rag", "embedding_model_path", "vector_store", "kind", "dsn"]}
+{"ts": "2025-09-13T08:04:33.872416+00:00", "event": "config_loaded", "path": "config/adam.yaml", "keys": ["logging", "path", "plugins", "search_path", "list", "models", "default", "heavy", "rag", "embedding_model_path", "vector_store", "kind", "dsn"]}
+{"ts": "2025-09-13T08:04:33.872465+00:00", "event": "self_test_log", "detail": "hello"}
+{"ts": "2025-09-13T08:04:33.873048+00:00", "event": "ask", "model": "qwen2.5:14b-instruct", "heavy": false, "q_len": 17}
+{"ts": "2025-09-13T08:04:50.219524+00:00", "event": "config_loaded", "path": "config/adam.yaml", "keys": ["logging", "path", "plugins", "search_path", "list", "models", "default", "heavy", "rag", "embedding_model_path", "vector_store", "kind", "dsn"]}
+{"ts": "2025-09-13T08:08:27.615529+00:00", "event": "config_loaded", "path": "config/adam.yaml", "keys": ["logging", "path", "plugins", "search_path", "list", "models", "default", "heavy", "rag", "embedding_model_path", "vector_store", "kind", "dsn"]}
+{"ts": "2025-09-13T08:08:27.618682+00:00", "event": "config_loaded", "path": "config/adam.yaml", "keys": ["logging", "path", "plugins", "search_path", "list", "models", "default", "heavy", "rag", "embedding_model_path", "vector_store", "kind", "dsn"]}
+{"ts": "2025-09-13T08:08:27.618734+00:00", "event": "self_test_log", "detail": "hello"}
+{"ts": "2025-09-13T08:08:27.619305+00:00", "event": "ask", "model": "qwen2.5:14b-instruct", "heavy": false, "q_len": 17}
+{"ts": "2025-09-13T09:15:31.133665+00:00", "event": "config_loaded", "path": "config/adam.yaml", "keys": ["logging", "path", "plugins", "search_path", "list", "ui", "enabled", "dir", "index", "static_route", "models", "default", "heavy", "rag", "embedding_model_path", "vector_store", "kind", "dsn"]}
+{"ts": "2025-09-13T09:15:31.136641+00:00", "event": "config_loaded", "path": "config/adam.yaml", "keys": ["logging", "path", "plugins", "search_path", "list", "ui", "enabled", "dir", "index", "static_route", "models", "default", "heavy", "rag", "embedding_model_path", "vector_store", "kind", "dsn"]}
+{"ts": "2025-09-13T09:15:31.136701+00:00", "event": "self_test_log", "detail": "hello"}
+{"ts": "2025-09-13T09:15:31.137314+00:00", "event": "ask", "model": "qwen2.5:14b-instruct", "heavy": false, "q_len": 17}
+2025-09-13 02:21:32,849 - ui_request {path: /, status: 405, bytes: 31}
+2025-09-13 02:21:32,851 - ui_request {path: /static/app.js, status: 200, bytes: 30}
+2025-09-13 02:21:43,789 - ui_request {path: /, status: 200, bytes: 80}
+2025-09-13 02:21:43,789 - ui_request {path: /static/app.js, status: 200, bytes: 30}
+2025-09-13 02:21:55,789 - ui_request {path: /static/app.js, status: 200, bytes: 30}
+2025-09-13 02:22:00,780 - ui_request {path: /, status: 200, bytes: 80}
+2025-09-13 02:22:17,262 - ui_request {path: /static/app.js, status: 404, bytes: 0}
+2025-09-13 02:22:22,250 - ui_request {path: /, status: 404, bytes: 0}
+2025-09-13 02:22:43,578 - ui_request {path: /config/adam.yaml, status: 405, bytes: 31}
+2025-09-13 02:23:00,306 - ui_request {path: /config/adam.yaml, status: 404, bytes: 9}
+2025-09-13 02:53:33,283 - ui_request {path: /, status: 200, bytes: 80}
+2025-09-13 02:53:33,303 - ui_request {path: /static/app.js, status: 200, bytes: 30}
+2025-09-13 02:53:33,311 - ui_request {path: /favicon.ico, status: 404, bytes: 9}
+2025-09-13 03:03:02,569 - ui_request {path: /, status: 200, bytes: 80}
+2025-09-13 03:09:29,861 - ui_request {path: /, status: 200, bytes: 3225}
+2025-09-13 03:30:38,567 - ui_request {path: /, status: 200, bytes: 3225}
+2025-09-13 03:32:10,689 - ui_request {path: /, status: 200, bytes: 3225}
+2025-09-13 03:36:47,217 - ui_request {path: /, status: 200, bytes: 3225}
+2025-09-13 03:36:59,554 - ui_request {path: /static/app.js, status: 200, bytes: 1261}
+2025-09-13 03:39:06,379 - ui_request {path: /, status: 200, bytes: 3225}
+2025-09-13 03:39:06,395 - ui_request {path: /static/app.js, status: 200, bytes: 1261}
+2025-09-13 03:39:06,781 - ui_request {path: /favicon.ico, status: 404, bytes: 9}
+2025-09-13 03:39:11,306 - ui_request {path: /v1/chat, status: 200, bytes: 210}
+2025-09-13 03:42:37,663 - ui_request {path: /static/favicon.ico, status: 200, bytes: 0}
+2025-09-13 03:42:37,669 - ui_request {path: /static/app.js, status: 200, bytes: 1261}
+2025-09-13 03:42:49,221 - ui_request {path: /, status: 200, bytes: 3272}
+2025-09-13 03:42:49,353 - ui_request {path: /static/favicon.ico, status: 200, bytes: 0}
+2025-09-13 03:42:52,878 - ui_request {path: /v1/chat, status: 200, bytes: 212}
+{"ts": "2025-09-18T10:36:40.140697+00:00", "event": "config_loaded", "path": "config/adam.yaml", "keys": ["ui", "enabled"]}
+{"ts": "2025-09-18T10:37:03.368286+00:00", "event": "config_loaded", "path": "config/adam.yaml", "keys": ["ui", "enabled"]}
+{"ts": "2025-09-18T10:39:15.377600+00:00", "event": "config_loaded", "path": "config/adam.yaml", "keys": ["ui", "enabled"]}
+{"ts": "2025-09-18T10:41:31.694186+00:00", "event": "config_loaded", "path": "config/adam.yaml", "keys": ["ui", "enabled"]}
+{"ts": "2025-09-18T10:55:40.576666+00:00", "event": "config_loaded", "path": "config/adam.yaml", "keys": ["ui", "enabled"]}
+{"ts": "2025-09-18T13:40:53.626403+00:00", "event": "config_loaded", "path": "config/adam.yaml", "keys": ["ui", "enabled"]}
+{"ts": "2025-09-20T10:16:20.036039+00:00", "event": "config_loaded", "path": "config/adam.yaml", "keys": ["enabled", "ui"]}
+{"ts": "2025-09-20T10:16:20.036519+00:00", "event": "self_test_log", "detail": "hello"}
+{"ts": "2025-09-20T10:16:20.041897+00:00", "event": "ask", "model": "qwen2.5:14b-instruct", "heavy": false, "q_len": 17}
+{"ts": "2025-09-20T10:30:51.413155+00:00", "event": "config_loaded", "path": "config/adam.yaml", "keys": ["enabled", "ui"]}
+{"ts": "2025-09-20T10:42:04.920542+00:00", "event": "config_loaded", "path": "config/adam.yaml", "keys": ["enabled", "ui"]}
+{"ts": "2025-09-20T10:42:04.920987+00:00", "event": "plugin_import_failed", "plugin": "nope", "error": "No module named 'adam_tools.plugins.nope'"}
+{"ts": "2025-09-21T04:12:41.396865+00:00", "event": "config_loaded", "path": "config/adam.yaml", "keys": ["ui", "enabled"]}
+{"timestamp": "2025-09-21 03:53:17,772", "levelname": "INFO", "message": "Self test log entry.", "name": "adam"}
+{"timestamp": "2025-09-21 04:16:40,352", "levelname": "INFO", "message": "{\"event\": \"backend_ok\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-09-21 05:45:32,956", "levelname": "INFO", "message": "Self test log entry.", "name": "adam"}
+{"timestamp": "2025-09-22 06:51:17,474", "levelname": "INFO", "message": "{\"event\": \"backend_ok\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-09-23 02:01:14,794", "levelname": "INFO", "message": "{\"event\": \"backend_starting\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-09-23 02:01:15,295", "levelname": "INFO", "message": "{\"event\": \"backend_ready\"}", "name": "adam"}
+{"timestamp": "2025-09-23 05:59:05,011", "levelname": "INFO", "message": "{\"event\": \"backend_ok\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-09-23 23:27:12,952", "levelname": "INFO", "message": "{\"event\": \"backend_starting\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-09-23 23:27:13,452", "levelname": "INFO", "message": "{\"event\": \"backend_ready\"}", "name": "adam"}
+{"timestamp": "2025-09-25 05:39:25,621", "levelname": "INFO", "message": "{\"event\": \"backend_starting\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-09-25 05:39:26,122", "levelname": "INFO", "message": "{\"event\": \"backend_ready\"}", "name": "adam"}
+{"timestamp": "2025-09-26 22:52:47,325", "levelname": "INFO", "message": "Self test log entry.", "name": "adam"}
+{"timestamp": "2025-09-26 22:52:47,326", "levelname": "WARNING", "message": "Could not load plugin 'backup_snapshot': No module named 'adam_tools.plugins.utils'", "name": "adam"}
+{"timestamp": "2025-09-26 22:52:47,326", "levelname": "WARNING", "message": "Could not load plugin 'git_ops': No module named 'adam_tools.plugins.utils'", "name": "adam"}
+{"timestamp": "2025-09-26 22:52:47,328", "levelname": "WARNING", "message": "Could not load plugin 'guard_approval': No module named 'adam_tools.plugins.utils'", "name": "adam"}
+{"timestamp": "2025-09-26 22:52:47,328", "levelname": "WARNING", "message": "Could not load plugin 'mcp_adapter': No module named 'adam_tools.plugins.base'", "name": "adam"}
+{"timestamp": "2025-09-26 22:52:47,361", "levelname": "WARNING", "message": "Could not load plugin 'proc_app': No module named 'adam_tools.plugins.utils'", "name": "adam"}
+{"timestamp": "2025-09-26 22:52:47,362", "levelname": "WARNING", "message": "Could not load plugin 'proc_ps': No module named 'adam_tools.plugins.utils'", "name": "adam"}
+{"timestamp": "2025-09-26 22:52:47,362", "levelname": "WARNING", "message": "Could not load plugin 'web_search': No module named 'adam_tools.plugins.utils'", "name": "adam"}
+{"timestamp": "2025-09-26 22:52:47,362", "levelname": "WARNING", "message": "Could not load plugin 'wmgr': No module named 'adam_tools.plugins.utils'", "name": "adam"}
+{"timestamp": "2025-09-26 23:03:05,866", "levelname": "INFO", "message": "Self test log entry.", "name": "adam"}
+{"timestamp": "2025-09-26 23:03:05,867", "levelname": "WARNING", "message": "Could not load plugin 'backup_snapshot': No module named 'adam_tools.plugins.utils'", "name": "adam"}
+{"timestamp": "2025-09-26 23:03:05,868", "levelname": "WARNING", "message": "Could not load plugin 'git_ops': No module named 'adam_tools.plugins.utils'", "name": "adam"}
+{"timestamp": "2025-09-26 23:03:05,869", "levelname": "WARNING", "message": "Could not load plugin 'guard_approval': No module named 'adam_tools.plugins.utils'", "name": "adam"}
+{"timestamp": "2025-09-26 23:03:05,869", "levelname": "WARNING", "message": "Could not load plugin 'mcp_adapter': No module named 'adam_tools.plugins.base'", "name": "adam"}
+{"timestamp": "2025-09-26 23:03:05,870", "levelname": "WARNING", "message": "Could not load plugin 'proc_app': No module named 'adam_tools.plugins.utils'", "name": "adam"}
+{"timestamp": "2025-09-26 23:03:05,870", "levelname": "WARNING", "message": "Could not load plugin 'proc_ps': No module named 'adam_tools.plugins.utils'", "name": "adam"}
+{"timestamp": "2025-09-26 23:03:05,883", "levelname": "WARNING", "message": "Could not load plugin 'web_search': No module named 'adam_tools.plugins.utils'", "name": "adam"}
+{"timestamp": "2025-09-26 23:03:05,883", "levelname": "WARNING", "message": "Could not load plugin 'wmgr': No module named 'adam_tools.plugins.utils'", "name": "adam"}
+{"timestamp": "2025-09-26 23:03:22,612", "levelname": "INFO", "message": "Got ask request: 'What is the meaning of life?'", "name": "adam"}
+{"timestamp": "2025-09-27 00:08:54,109", "levelname": "INFO", "message": "Got ask request: 'ping'", "name": "adam"}
+{"timestamp": "2025-09-27 00:22:32,645", "levelname": "INFO", "message": "Got ask request: 'ping'", "name": "adam"}
+{"timestamp": "2025-09-27 00:30:18,755", "levelname": "INFO", "message": "Got ask request: 'ping'", "name": "adam"}
+{"timestamp": "2025-09-27 00:30:18,766", "levelname": "INFO", "message": "Model routing decision", "name": "adam"}
+{"timestamp": "2025-09-27 00:31:49,676", "levelname": "INFO", "message": "Got ask request: 'ping'", "name": "adam"}
+{"timestamp": "2025-09-27 00:31:49,688", "levelname": "INFO", "message": "Model routing decision", "name": "adam"}
+{"timestamp": "2025-09-27 01:10:18,554", "levelname": "INFO", "message": "Got ask request: 'ping'", "name": "adam"}
+{"timestamp": "2025-09-27 01:10:18,564", "levelname": "INFO", "message": "Model routing decision", "name": "adam"}
+{"timestamp": "2025-09-27 01:27:46,035", "levelname": "INFO", "message": "Self test log entry.", "name": "adam"}
+{"timestamp": "2025-09-27 01:27:46,037", "levelname": "WARNING", "message": "Could not load plugin 'backup_snapshot_tool': No module named 'resources.tools.base'", "name": "adam"}
+{"timestamp": "2025-09-27 01:27:46,038", "levelname": "WARNING", "message": "Could not load plugin 'git_ops_tool': No module named 'resources.tools.base'", "name": "adam"}
+{"timestamp": "2025-09-27 01:27:46,040", "levelname": "WARNING", "message": "Could not load plugin 'guard_approval_tool': No module named 'resources.tools.base'", "name": "adam"}
+{"timestamp": "2025-09-27 01:27:46,040", "levelname": "WARNING", "message": "Could not load plugin 'hardware_audit': No module named 'resources.tools.base'", "name": "adam"}
+{"timestamp": "2025-09-27 01:27:46,040", "levelname": "WARNING", "message": "Could not load plugin 'mcp_adapter': cannot import name 'AdamPlugin' from 'plugins.base' (/home/ToxicFartCloud/Projects/Adamv1/plugins/base.py)", "name": "adam"}
+{"timestamp": "2025-09-27 01:27:46,042", "levelname": "WARNING", "message": "Could not load plugin 'model_update_tool': No module named 'resources.tools.base'", "name": "adam"}
+{"timestamp": "2025-09-27 01:27:46,042", "levelname": "WARNING", "message": "Could not load plugin 'proc_app_tool': No module named 'resources.tools.base'", "name": "adam"}
+{"timestamp": "2025-09-27 01:27:46,043", "levelname": "WARNING", "message": "Could not load plugin 'proc_ps_tool': No module named 'resources.tools.base'", "name": "adam"}
+{"timestamp": "2025-09-27 01:27:46,056", "levelname": "WARNING", "message": "Could not load plugin 'web_search_tool': No module named 'resources.tools.base'", "name": "adam"}
+{"timestamp": "2025-09-27 01:27:46,056", "levelname": "WARNING", "message": "Could not load plugin 'wmgr_tool': No module named 'resources.tools.base'", "name": "adam"}
+{"timestamp": "2025-09-27 01:42:14,113", "levelname": "INFO", "message": "Self test log entry.", "name": "adam"}
+{"timestamp": "2025-09-27 01:42:14,114", "levelname": "WARNING", "message": "Could not load plugin 'backup_snapshot_tool': No module named 'resources.tools.base'", "name": "adam"}
+{"timestamp": "2025-09-27 01:42:14,115", "levelname": "WARNING", "message": "Could not load plugin 'git_ops_tool': No module named 'resources.tools.base'", "name": "adam"}
+{"timestamp": "2025-09-27 01:42:14,116", "levelname": "WARNING", "message": "Could not load plugin 'guard_approval_tool': No module named 'resources.tools.base'", "name": "adam"}
+{"timestamp": "2025-09-27 01:42:14,117", "levelname": "WARNING", "message": "Could not load plugin 'hardware_audit': No module named 'resources.tools.base'", "name": "adam"}
+{"timestamp": "2025-09-27 01:42:14,117", "levelname": "WARNING", "message": "Could not load plugin 'mcp_adapter': cannot import name 'AdamPlugin' from 'plugins.base' (/home/ToxicFartCloud/Projects/Adamv1/plugins/base.py)", "name": "adam"}
+{"timestamp": "2025-09-27 01:42:14,117", "levelname": "WARNING", "message": "Could not load plugin 'model_update_tool': No module named 'resources.tools.base'", "name": "adam"}
+{"timestamp": "2025-09-27 01:42:14,118", "levelname": "WARNING", "message": "Could not load plugin 'proc_app_tool': No module named 'resources.tools.base'", "name": "adam"}
+{"timestamp": "2025-09-27 01:42:14,118", "levelname": "WARNING", "message": "Could not load plugin 'proc_ps_tool': No module named 'resources.tools.base'", "name": "adam"}
+{"timestamp": "2025-09-27 01:42:14,132", "levelname": "WARNING", "message": "Could not load plugin 'web_search_tool': No module named 'resources.tools.base'", "name": "adam"}
+{"timestamp": "2025-09-27 01:42:14,133", "levelname": "WARNING", "message": "Could not load plugin 'wmgr_tool': No module named 'resources.tools.base'", "name": "adam"}
+{"timestamp": "2025-09-27 01:54:03,448", "levelname": "WARNING", "message": "Could not load plugin 'backup_snapshot_tool': No module named 'resources.tools.base'", "name": "adam"}
+{"timestamp": "2025-09-27 01:54:03,448", "levelname": "WARNING", "message": "Could not load plugin 'git_ops_tool': No module named 'resources.tools.base'", "name": "adam"}
+{"timestamp": "2025-09-27 01:54:03,450", "levelname": "WARNING", "message": "Could not load plugin 'guard_approval_tool': No module named 'resources.tools.base'", "name": "adam"}
+{"timestamp": "2025-09-27 01:54:03,450", "levelname": "WARNING", "message": "Could not load plugin 'hardware_audit': No module named 'resources.tools.base'", "name": "adam"}
+{"timestamp": "2025-09-27 01:54:03,450", "levelname": "WARNING", "message": "Could not load plugin 'mcp_adapter': cannot import name 'AdamPlugin' from 'plugins.base' (/home/ToxicFartCloud/Projects/Adamv1/plugins/base.py)", "name": "adam"}
+{"timestamp": "2025-09-27 01:54:03,451", "levelname": "WARNING", "message": "Could not load plugin 'model_update_tool': No module named 'resources.tools.base'", "name": "adam"}
+{"timestamp": "2025-09-27 01:54:03,451", "levelname": "WARNING", "message": "Could not load plugin 'proc_app_tool': No module named 'resources.tools.base'", "name": "adam"}
+{"timestamp": "2025-09-27 01:54:03,451", "levelname": "WARNING", "message": "Could not load plugin 'proc_ps_tool': No module named 'resources.tools.base'", "name": "adam"}
+{"timestamp": "2025-09-27 01:54:03,464", "levelname": "WARNING", "message": "Could not load plugin 'web_search_tool': No module named 'resources.tools.base'", "name": "adam"}
+{"timestamp": "2025-09-27 01:54:03,465", "levelname": "WARNING", "message": "Could not load plugin 'wmgr_tool': No module named 'resources.tools.base'", "name": "adam"}
+{"timestamp": "2025-09-27 02:34:05,579", "levelname": "WARNING", "message": "Could not load plugin 'backup_snapshot_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 02:34:05,579", "levelname": "WARNING", "message": "Could not load plugin 'git_ops_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 02:34:05,581", "levelname": "WARNING", "message": "Could not load plugin 'guard_approval_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 02:34:05,581", "levelname": "WARNING", "message": "Could not load plugin 'hardware_audit': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 02:34:05,581", "levelname": "WARNING", "message": "Could not load plugin 'mcp_adapter': cannot import name 'AdamPlugin' from 'plugins.base' (/home/ToxicFartCloud/Projects/Adamv1/plugins/base.py)", "name": "adam"}
+{"timestamp": "2025-09-27 02:34:05,582", "levelname": "WARNING", "message": "Could not load plugin 'model_update_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 02:34:05,582", "levelname": "WARNING", "message": "Could not load plugin 'proc_app_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 02:34:05,582", "levelname": "WARNING", "message": "Could not load plugin 'proc_ps_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 02:34:05,595", "levelname": "WARNING", "message": "Could not load plugin 'web_search_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 02:34:05,596", "levelname": "WARNING", "message": "Could not load plugin 'wmgr_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 02:35:07,553", "levelname": "WARNING", "message": "Could not load plugin 'backup_snapshot_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 02:35:07,554", "levelname": "WARNING", "message": "Could not load plugin 'git_ops_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 02:35:07,555", "levelname": "WARNING", "message": "Could not load plugin 'guard_approval_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 02:35:07,562", "levelname": "WARNING", "message": "Could not load plugin 'mcp_adapter': cannot import name 'AdamPlugin' from 'plugins.base' (/home/ToxicFartCloud/Projects/Adamv1/plugins/base.py)", "name": "adam"}
+{"timestamp": "2025-09-27 02:35:07,563", "levelname": "WARNING", "message": "Could not load plugin 'model_update_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 02:35:07,564", "levelname": "WARNING", "message": "Could not load plugin 'proc_app_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 02:35:07,564", "levelname": "WARNING", "message": "Could not load plugin 'proc_ps_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 02:35:07,577", "levelname": "WARNING", "message": "Could not load plugin 'web_search_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 02:35:07,577", "levelname": "WARNING", "message": "Could not load plugin 'wmgr_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:01:35,360", "levelname": "WARNING", "message": "Could not load plugin 'backup_snapshot_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:01:35,361", "levelname": "WARNING", "message": "Could not load plugin 'git_ops_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:01:35,362", "levelname": "WARNING", "message": "Could not load plugin 'guard_approval_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:01:35,368", "levelname": "WARNING", "message": "Could not load plugin 'mcp_adapter': cannot import name 'AdamPlugin' from 'plugins.base' (/home/ToxicFartCloud/Projects/Adamv1/plugins/base.py)", "name": "adam"}
+{"timestamp": "2025-09-27 03:01:35,369", "levelname": "WARNING", "message": "Could not load plugin 'model_update_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:01:35,370", "levelname": "WARNING", "message": "Could not load plugin 'proc_app_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:01:35,370", "levelname": "WARNING", "message": "Could not load plugin 'proc_ps_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:01:35,384", "levelname": "WARNING", "message": "Could not load plugin 'web_search_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:01:35,384", "levelname": "WARNING", "message": "Could not load plugin 'wmgr_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:01:49,086", "levelname": "WARNING", "message": "Could not load plugin 'backup_snapshot_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:01:49,087", "levelname": "WARNING", "message": "Could not load plugin 'git_ops_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:01:49,088", "levelname": "WARNING", "message": "Could not load plugin 'guard_approval_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:01:49,094", "levelname": "WARNING", "message": "Could not load plugin 'mcp_adapter': cannot import name 'AdamPlugin' from 'plugins.base' (/home/ToxicFartCloud/Projects/Adamv1/plugins/base.py)", "name": "adam"}
+{"timestamp": "2025-09-27 03:01:49,095", "levelname": "WARNING", "message": "Could not load plugin 'model_update_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:01:49,095", "levelname": "WARNING", "message": "Could not load plugin 'proc_app_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:01:49,096", "levelname": "WARNING", "message": "Could not load plugin 'proc_ps_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:01:49,108", "levelname": "WARNING", "message": "Could not load plugin 'web_search_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:01:49,109", "levelname": "WARNING", "message": "Could not load plugin 'wmgr_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:07:29,275", "levelname": "WARNING", "message": "Could not load plugin 'backup_snapshot_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:07:29,276", "levelname": "WARNING", "message": "Could not load plugin 'git_ops_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:07:29,277", "levelname": "WARNING", "message": "Could not load plugin 'guard_approval_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:07:29,283", "levelname": "WARNING", "message": "Could not load plugin 'mcp_adapter': cannot import name 'AdamPlugin' from 'plugins.base' (/home/ToxicFartCloud/Projects/Adamv1/plugins/base.py)", "name": "adam"}
+{"timestamp": "2025-09-27 03:07:29,283", "levelname": "WARNING", "message": "Could not load plugin 'model_update_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:07:29,284", "levelname": "WARNING", "message": "Could not load plugin 'proc_app_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:07:29,284", "levelname": "WARNING", "message": "Could not load plugin 'proc_ps_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:07:29,297", "levelname": "WARNING", "message": "Could not load plugin 'web_search_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:07:29,297", "levelname": "WARNING", "message": "Could not load plugin 'wmgr_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:11:29,243", "levelname": "WARNING", "message": "Could not load plugin 'backup_snapshot_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:11:29,243", "levelname": "WARNING", "message": "Could not load plugin 'git_ops_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:11:29,245", "levelname": "WARNING", "message": "Could not load plugin 'guard_approval_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:11:29,251", "levelname": "WARNING", "message": "Could not load plugin 'mcp_adapter': cannot import name 'AdamPlugin' from 'plugins.base' (/home/ToxicFartCloud/Projects/Adamv1/plugins/base.py)", "name": "adam"}
+{"timestamp": "2025-09-27 03:11:29,252", "levelname": "WARNING", "message": "Could not load plugin 'model_update_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:11:29,252", "levelname": "WARNING", "message": "Could not load plugin 'proc_app_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:11:29,253", "levelname": "WARNING", "message": "Could not load plugin 'proc_ps_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:11:29,266", "levelname": "WARNING", "message": "Could not load plugin 'web_search_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:11:29,266", "levelname": "WARNING", "message": "Could not load plugin 'wmgr_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:11:42,260", "levelname": "WARNING", "message": "Could not load plugin 'backup_snapshot_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:11:42,261", "levelname": "WARNING", "message": "Could not load plugin 'git_ops_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:11:42,262", "levelname": "WARNING", "message": "Could not load plugin 'guard_approval_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:11:42,268", "levelname": "WARNING", "message": "Could not load plugin 'mcp_adapter': cannot import name 'AdamPlugin' from 'plugins.base' (/home/ToxicFartCloud/Projects/Adamv1/plugins/base.py)", "name": "adam"}
+{"timestamp": "2025-09-27 03:11:42,269", "levelname": "WARNING", "message": "Could not load plugin 'model_update_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:11:42,269", "levelname": "WARNING", "message": "Could not load plugin 'proc_app_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:11:42,270", "levelname": "WARNING", "message": "Could not load plugin 'proc_ps_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:11:42,283", "levelname": "WARNING", "message": "Could not load plugin 'web_search_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:11:42,283", "levelname": "WARNING", "message": "Could not load plugin 'wmgr_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:12:40,649", "levelname": "WARNING", "message": "Could not load plugin 'backup_snapshot_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:12:40,650", "levelname": "WARNING", "message": "Could not load plugin 'git_ops_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:12:40,651", "levelname": "WARNING", "message": "Could not load plugin 'guard_approval_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:12:40,657", "levelname": "WARNING", "message": "Could not load plugin 'mcp_adapter': cannot import name 'AdamPlugin' from 'plugins.base' (/home/ToxicFartCloud/Projects/Adamv1/plugins/base.py)", "name": "adam"}
+{"timestamp": "2025-09-27 03:12:40,659", "levelname": "WARNING", "message": "Could not load plugin 'model_update_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:12:40,660", "levelname": "WARNING", "message": "Could not load plugin 'proc_app_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:12:40,660", "levelname": "WARNING", "message": "Could not load plugin 'proc_ps_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:12:40,674", "levelname": "WARNING", "message": "Could not load plugin 'web_search_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:12:40,674", "levelname": "WARNING", "message": "Could not load plugin 'wmgr_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:13:47,442", "levelname": "WARNING", "message": "Could not load plugin 'backup_snapshot_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:13:47,443", "levelname": "WARNING", "message": "Could not load plugin 'git_ops_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:13:47,444", "levelname": "WARNING", "message": "Could not load plugin 'guard_approval_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:13:47,450", "levelname": "WARNING", "message": "Could not load plugin 'mcp_adapter': cannot import name 'AdamPlugin' from 'plugins.base' (/home/ToxicFartCloud/Projects/Adamv1/plugins/base.py)", "name": "adam"}
+{"timestamp": "2025-09-27 03:13:47,450", "levelname": "WARNING", "message": "Could not load plugin 'model_update_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:13:47,451", "levelname": "WARNING", "message": "Could not load plugin 'proc_app_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:13:47,451", "levelname": "WARNING", "message": "Could not load plugin 'proc_ps_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:13:47,464", "levelname": "WARNING", "message": "Could not load plugin 'web_search_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 03:13:47,464", "levelname": "WARNING", "message": "Could not load plugin 'wmgr_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 20:15:47,773", "levelname": "INFO", "message": "Executing plugin hardware_audit with args: {}", "name": "adam"}
+{"timestamp": "2025-09-27 20:15:47,775", "levelname": "CRITICAL", "message": "unhandled error in main execution: unexpected indent (hardware_audit.py, line 9)", "name": "adam", "exc_info": "Traceback (most recent call last):\n  File \"/home/ToxicFartCloud/Projects/Adamv1/src/adam/core.py\", line 1024, in main\n    result = handle_plugin_request(args)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ToxicFartCloud/Projects/Adamv1/src/adam/core.py\", line 683, in handle_plugin_request\n    return adam_toolcall(plugin_name, args)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ToxicFartCloud/Projects/Adamv1/src/adam/core.py\", line 347, in adam_toolcall\n    plugin_module = plugin_registry.load_plugin_module(plugin_name)\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ToxicFartCloud/Projects/Adamv1/src/adam/plugins.py\", line 41, in load_plugin_module\n    return _import_from_path(name, file_candidate)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/ToxicFartCloud/Projects/Adamv1/src/adam/plugins.py\", line 31, in _import_from_path\n    spec.loader.exec_module(module)  # type: ignore[attr-defined]\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen importlib._bootstrap_external>\", line 995, in exec_module\n  File \"<frozen importlib._bootstrap_external>\", line 1133, in get_code\n  File \"<frozen importlib._bootstrap_external>\", line 1063, in source_to_code\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/home/ToxicFartCloud/Projects/Adamv1/plugins/hardware_audit.py\", line 9\n    METADATA = {\nIndentationError: unexpected indent"}
+{"timestamp": "2025-09-27 20:29:47,607", "levelname": "INFO", "message": "Executing plugin hardware_audit with args: {}", "name": "adam"}
+{"timestamp": "2025-09-27 20:29:47,620", "levelname": "INFO", "message": "Hardware audit report written to logs/hardware_audit.json", "name": "adam"}
+{"timestamp": "2025-09-27 20:42:47,893", "levelname": "INFO", "message": "Executing plugin hardware_audit with args: {}", "name": "adam"}
+{"timestamp": "2025-09-27 20:42:47,903", "levelname": "INFO", "message": "Hardware audit report saved to logs/hardware_audit.json", "name": "adam"}
+{"timestamp": "2025-09-27 20:42:47,956", "levelname": "INFO", "message": "Executing plugin hardware_audit with args: {'force': True}", "name": "adam"}
+{"timestamp": "2025-09-27 20:42:47,965", "levelname": "INFO", "message": "Hardware audit report saved to logs/hardware_audit.json", "name": "adam"}
+{"timestamp": "2025-09-27 20:43:56,056", "levelname": "INFO", "message": "Executing plugin hardware_audit with args: {}", "name": "adam"}
+{"timestamp": "2025-09-27 20:43:56,063", "levelname": "INFO", "message": "Hardware audit report saved to logs/hardware_audit.json", "name": "adam"}
+{"timestamp": "2025-09-27 20:44:01,459", "levelname": "INFO", "message": "Executing plugin hardware_audit with args: {'force': True}", "name": "adam"}
+{"timestamp": "2025-09-27 20:44:01,467", "levelname": "INFO", "message": "Hardware audit report saved to logs/hardware_audit.json", "name": "adam"}
+{"timestamp": "2025-09-27 22:34:22,767", "levelname": "INFO", "message": "Executing plugin memory_search with args: {'query': 'bake a cake'}", "name": "adam"}
+{"timestamp": "2025-09-27 23:05:49,128", "levelname": "WARNING", "message": "Could not load plugin 'mcp_adapter': No module named 'plugins.base'", "name": "adam"}
+{"timestamp": "2025-09-27 23:05:49,144", "levelname": "WARNING", "message": "Could not load plugin 'memory_search': attempted relative import beyond top-level package", "name": "adam"}
+{"timestamp": "2025-09-27 23:05:49,145", "levelname": "WARNING", "message": "Could not load plugin 'model_update_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 23:05:49,146", "levelname": "WARNING", "message": "Could not load plugin 'proc_app_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 23:05:49,147", "levelname": "WARNING", "message": "Could not load plugin 'proc_ps_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 23:05:49,157", "levelname": "WARNING", "message": "Could not load plugin 'tool_base': unexpected indent (tool_base.py, line 8)", "name": "adam"}
+{"timestamp": "2025-09-27 23:05:49,157", "levelname": "WARNING", "message": "Could not load plugin 'web_search_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 23:05:49,158", "levelname": "WARNING", "message": "Could not load plugin 'wmgr_tool': No module named 'resources.tools'", "name": "adam"}
+{"timestamp": "2025-09-27 23:05:55,917", "levelname": "INFO", "message": "Executing plugin memory_search with args: {'query': 'bake a cake'}", "name": "adam"}
+{"timestamp": "2025-09-27 23:17:24,696", "levelname": "WARNING", "message": "Could not load plugin 'mcp_adapter': No module named 'plugins.base'", "name": "adam"}
+{"timestamp": "2025-09-27 23:17:24,711", "levelname": "WARNING", "message": "Could not load plugin 'memory_search': attempted relative import beyond top-level package", "name": "adam"}
+{"timestamp": "2025-09-27 23:17:24,711", "levelname": "WARNING", "message": "Could not load plugin 'model_update_tool': No module named 'resources'", "name": "adam"}
+{"timestamp": "2025-09-27 23:17:24,712", "levelname": "WARNING", "message": "Could not load plugin 'proc_app_tool': No module named 'resources'", "name": "adam"}
+{"timestamp": "2025-09-27 23:17:24,712", "levelname": "WARNING", "message": "Could not load plugin 'proc_ps_tool': No module named 'resources'", "name": "adam"}
+{"timestamp": "2025-09-27 23:17:24,722", "levelname": "WARNING", "message": "Could not load plugin 'tool_base': unexpected indent (tool_base.py, line 8)", "name": "adam"}
+{"timestamp": "2025-09-27 23:17:24,723", "levelname": "WARNING", "message": "Could not load plugin 'web_search_tool': No module named 'resources'", "name": "adam"}
+{"timestamp": "2025-09-27 23:17:24,723", "levelname": "WARNING", "message": "Could not load plugin 'wmgr_tool': No module named 'resources'", "name": "adam"}
+{"timestamp": "2025-09-27 23:17:42,046", "levelname": "INFO", "message": "Executing plugin memory_search with args: {'query': 'bake a cake'}", "name": "adam"}
+{"timestamp": "2025-09-27 23:51:35,088", "levelname": "WARNING", "message": "Could not load plugin 'mcp_adapter': No module named 'plugins.base'", "name": "adam"}
+{"timestamp": "2025-09-27 23:51:35,103", "levelname": "WARNING", "message": "Could not load plugin 'memory_search': attempted relative import beyond top-level package", "name": "adam"}
+{"timestamp": "2025-09-27 23:51:35,103", "levelname": "WARNING", "message": "Could not load plugin 'model_update_tool': No module named 'resources'", "name": "adam"}
+{"timestamp": "2025-09-27 23:51:35,104", "levelname": "WARNING", "message": "Could not load plugin 'proc_app_tool': No module named 'resources'", "name": "adam"}
+{"timestamp": "2025-09-27 23:51:35,104", "levelname": "WARNING", "message": "Could not load plugin 'proc_ps_tool': No module named 'resources'", "name": "adam"}
+{"timestamp": "2025-09-27 23:51:35,114", "levelname": "WARNING", "message": "Could not load plugin 'tool_base': unexpected indent (tool_base.py, line 8)", "name": "adam"}
+{"timestamp": "2025-09-27 23:51:35,114", "levelname": "WARNING", "message": "Could not load plugin 'web_search_tool': No module named 'resources'", "name": "adam"}
+{"timestamp": "2025-09-27 23:51:35,115", "levelname": "WARNING", "message": "Could not load plugin 'wmgr_tool': No module named 'resources'", "name": "adam"}
+{"timestamp": "2025-09-27 23:53:31,734", "levelname": "WARNING", "message": "Could not load plugin 'mcp_adapter': No module named 'plugins.base'", "name": "adam"}
+{"timestamp": "2025-09-27 23:53:31,750", "levelname": "WARNING", "message": "Could not load plugin 'memory_search': attempted relative import beyond top-level package", "name": "adam"}
+{"timestamp": "2025-09-27 23:53:31,750", "levelname": "WARNING", "message": "Could not load plugin 'model_update_tool': No module named 'resources'", "name": "adam"}
+{"timestamp": "2025-09-27 23:53:31,751", "levelname": "WARNING", "message": "Could not load plugin 'proc_app_tool': No module named 'resources'", "name": "adam"}
+{"timestamp": "2025-09-27 23:53:31,751", "levelname": "WARNING", "message": "Could not load plugin 'proc_ps_tool': No module named 'resources'", "name": "adam"}
+{"timestamp": "2025-09-27 23:53:31,761", "levelname": "WARNING", "message": "Could not load plugin 'tool_base': unexpected indent (tool_base.py, line 8)", "name": "adam"}
+{"timestamp": "2025-09-27 23:53:31,761", "levelname": "WARNING", "message": "Could not load plugin 'web_search_tool': No module named 'resources'", "name": "adam"}
+{"timestamp": "2025-09-27 23:53:31,762", "levelname": "WARNING", "message": "Could not load plugin 'wmgr_tool': No module named 'resources'", "name": "adam"}
+{"timestamp": "2025-09-27 23:58:03,786", "levelname": "WARNING", "message": "Could not load plugin 'mcp_adapter': No module named 'plugins.base'", "name": "adam"}
+{"timestamp": "2025-09-27 23:58:05,362", "levelname": "WARNING", "message": "Could not load plugin 'model_update_tool': No module named 'resources'", "name": "adam"}
+{"timestamp": "2025-09-27 23:58:05,363", "levelname": "WARNING", "message": "Could not load plugin 'proc_app_tool': No module named 'resources'", "name": "adam"}
+{"timestamp": "2025-09-27 23:58:05,363", "levelname": "WARNING", "message": "Could not load plugin 'proc_ps_tool': No module named 'resources'", "name": "adam"}
+{"timestamp": "2025-09-27 23:58:05,364", "levelname": "WARNING", "message": "Could not load plugin 'tool_base': unexpected indent (tool_base.py, line 8)", "name": "adam"}
+{"timestamp": "2025-09-27 23:58:05,364", "levelname": "WARNING", "message": "Could not load plugin 'web_search_tool': No module named 'resources'", "name": "adam"}
+{"timestamp": "2025-09-27 23:58:05,365", "levelname": "WARNING", "message": "Could not load plugin 'wmgr_tool': No module named 'resources'", "name": "adam"}
+{"timestamp": "2025-09-27 23:58:11,600", "levelname": "INFO", "message": "Executing plugin memory_search with args: {'query': 'bake a cake'}", "name": "adam"}
+{"timestamp": "2025-09-27 23:58:12,605", "levelname": "INFO", "message": "[mock] memory_search: 'bake a cake' \u2192 3 results", "name": "adam"}
+{"timestamp": "2025-09-28 00:13:58,930", "levelname": "INFO", "message": "Self test log entry.", "name": "adam"}
+{"timestamp": "2025-09-28 00:13:58,938", "levelname": "WARNING", "message": "Could not load plugin 'mcp_adapter': No module named 'plugins.base'", "name": "adam"}
+{"timestamp": "2025-09-28 00:13:59,890", "levelname": "WARNING", "message": "Could not load plugin 'model_update_tool': No module named 'resources'", "name": "adam"}
+{"timestamp": "2025-09-28 00:13:59,891", "levelname": "WARNING", "message": "Could not load plugin 'proc_app_tool': No module named 'resources'", "name": "adam"}
+{"timestamp": "2025-09-28 00:13:59,891", "levelname": "WARNING", "message": "Could not load plugin 'proc_ps_tool': No module named 'resources'", "name": "adam"}
+{"timestamp": "2025-09-28 00:13:59,891", "levelname": "WARNING", "message": "Could not load plugin 'tool_base': unexpected indent (tool_base.py, line 8)", "name": "adam"}
+{"timestamp": "2025-09-28 00:13:59,892", "levelname": "WARNING", "message": "Could not load plugin 'web_search_tool': No module named 'resources'", "name": "adam"}
+{"timestamp": "2025-09-28 00:13:59,892", "levelname": "WARNING", "message": "Could not load plugin 'wmgr_tool': No module named 'resources'", "name": "adam"}
+{"timestamp": "2025-09-28 00:14:00,104", "levelname": "WARNING", "message": "Could not load plugin 'mcp_adapter': No module named 'plugins.base'", "name": "adam"}
+{"timestamp": "2025-09-28 00:14:01,078", "levelname": "WARNING", "message": "Could not load plugin 'model_update_tool': No module named 'resources'", "name": "adam"}
+{"timestamp": "2025-09-28 00:14:01,078", "levelname": "WARNING", "message": "Could not load plugin 'proc_app_tool': No module named 'resources'", "name": "adam"}
+{"timestamp": "2025-09-28 00:14:01,079", "levelname": "WARNING", "message": "Could not load plugin 'proc_ps_tool': No module named 'resources'", "name": "adam"}
+{"timestamp": "2025-09-28 00:14:01,079", "levelname": "WARNING", "message": "Could not load plugin 'tool_base': unexpected indent (tool_base.py, line 8)", "name": "adam"}
+{"timestamp": "2025-09-28 00:14:01,080", "levelname": "WARNING", "message": "Could not load plugin 'web_search_tool': No module named 'resources'", "name": "adam"}
+{"timestamp": "2025-09-28 00:14:01,080", "levelname": "WARNING", "message": "Could not load plugin 'wmgr_tool': No module named 'resources'", "name": "adam"}
+{"timestamp": "2025-09-28 00:41:59,418", "levelname": "INFO", "message": "Executing plugin memory_summarize with args: {}", "name": "adam"}
+{"timestamp": "2025-09-28 00:41:59,420", "levelname": "INFO", "message": "memory_summarize executed \u2192 70 chars", "name": "adam"}
+{"timestamp": "2025-09-28 00:47:04,543", "levelname": "INFO", "message": "Executing plugin hardware_audit with args: {'force': True}", "name": "adam"}
+{"timestamp": "2025-09-28 00:47:04,551", "levelname": "INFO", "message": "Hardware audit report saved to logs/hardware_audit.json", "name": "adam"}
+{"timestamp": "2025-09-28 00:47:14,555", "levelname": "INFO", "message": "Executing plugin model_router with args: {'task': 'code', 'hardware': {'os': {'system': 'Linux', 'release': '6.16.4-108.bazzite.fc42.x86_64', 'machine': 'x86_64', 'is_macos': False, 'is_ios': False, 'is_linux': True, 'is_windows': False}, 'cpu_cores': 12, 'ram_gb': 62, 'gpu': {'gpus': [], 'count': 0}, 'disk': {'total_gb': 929, 'free_gb': 679, 'nvme_model': 'Samsung SSD 970 EVO 500GB', 'nvme_speed': 'PCIe 8.0 GT/s PCIe x4'}}, 'config': {}}", "name": "adam"}
+{"timestamp": "2025-09-28 00:47:14,557", "levelname": "INFO", "message": "Model routing decision: code \u2192 qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-28 00:59:09,106", "levelname": "INFO", "message": "Executing plugin ollama_llm with args: {'prompt': 'Why is the sky blue?', 'model': 'llama3'}", "name": "adam"}
+{"timestamp": "2025-09-28 01:00:54,536", "levelname": "INFO", "message": "Executing plugin ollama_llm with args: {'prompt': 'Why is the sky blue?', 'model': 'llama3'}", "name": "adam"}
+{"timestamp": "2025-09-28 01:00:54,557", "levelname": "WARNING", "message": "Ollama call failed, using mock: Ollama API call failed: HTTP Error 404: Not Found", "name": "adam"}
+{"timestamp": "2025-09-28 01:07:35,148", "levelname": "INFO", "message": "proc_app: found 577 processes (filter='', top=None)", "name": "adam"}
+{"timestamp": "2025-09-28 01:07:35,249", "levelname": "INFO", "message": "proc_app: found 2 processes (filter='python', top=None)", "name": "adam"}
+{"timestamp": "2025-09-28 01:07:35,352", "levelname": "INFO", "message": "proc_app: found 5 processes (filter='', top=5)", "name": "adam"}
+{"timestamp": "2025-09-28 01:48:48,739", "levelname": "INFO", "message": "Executing plugin model_update with args: {}", "name": "adam"}
+{"timestamp": "2025-09-28 01:48:48,797", "levelname": "INFO", "message": "Executing plugin model_update with args: {'force': True}", "name": "adam"}
+{"timestamp": "2025-09-28 01:48:48,852", "levelname": "INFO", "message": "Executing plugin model_update with args: {'use_best_coding': True}", "name": "adam"}
+{"timestamp": "2025-09-28 01:48:48,907", "levelname": "INFO", "message": "Executing plugin model_update with args: {'force': True, 'task': 'creative', 'model': 'llama3-70b'}", "name": "adam"}
+{"timestamp": "2025-09-28 02:41:20,051", "levelname": "INFO", "message": "proc_ps: found 602 processes (filter='', top_memory=None, top_cpu=None)", "name": "adam"}
+{"timestamp": "2025-09-28 02:41:20,136", "levelname": "INFO", "message": "proc_ps: found 9 processes (filter='python', top_memory=None, top_cpu=None)", "name": "adam"}
+{"timestamp": "2025-09-28 02:41:20,213", "levelname": "INFO", "message": "proc_ps: found 5 processes (filter='', top_memory=5, top_cpu=None)", "name": "adam"}
+{"timestamp": "2025-09-28 02:41:20,290", "levelname": "INFO", "message": "proc_ps: found 3 processes (filter='', top_memory=None, top_cpu=3)", "name": "adam"}
+{"timestamp": "2025-09-28 03:03:40,691", "levelname": "INFO", "message": "Self test log entry.", "name": "adam"}
+{"timestamp": "2025-09-28 03:03:40,706", "levelname": "WARNING", "message": "Could not load plugin 'mcp_adapter': No module named 'plugins.base'", "name": "adam"}
+{"timestamp": "2025-09-28 03:03:41,718", "levelname": "WARNING", "message": "Could not load plugin 'tool_base': unexpected indent (tool_base.py, line 8)", "name": "adam"}
+{"timestamp": "2025-09-28 03:03:41,719", "levelname": "WARNING", "message": "Could not load plugin 'web_search_tool': No module named 'resources'", "name": "adam"}
+{"timestamp": "2025-09-28 03:03:41,721", "levelname": "WARNING", "message": "Could not load plugin 'wmgr_tool': No module named 'resources'", "name": "adam"}
+{"timestamp": "2025-09-28 03:37:47,784", "levelname": "INFO", "message": "web_search: SearXNG not available \u2014 returning mock results for 'best local LLM'", "name": "adam"}
+{"timestamp": "2025-09-28 03:38:12,260", "levelname": "INFO", "message": "web_search: SearXNG not available \u2014 returning mock results for 'best local LLM'", "name": "adam"}
+{"timestamp": "2025-09-28 11:05:24,351", "levelname": "INFO", "message": "Self test log entry.", "name": "adam"}
+{"timestamp": "2025-09-28 11:05:24,522", "levelname": "WARNING", "message": "Could not load plugin 'mcp_adapter': No module named 'plugins.base'", "name": "adam"}
+{"timestamp": "2025-09-28 11:05:24,562", "levelname": "WARNING", "message": "Could not load plugin 'tool_base': unexpected indent (tool_base.py, line 8)", "name": "adam"}
+{"timestamp": "2025-09-28 11:05:24,565", "levelname": "WARNING", "message": "Could not load plugin 'wmgr_tool': No module named 'resources'", "name": "adam"}
+{"timestamp": "2025-09-29 06:25:50,300", "levelname": "INFO", "message": "wmgr: xdotool not available \u2014 returning mock windows", "name": "adam"}
+{"timestamp": "2025-09-29 06:25:50,300", "levelname": "INFO", "message": "wmgr: found 3 windows", "name": "adam"}
+{"timestamp": "2025-09-29 06:26:19,242", "levelname": "INFO", "message": "wmgr: xdotool not available \u2014 returning mock windows", "name": "adam"}
+{"timestamp": "2025-09-29 06:26:19,242", "levelname": "INFO", "message": "wmgr: found 3 windows", "name": "adam"}
+{"timestamp": "2025-09-29 06:46:26,250", "levelname": "INFO", "message": "Executing plugin sled_client with args: {'action': 'health'}", "name": "adam"}
+{"timestamp": "2025-09-29 06:50:10,275", "levelname": "INFO", "message": "Executing plugin example_echo with args: {'text': 'Hello, Adam!'}", "name": "adam"}
+{"timestamp": "2025-09-29 06:50:10,277", "levelname": "INFO", "message": "example_echo: 'Hello, Adam!'", "name": "adam"}
+{"timestamp": "2025-09-29 07:03:38,543", "levelname": "INFO", "message": "Executing plugin agent_coder with args: {'prompt': 'Sort a list'}", "name": "adam"}
+{"timestamp": "2025-09-29 07:03:38,545", "levelname": "INFO", "message": "agent_coder: generated 125 chars", "name": "adam"}
+{"timestamp": "2025-09-29 07:03:47,750", "levelname": "INFO", "message": "Executing plugin agent_router with args: {'from_agent': 'coder', 'content': 'def sort_list(): pass'}", "name": "adam"}
+{"timestamp": "2025-09-29 07:03:47,755", "levelname": "INFO", "message": "agent_router: coder \u2192 researcher", "name": "adam"}
+{"timestamp": "2025-09-29 09:37:40,941", "levelname": "INFO", "message": "Self test log entry.", "name": "adam"}
+{"timestamp": "2025-09-29 09:37:48,191", "levelname": "INFO", "message": "Executing plugin memory_search with args: {'query': 'test'}", "name": "adam"}
+{"timestamp": "2025-09-29 09:37:50,625", "levelname": "INFO", "message": "[mock] memory_search: 'test' \u2192 3 results", "name": "adam"}
+{"timestamp": "2025-09-29 11:23:08,750", "levelname": "INFO", "message": "Got ask request: 'What is 2+2?'", "name": "adam"}
+{"timestamp": "2025-09-29 11:23:08,764", "levelname": "INFO", "message": "Hardware audit report saved to logs/hardware_audit.json", "name": "adam"}
+{"timestamp": "2025-09-29 11:23:08,764", "levelname": "INFO", "message": "Model routing decision: code \u2192 qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 11:23:08,764", "levelname": "INFO", "message": "Model routing decision", "name": "adam"}
+{"timestamp": "2025-09-29 11:27:12,340", "levelname": "INFO", "message": "Got ask request: 'What is 2+2?'", "name": "adam"}
+{"timestamp": "2025-09-29 11:27:12,352", "levelname": "INFO", "message": "Hardware audit report saved to logs/hardware_audit.json", "name": "adam"}
+{"timestamp": "2025-09-29 11:27:12,353", "levelname": "INFO", "message": "Model routing decision", "name": "adam"}
+{"timestamp": "2025-09-29 11:27:12,353", "levelname": "INFO", "message": "Model routing decision: code \u2192 qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 11:27:12,353", "levelname": "INFO", "message": "model_router: selected qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 11:27:12,353", "levelname": "INFO", "message": "local_llm failed response (Model not found: models/qwen2.5-coder-14b-q5km.gguf); falling back to ollama_llm (qwen2.5-coder-14b-q5km)", "name": "adam"}
+{"timestamp": "2025-09-29 11:27:12,353", "levelname": "INFO", "message": "core: falling back to ollama_llm (qwen2.5-coder-14b-q5km)", "name": "adam"}
+{"timestamp": "2025-09-29 11:27:12,361", "levelname": "WARNING", "message": "Ollama call failed, using mock: Ollama API call failed: <urlopen error [Errno 1] Operation not permitted>", "name": "adam"}
+{"timestamp": "2025-09-29 11:27:12,361", "levelname": "INFO", "message": "core: using ollama_llm (qwen2.5-coder-14b-q5km)", "name": "adam"}
+{"timestamp": "2025-09-29 11:28:40,587", "levelname": "INFO", "message": "Got ask request: 'What is 2+2?'", "name": "adam"}
+{"timestamp": "2025-09-29 11:28:40,599", "levelname": "INFO", "message": "Hardware audit report saved to logs/hardware_audit.json", "name": "adam"}
+{"timestamp": "2025-09-29 11:28:40,599", "levelname": "INFO", "message": "Model routing decision", "name": "adam"}
+{"timestamp": "2025-09-29 11:28:40,599", "levelname": "INFO", "message": "Model routing decision: code \u2192 qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 11:28:40,600", "levelname": "INFO", "message": "model_router: selected qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 11:28:40,600", "levelname": "INFO", "message": "local_llm failed response (Model not found: models/qwen2.5-coder-14b-q5km.gguf); falling back to ollama_llm (qwen2.5-coder-14b-q5km)", "name": "adam"}
+{"timestamp": "2025-09-29 11:28:40,600", "levelname": "INFO", "message": "core: falling back to ollama_llm (qwen2.5-coder-14b-q5km)", "name": "adam"}
+{"timestamp": "2025-09-29 11:28:40,608", "levelname": "WARNING", "message": "Ollama call failed, using mock: Ollama API call failed: <urlopen error [Errno 1] Operation not permitted>", "name": "adam"}
+{"timestamp": "2025-09-29 11:28:40,608", "levelname": "INFO", "message": "core: using ollama_llm (qwen2.5-coder-14b-q5km)", "name": "adam"}
+{"timestamp": "2025-09-29 11:29:06,493", "levelname": "INFO", "message": "Got ask request: 'What is 2+2?'", "name": "adam"}
+{"timestamp": "2025-09-29 11:29:06,507", "levelname": "INFO", "message": "Hardware audit report saved to logs/hardware_audit.json", "name": "adam"}
+{"timestamp": "2025-09-29 11:29:06,507", "levelname": "INFO", "message": "Model routing decision", "name": "adam"}
+{"timestamp": "2025-09-29 11:29:06,507", "levelname": "INFO", "message": "Model routing decision: code \u2192 qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 11:29:06,507", "levelname": "INFO", "message": "model_router: selected qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 11:29:06,507", "levelname": "INFO", "message": "local_llm failed response (Model not found: models/qwen2.5-coder-14b-q5km.gguf); falling back to ollama_llm (qwen2.5-coder-14b-q5km)", "name": "adam"}
+{"timestamp": "2025-09-29 11:29:06,507", "levelname": "INFO", "message": "core: falling back to ollama_llm (qwen2.5-coder-14b-q5km)", "name": "adam"}
+{"timestamp": "2025-09-29 11:29:06,516", "levelname": "WARNING", "message": "Ollama call failed, using mock: Ollama API call failed: <urlopen error [Errno 1] Operation not permitted>", "name": "adam"}
+{"timestamp": "2025-09-29 11:29:06,516", "levelname": "INFO", "message": "core: using ollama_llm (qwen2.5-coder-14b-q5km)", "name": "adam"}
+{"timestamp": "2025-09-29 12:27:26,050", "levelname": "INFO", "message": "Got ask request: 'What is 2+2?'", "name": "adam"}
+{"timestamp": "2025-09-29 12:27:26,067", "levelname": "INFO", "message": "Hardware audit report saved to logs/hardware_audit.json", "name": "adam"}
+{"timestamp": "2025-09-29 12:27:26,067", "levelname": "INFO", "message": "Model routing decision", "name": "adam"}
+{"timestamp": "2025-09-29 12:27:26,068", "levelname": "INFO", "message": "Model routing decision: code \u2192 qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 12:27:26,068", "levelname": "INFO", "message": "model_router: selected qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 12:27:33,620", "levelname": "INFO", "message": "core: using local_llm (qwen2.5-coder-14b-q5km.gguf)", "name": "adam"}
+{"timestamp": "2025-09-29 12:37:44,531", "levelname": "INFO", "message": "Got ask request: 'Summarize the current memory.'", "name": "adam"}
+{"timestamp": "2025-09-29 12:37:44,543", "levelname": "INFO", "message": "Hardware audit report saved to logs/hardware_audit.json", "name": "adam"}
+{"timestamp": "2025-09-29 12:37:44,544", "levelname": "INFO", "message": "Model routing decision", "name": "adam"}
+{"timestamp": "2025-09-29 12:37:44,544", "levelname": "INFO", "message": "Model routing decision: code \u2192 qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 12:37:44,544", "levelname": "INFO", "message": "model_router: selected qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 12:37:51,092", "levelname": "INFO", "message": "core: using local_llm (qwen2.5-coder-14b-q5km.gguf)", "name": "adam"}
+{"timestamp": "2025-09-29 12:38:43,172", "levelname": "INFO", "message": "Got ask request: 'What is 2+2?'", "name": "adam"}
+{"timestamp": "2025-09-29 12:38:43,185", "levelname": "INFO", "message": "Hardware audit report saved to logs/hardware_audit.json", "name": "adam"}
+{"timestamp": "2025-09-29 12:38:43,185", "levelname": "INFO", "message": "Model routing decision", "name": "adam"}
+{"timestamp": "2025-09-29 12:38:43,185", "levelname": "INFO", "message": "Model routing decision: code \u2192 qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 12:38:43,185", "levelname": "INFO", "message": "model_router: selected qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 12:38:46,221", "levelname": "INFO", "message": "core: using local_llm (qwen2.5-coder-14b-q5km.gguf)", "name": "adam"}
+{"timestamp": "2025-09-29 13:03:15,269", "levelname": "INFO", "message": "Executing plugin agent_coder with args: {'prompt': 'Write a Python function that returns 42.'}", "name": "adam"}
+{"timestamp": "2025-09-29 13:03:15,270", "levelname": "INFO", "message": "Model routing decision: code \u2192 qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 13:03:15,270", "levelname": "INFO", "message": "model_router: selected qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 13:03:28,194", "levelname": "INFO", "message": "core: using local_llm (qwen2.5-coder-14b-q5km.gguf)", "name": "adam"}
+{"timestamp": "2025-09-29 13:03:28,194", "levelname": "INFO", "message": "agent_coder: generated 31 chars using unknown", "name": "adam"}
+{"timestamp": "2025-09-29 13:03:46,383", "levelname": "INFO", "message": "Executing plugin agent_coder with args: {'prompt': 'Write a Python function that returns 42.'}", "name": "adam"}
+{"timestamp": "2025-09-29 13:03:46,384", "levelname": "INFO", "message": "Model routing decision: code \u2192 qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 13:03:46,384", "levelname": "INFO", "message": "model_router: selected qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 13:03:58,346", "levelname": "INFO", "message": "core: using local_llm (qwen2.5-coder-14b-q5km.gguf)", "name": "adam"}
+{"timestamp": "2025-09-29 13:03:58,346", "levelname": "INFO", "message": "agent_coder: generated 31 chars using qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 13:20:34,850", "levelname": "INFO", "message": "Executing plugin agent_critic with args: {'prompt': 'def add(a,b): return a+b', 'style': 'pep8'}", "name": "adam"}
+{"timestamp": "2025-09-29 13:20:34,852", "levelname": "INFO", "message": "Model routing decision: critique \u2192 qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 13:20:34,852", "levelname": "INFO", "message": "model_router: selected qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 13:20:41,131", "levelname": "INFO", "message": "core: using local_llm (qwen2.5-coder-14b-q5km.gguf)", "name": "adam"}
+{"timestamp": "2025-09-29 13:20:41,131", "levelname": "INFO", "message": "agent_critic: generated 88 chars using qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 13:30:53,152", "levelname": "INFO", "message": "Executing plugin agent_researcher with args: {'prompt': 'Compare GPT-4 and LLaMA models', 'depth': 'detailed'}", "name": "adam"}
+{"timestamp": "2025-09-29 13:30:53,155", "levelname": "INFO", "message": "Model routing decision: research \u2192 qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 13:30:53,155", "levelname": "INFO", "message": "model_router: selected qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 13:30:55,092", "levelname": "INFO", "message": "core: using local_llm (qwen2.5-coder-14b-q5km.gguf)", "name": "adam"}
+{"timestamp": "2025-09-29 13:30:55,092", "levelname": "INFO", "message": "agent_researcher: produced 0 chars using qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 13:35:23,603", "levelname": "INFO", "message": "Executing plugin agent_tester with args: {'prompt': 'def add(a,b): return a+b', 'framework': 'pytest'}", "name": "adam"}
+{"timestamp": "2025-09-29 13:35:23,604", "levelname": "INFO", "message": "Model routing decision: test \u2192 qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 13:35:23,604", "levelname": "INFO", "message": "model_router: selected qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 13:35:25,615", "levelname": "INFO", "message": "core: using local_llm (qwen2.5-coder-14b-q5km.gguf)", "name": "adam"}
+{"timestamp": "2025-09-29 13:35:25,616", "levelname": "INFO", "message": "agent_tester: produced 0 chars using qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 13:40:49,390", "levelname": "INFO", "message": "Executing plugin creative_cortex with args: {'prompt': 'Write a short sci-fi story about a time-traveling cat.'}", "name": "adam"}
+{"timestamp": "2025-09-29 13:40:49,393", "levelname": "ERROR", "message": "Creative cortex failed: <CreativeMode.FIRST_PRINCIPLES: 'first_principles'>", "name": "adam", "exc_info": "Traceback (most recent call last):\n  File \"/home/ToxicFartCloud/Projects/Adamv1/plugins/creative_cortex.py\", line 198, in run\n    enhanced_prompt = cortex._generate_enhanced_prompt(prompt, mode)\n  File \"/home/ToxicFartCloud/Projects/Adamv1/plugins/creative_cortex.py\", line 146, in _generate_enhanced_prompt\n    patterns = self.thought_patterns[mode]\n               ~~~~~~~~~~~~~~~~~~~~~^^^^^^\nKeyError: <CreativeMode.FIRST_PRINCIPLES: 'first_principles'>"}
+{"timestamp": "2025-09-29 13:41:17,937", "levelname": "INFO", "message": "Executing plugin creative_cortex with args: {'prompt': 'Write a short sci-fi story about a time-traveling cat.'}", "name": "adam"}
+{"timestamp": "2025-09-29 13:41:17,939", "levelname": "INFO", "message": "Model routing decision: creative \u2192 qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 13:41:17,939", "levelname": "INFO", "message": "model_router: selected qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 13:41:20,711", "levelname": "INFO", "message": "core: using local_llm (qwen2.5-coder-14b-q5km.gguf)", "name": "adam"}
+{"timestamp": "2025-09-29 13:41:20,711", "levelname": "INFO", "message": "creative_cortex: mode=cross_domain_fusion \u2192 0 chars using qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 13:57:18,735", "levelname": "INFO", "message": "Executing plugin agent_coder with args: {'prompt': 'Write a Python function that returns 42.'}", "name": "adam"}
+{"timestamp": "2025-09-29 13:57:18,735", "levelname": "INFO", "message": "Model routing decision: code \u2192 qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 13:57:18,735", "levelname": "INFO", "message": "model_router: selected qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 13:57:21,433", "levelname": "INFO", "message": "core: using local_llm (qwen2.5-coder-14b-q5km.gguf)", "name": "adam"}
+{"timestamp": "2025-09-29 13:57:21,433", "levelname": "INFO", "message": "agent_coder: generated 31 chars using qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 13:57:21,603", "levelname": "INFO", "message": "Executing plugin agent_critic with args: {'prompt': 'def add(a,b): return a+b', 'style': 'pep8'}", "name": "adam"}
+{"timestamp": "2025-09-29 13:57:21,604", "levelname": "INFO", "message": "Model routing decision: critique \u2192 qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 13:57:21,604", "levelname": "INFO", "message": "model_router: selected qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 13:57:25,630", "levelname": "INFO", "message": "core: using local_llm (qwen2.5-coder-14b-q5km.gguf)", "name": "adam"}
+{"timestamp": "2025-09-29 13:57:25,630", "levelname": "INFO", "message": "agent_critic: generated 88 chars using qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 13:57:25,797", "levelname": "INFO", "message": "Executing plugin agent_researcher with args: {'prompt': 'Compare transformers vs RNNs', 'depth': 'summary'}", "name": "adam"}
+{"timestamp": "2025-09-29 13:57:25,797", "levelname": "INFO", "message": "Model routing decision: research \u2192 qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 13:57:25,797", "levelname": "INFO", "message": "model_router: selected qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 13:57:28,645", "levelname": "INFO", "message": "core: using local_llm (qwen2.5-coder-14b-q5km.gguf)", "name": "adam"}
+{"timestamp": "2025-09-29 13:57:28,645", "levelname": "INFO", "message": "agent_researcher: produced 79 chars using qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 13:57:28,812", "levelname": "INFO", "message": "Executing plugin agent_tester with args: {'prompt': 'def add(a,b): return a+b', 'framework': 'pytest'}", "name": "adam"}
+{"timestamp": "2025-09-29 13:57:28,812", "levelname": "INFO", "message": "Model routing decision: test \u2192 qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 13:57:28,812", "levelname": "INFO", "message": "model_router: selected qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 13:57:30,815", "levelname": "INFO", "message": "core: using local_llm (qwen2.5-coder-14b-q5km.gguf)", "name": "adam"}
+{"timestamp": "2025-09-29 13:57:30,815", "levelname": "INFO", "message": "agent_tester: produced 0 chars using qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 13:57:30,979", "levelname": "INFO", "message": "Executing plugin creative_cortex with args: {'prompt': 'Write a short sci-fi story about a time-traveling cat.'}", "name": "adam"}
+{"timestamp": "2025-09-29 13:57:30,980", "levelname": "INFO", "message": "Model routing decision: creative \u2192 qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 13:57:30,980", "levelname": "INFO", "message": "model_router: selected qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-09-29 13:57:32,965", "levelname": "INFO", "message": "core: using local_llm (qwen2.5-coder-14b-q5km.gguf)", "name": "adam"}
+{"timestamp": "2025-09-29 13:57:32,965", "levelname": "INFO", "message": "creative_cortex: mode=cross_domain_fusion \u2192 0 chars using qwen2.5-coder-14b-q5km", "name": "adam"}
+{"timestamp": "2025-10-03 13:43:45,853", "levelname": "INFO", "message": "Self test log entry.", "name": "adam"}
+{"timestamp": "2025-10-03 13:43:45,853", "levelname": "INFO", "message": "Stub EmbeddingAdapter: embed_texts called.", "name": "adam"}
+{"timestamp": "2025-10-03 13:43:45,853", "levelname": "INFO", "message": "Stub VectorStoreAdapter: search called.", "name": "adam"}
+{"timestamp": "2025-10-03 13:49:41,814", "levelname": "INFO", "message": "Self test log entry.", "name": "adam"}
+{"timestamp": "2025-10-03 13:49:41,814", "levelname": "INFO", "message": "Stub EmbeddingAdapter: embed_texts called.", "name": "adam"}
+{"timestamp": "2025-10-03 13:49:41,814", "levelname": "INFO", "message": "Stub VectorStoreAdapter: search called.", "name": "adam"}
+{"timestamp": "2025-10-03 13:49:41,814", "levelname": "INFO", "message": "Lazy-loading plugin: memory_search", "name": "adam"}
+{"timestamp": "2025-10-03 13:49:41,815", "levelname": "ERROR", "message": "Failed to import plugin 'memory_search': No module named 'plugins.memory_search'; 'plugins' is not a package", "name": "adam"}
+{"timestamp": "2025-10-03 13:50:55,691", "levelname": "INFO", "message": "Self test log entry.", "name": "adam"}
+{"timestamp": "2025-10-03 13:50:55,691", "levelname": "INFO", "message": "Stub EmbeddingAdapter: embed_texts called.", "name": "adam"}
+{"timestamp": "2025-10-03 13:50:55,691", "levelname": "INFO", "message": "Stub VectorStoreAdapter: search called.", "name": "adam"}
+{"timestamp": "2025-10-03 13:50:55,691", "levelname": "INFO", "message": "Lazy-loading plugin: memory_search", "name": "adam"}
+{"timestamp": "2025-10-03 13:50:55,692", "levelname": "ERROR", "message": "Failed to import plugin 'memory_search': No module named 'plugins.memory_search'; 'plugins' is not a package", "name": "adam"}
+{"timestamp": "2025-10-03 13:58:36,705", "levelname": "INFO", "message": "Self test log entry.", "name": "adam"}
+{"timestamp": "2025-10-03 13:58:36,706", "levelname": "INFO", "message": "Stub EmbeddingAdapter: embed_texts called.", "name": "adam"}
+{"timestamp": "2025-10-03 13:58:36,706", "levelname": "INFO", "message": "Stub VectorStoreAdapter: search called.", "name": "adam"}
+{"timestamp": "2025-10-03 13:58:36,706", "levelname": "INFO", "message": "Lazy-loading plugin: memory_search", "name": "adam"}
+{"timestamp": "2025-10-03 13:58:39,064", "levelname": "INFO", "message": "[mock] memory_search: 'test mom' \u2192 3 results", "name": "adam"}
+{"timestamp": "2025-10-03 14:01:56,057", "levelname": "INFO", "message": "Self test log entry.", "name": "adam"}
+{"timestamp": "2025-10-03 14:01:56,057", "levelname": "INFO", "message": "Stub EmbeddingAdapter: embed_texts called.", "name": "adam"}
+{"timestamp": "2025-10-03 14:01:56,057", "levelname": "INFO", "message": "Stub VectorStoreAdapter: search called.", "name": "adam"}
+{"timestamp": "2025-10-03 14:01:56,057", "levelname": "INFO", "message": "Lazy-loading plugin: memory_search", "name": "adam"}
+{"timestamp": "2025-10-03 14:01:58,435", "levelname": "INFO", "message": "[mock] memory_search: 'test mom' \u2192 3 results", "name": "adam"}
+{"timestamp": "2025-10-03 14:02:40,093", "levelname": "INFO", "message": "Executing plugin memory_search with args: {'query': 'test'}", "name": "adam"}
+{"timestamp": "2025-10-03 14:02:40,093", "levelname": "INFO", "message": "Lazy-loading plugin: memory_search", "name": "adam"}
+{"timestamp": "2025-10-03 14:02:42,402", "levelname": "INFO", "message": "[mock] memory_search: 'test' \u2192 3 results", "name": "adam"}
+{"timestamp": "2025-10-03 14:03:33,114", "levelname": "INFO", "message": "Self test log entry.", "name": "adam"}
+{"timestamp": "2025-10-03 14:03:33,114", "levelname": "INFO", "message": "Stub EmbeddingAdapter: embed_texts called.", "name": "adam"}
+{"timestamp": "2025-10-03 14:03:33,114", "levelname": "INFO", "message": "Stub VectorStoreAdapter: search called.", "name": "adam"}
+{"timestamp": "2025-10-03 14:03:33,114", "levelname": "INFO", "message": "Lazy-loading plugin: memory_search", "name": "adam"}
+{"timestamp": "2025-10-03 14:03:35,470", "levelname": "INFO", "message": "[mock] memory_search: 'test mom' \u2192 3 results", "name": "adam"}
+{"timestamp": "2025-10-03 14:09:28,754", "levelname": "INFO", "message": "Self test log entry.", "name": "adam"}
+{"timestamp": "2025-10-03 14:09:28,755", "levelname": "INFO", "message": "Stub EmbeddingAdapter: embed_texts called.", "name": "adam"}
+{"timestamp": "2025-10-03 14:09:28,755", "levelname": "INFO", "message": "Stub VectorStoreAdapter: search called.", "name": "adam"}
+{"timestamp": "2025-10-03 14:09:28,755", "levelname": "INFO", "message": "Lazy-loading plugin: memory_search", "name": "adam"}
+{"timestamp": "2025-10-03 14:11:20,264", "levelname": "INFO", "message": "Got ask request: 'What plugins do I have available?'", "name": "adam"}
+{"timestamp": "2025-10-03 14:11:20,264", "levelname": "CRITICAL", "message": "unhandled error in main execution: PluginManager.run_plugin() takes 2 positional arguments but 3 were given", "name": "adam", "exc_info": "Traceback (most recent call last):\n  File \"/home/ToxicFartCloud/Projects/Adamv1/src/adam/core.py\", line 1186, in main\n    result = handle_ask_request(config, args)\n  File \"/home/ToxicFartCloud/Projects/Adamv1/src/adam/core.py\", line 700, in handle_ask_request\n    hardware_result = manager.run_plugin(\"hardware_audit\", {})\nTypeError: PluginManager.run_plugin() takes 2 positional arguments but 3 were given"}
+{"timestamp": "2025-10-03 14:17:32,220", "levelname": "INFO", "message": "Got ask request: 'test'", "name": "adam"}
+{"timestamp": "2025-10-03 14:17:32,220", "levelname": "CRITICAL", "message": "unhandled error in main execution: PluginManager.run_plugin() takes 2 positional arguments but 3 were given", "name": "adam", "exc_info": "Traceback (most recent call last):\n  File \"/home/ToxicFartCloud/Projects/Adamv1/src/adam/core.py\", line 1186, in main\n    result = handle_ask_request(config, args)\n  File \"/home/ToxicFartCloud/Projects/Adamv1/src/adam/core.py\", line 700, in handle_ask_request\n    hardware_result = manager.run_plugin(\"hardware_audit\", {})\nTypeError: PluginManager.run_plugin() takes 2 positional arguments but 3 were given"}
+{"timestamp": "2025-10-03 14:19:56,801", "levelname": "INFO", "message": "Got ask request: 'test'", "name": "adam"}
+{"timestamp": "2025-10-03 14:19:56,801", "levelname": "INFO", "message": "Lazy-loading plugin: hardware_audit", "name": "adam"}
+{"timestamp": "2025-10-03 14:19:56,834", "levelname": "INFO", "message": "Hardware audit report saved to logs/hardware_audit.json", "name": "adam"}
+{"timestamp": "2025-10-03 14:19:56,834", "levelname": "ERROR", "message": "Plugin 'model_download' not found in available plugins.", "name": "adam"}
+{"timestamp": "2025-10-03 14:19:56,834", "levelname": "INFO", "message": "Lazy-loading plugin: model_router", "name": "adam"}
+{"timestamp": "2025-10-03 14:19:56,834", "levelname": "INFO", "message": "Model routing decision: chat \u2192 light-condenser", "name": "adam"}
+{"timestamp": "2025-10-03 14:19:56,835", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-03 14:19:56,914", "levelname": "INFO", "message": "Stub EmbeddingAdapter: embed_texts called.", "name": "adam"}
+{"timestamp": "2025-10-03 14:19:56,914", "levelname": "INFO", "message": "Stub VectorStoreAdapter: search called.", "name": "adam"}
+{"timestamp": "2025-10-03 14:19:56,914", "levelname": "INFO", "message": "Model routing decision", "name": "adam"}
+{"timestamp": "2025-10-03 14:19:59,796", "levelname": "INFO", "message": "Lazy-loading plugin: memory_write", "name": "adam"}
+{"timestamp": "2025-10-03 14:26:48,479", "levelname": "INFO", "message": "Got ask request: 'how are you'", "name": "adam"}
+{"timestamp": "2025-10-03 14:26:48,479", "levelname": "INFO", "message": "Lazy-loading plugin: hardware_audit", "name": "adam"}
+{"timestamp": "2025-10-03 14:26:48,509", "levelname": "INFO", "message": "Hardware audit report saved to logs/hardware_audit.json", "name": "adam"}
+{"timestamp": "2025-10-03 14:26:48,509", "levelname": "ERROR", "message": "Plugin 'model_download' not found in available plugins.", "name": "adam"}
+{"timestamp": "2025-10-03 14:26:48,509", "levelname": "INFO", "message": "Lazy-loading plugin: model_router", "name": "adam"}
+{"timestamp": "2025-10-03 14:26:48,510", "levelname": "INFO", "message": "Model routing decision: chat \u2192 light-condenser", "name": "adam"}
+{"timestamp": "2025-10-03 14:26:48,510", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-03 14:26:48,573", "levelname": "INFO", "message": "Stub EmbeddingAdapter: embed_texts called.", "name": "adam"}
+{"timestamp": "2025-10-03 14:26:48,574", "levelname": "INFO", "message": "Stub VectorStoreAdapter: search called.", "name": "adam"}
+{"timestamp": "2025-10-03 14:26:48,574", "levelname": "INFO", "message": "Model routing decision", "name": "adam"}
+{"timestamp": "2025-10-03 14:26:51,029", "levelname": "INFO", "message": "Lazy-loading plugin: memory_write", "name": "adam"}
+{"timestamp": "2025-10-03 14:28:15,954", "levelname": "INFO", "message": "Got ask request: 'Write a Python function to calculate Fibonacci recursively'", "name": "adam"}
+{"timestamp": "2025-10-03 14:28:15,955", "levelname": "INFO", "message": "Lazy-loading plugin: hardware_audit", "name": "adam"}
+{"timestamp": "2025-10-03 14:28:15,985", "levelname": "INFO", "message": "Hardware audit report saved to logs/hardware_audit.json", "name": "adam"}
+{"timestamp": "2025-10-03 14:28:15,985", "levelname": "ERROR", "message": "Plugin 'model_download' not found in available plugins.", "name": "adam"}
+{"timestamp": "2025-10-03 14:28:15,985", "levelname": "INFO", "message": "Lazy-loading plugin: model_router", "name": "adam"}
+{"timestamp": "2025-10-03 14:28:15,985", "levelname": "INFO", "message": "Model routing decision: chat \u2192 light-condenser", "name": "adam"}
+{"timestamp": "2025-10-03 14:28:15,985", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-03 14:28:16,049", "levelname": "INFO", "message": "Stub EmbeddingAdapter: embed_texts called.", "name": "adam"}
+{"timestamp": "2025-10-03 14:28:16,049", "levelname": "INFO", "message": "Stub VectorStoreAdapter: search called.", "name": "adam"}
+{"timestamp": "2025-10-03 14:28:16,049", "levelname": "INFO", "message": "Model routing decision", "name": "adam"}
+{"timestamp": "2025-10-03 14:28:21,528", "levelname": "INFO", "message": "Lazy-loading plugin: memory_write", "name": "adam"}
+{"timestamp": "2025-10-03 14:28:47,460", "levelname": "INFO", "message": "Executing plugin hardware_audit with args: {}", "name": "adam"}
+{"timestamp": "2025-10-03 14:28:47,460", "levelname": "INFO", "message": "Lazy-loading plugin: hardware_audit", "name": "adam"}
+{"timestamp": "2025-10-03 14:28:47,490", "levelname": "INFO", "message": "Hardware audit report saved to logs/hardware_audit.json", "name": "adam"}
+{"timestamp": "2025-10-03 14:28:57,149", "levelname": "INFO", "message": "{\"event\": \"backend_starting\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-03 14:29:05,155", "levelname": "INFO", "message": "{\"event\": \"backend_timeout\", \"seconds\": 8}", "name": "adam"}
+{"timestamp": "2025-10-03 14:29:05,155", "levelname": "INFO", "message": "{\"event\": \"backend_unavailable\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-03 14:29:05,155", "levelname": "CRITICAL", "message": "unhandled error in main execution: name 'importlib' is not defined", "name": "adam", "exc_info": "Traceback (most recent call last):\n  File \"/home/ToxicFartCloud/Projects/Adamv1/src/adam/core.py\", line 1210, in main\n    return run_ui(app_host=args.ui_host, app_port=args.ui_port)\n  File \"/home/ToxicFartCloud/Projects/Adamv1/src/adam/core.py\", line 917, in run_ui\n    ui_mod = importlib.import_module(\"src.ui.app\")\n             ^^^^^^^^^\nNameError: name 'importlib' is not defined. Did you forget to import 'importlib'?"}
+{"timestamp": "2025-10-03 14:31:08,297", "levelname": "INFO", "message": "{\"event\": \"backend_starting\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-03 14:31:16,303", "levelname": "INFO", "message": "{\"event\": \"backend_timeout\", \"seconds\": 8}", "name": "adam"}
+{"timestamp": "2025-10-03 14:31:16,304", "levelname": "INFO", "message": "{\"event\": \"backend_unavailable\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-03 14:31:16,322", "levelname": "CRITICAL", "message": "unhandled error in main execution: main() got an unexpected keyword argument 'app_host'", "name": "adam", "exc_info": "Traceback (most recent call last):\n  File \"/home/ToxicFartCloud/Projects/Adamv1/src/adam/core.py\", line 1211, in main\n    return run_ui(app_host=args.ui_host, app_port=args.ui_port)\n  File \"/home/ToxicFartCloud/Projects/Adamv1/src/adam/core.py\", line 931, in run_ui\n    run_adam_ui(app_host=app_host, app_port=app_port)\n    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: main() got an unexpected keyword argument 'app_host'"}
+{"timestamp": "2025-10-03 14:33:19,361", "levelname": "INFO", "message": "{\"event\": \"backend_starting\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-03 14:33:27,370", "levelname": "INFO", "message": "{\"event\": \"backend_timeout\", \"seconds\": 8}", "name": "adam"}
+{"timestamp": "2025-10-03 14:33:27,370", "levelname": "INFO", "message": "{\"event\": \"backend_unavailable\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-03 14:33:27,385", "levelname": "CRITICAL", "message": "unhandled error in main execution: couldn't connect to display \":0\"", "name": "adam", "exc_info": "Traceback (most recent call last):\n  File \"/home/ToxicFartCloud/Projects/Adamv1/src/adam/core.py\", line 1226, in main\n    return run_ui(app_host=args.ui_host, app_port=args.ui_port)\n  File \"/home/ToxicFartCloud/Projects/Adamv1/src/adam/core.py\", line 944, in run_ui\n    root = tk.Tk()\n  File \"/usr/lib64/python3.13/tkinter/__init__.py\", line 2465, in __init__\n    self.tk = _tkinter.create(screenName, baseName, className, interactive, wantobjects, useTk, sync, use)\n              ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n_tkinter.TclError: couldn't connect to display \":0\""}
+{"timestamp": "2025-10-03 07:38:19,428", "levelname": "INFO", "message": "{\"event\": \"backend_starting\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-03 07:38:27,435", "levelname": "INFO", "message": "{\"event\": \"backend_timeout\", \"seconds\": 8}", "name": "adam"}
+{"timestamp": "2025-10-03 07:38:27,435", "levelname": "INFO", "message": "{\"event\": \"backend_unavailable\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-03 15:38:34,367", "levelname": "INFO", "message": "Got ask request: 'How do I reverse a string in Python?'", "name": "adam"}
+{"timestamp": "2025-10-03 15:38:34,367", "levelname": "INFO", "message": "Lazy-loading plugin: hardware_audit", "name": "adam"}
+{"timestamp": "2025-10-03 15:38:34,390", "levelname": "INFO", "message": "Hardware audit report saved to logs/hardware_audit.json", "name": "adam"}
+{"timestamp": "2025-10-03 15:38:34,390", "levelname": "ERROR", "message": "Plugin 'model_download' not found in available plugins.", "name": "adam"}
+{"timestamp": "2025-10-03 15:38:34,390", "levelname": "INFO", "message": "Lazy-loading plugin: model_router", "name": "adam"}
+{"timestamp": "2025-10-03 15:38:34,390", "levelname": "INFO", "message": "Model routing decision: task=code \u2192 model=light-condenser (Code task + moderate RAM \u2192 default model)", "name": "adam"}
+{"timestamp": "2025-10-03 15:38:34,390", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-03 15:38:39,393", "levelname": "CRITICAL", "message": "unhandled error in main execution: name 'logger' is not defined", "name": "adam", "exc_info": "Traceback (most recent call last):\n  File \"/home/ToxicFartCloud/Projects/Adamv1/src/adam/core.py\", line 504, in __init__\n    logger.info(f\"EmbeddingAdapter loaded with model '{model_name}'.\")\n    ^^^^^^\nNameError: name 'logger' is not defined\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/home/ToxicFartCloud/Projects/Adamv1/src/adam/core.py\", line 1173, in main\n    result = handle_ask_request(config, args)\n  File \"/home/ToxicFartCloud/Projects/Adamv1/src/adam/core.py\", line 692, in handle_ask_request\n    embedder_adapter = EmbeddingAdapter()\n  File \"/home/ToxicFartCloud/Projects/Adamv1/src/adam/core.py\", line 506, in __init__\n    logger.error(f\"Failed to load SentenceTransformer model: {e}\")\n    ^^^^^^\nNameError: name 'logger' is not defined"}
+{"timestamp": "2025-10-03 15:39:49,343", "levelname": "INFO", "message": "Got ask request: 'How do I reverse a string in Python?'", "name": "adam"}
+{"timestamp": "2025-10-03 15:39:49,343", "levelname": "INFO", "message": "Lazy-loading plugin: hardware_audit", "name": "adam"}
+{"timestamp": "2025-10-03 15:39:49,366", "levelname": "INFO", "message": "Hardware audit report saved to logs/hardware_audit.json", "name": "adam"}
+{"timestamp": "2025-10-03 15:39:49,366", "levelname": "ERROR", "message": "Plugin 'model_download' not found in available plugins.", "name": "adam"}
+{"timestamp": "2025-10-03 15:39:49,366", "levelname": "INFO", "message": "Lazy-loading plugin: model_router", "name": "adam"}
+{"timestamp": "2025-10-03 15:39:49,366", "levelname": "INFO", "message": "Model routing decision: task=code \u2192 model=light-condenser (Code task + moderate RAM \u2192 default model)", "name": "adam"}
+{"timestamp": "2025-10-03 15:39:49,366", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-03 15:39:51,028", "levelname": "INFO", "message": "EmbeddingAdapter loaded with model 'all-MiniLM-L6-v2'.", "name": "adam"}
+{"timestamp": "2025-10-03 15:39:51,251", "levelname": "INFO", "message": "VectorStoreAdapter connected to ChromaDB at '/home/ToxicFartCloud/Projects/Adamv1/vector_store'.", "name": "adam"}
+{"timestamp": "2025-10-03 15:39:51,575", "levelname": "INFO", "message": "Model routing decision", "name": "adam"}
+{"timestamp": "2025-10-03 15:39:54,169", "levelname": "INFO", "message": "Lazy-loading plugin: memory_write", "name": "adam"}
+{"timestamp": "2025-10-03 16:01:57,650", "levelname": "INFO", "message": "Got ask request: 'Hello!'", "name": "adam"}
+{"timestamp": "2025-10-03 16:01:57,650", "levelname": "INFO", "message": "Lazy-loading plugin: hardware_audit", "name": "adam"}
+{"timestamp": "2025-10-03 16:01:57,675", "levelname": "INFO", "message": "Hardware audit report saved to logs/hardware_audit.json", "name": "adam"}
+{"timestamp": "2025-10-03 16:01:57,675", "levelname": "ERROR", "message": "Plugin 'model_download' not found in available plugins.", "name": "adam"}
+{"timestamp": "2025-10-03 16:01:57,675", "levelname": "INFO", "message": "Lazy-loading plugin: model_router", "name": "adam"}
+{"timestamp": "2025-10-03 16:01:57,675", "levelname": "INFO", "message": "Model routing decision: task=chat \u2192 model=light-condenser (Simple task \u2192 handled by conductor model)", "name": "adam"}
+{"timestamp": "2025-10-03 16:01:59,367", "levelname": "INFO", "message": "EmbeddingAdapter loaded with model 'all-MiniLM-L6-v2'.", "name": "adam"}
+{"timestamp": "2025-10-03 16:01:59,461", "levelname": "INFO", "message": "VectorStoreAdapter connected to ChromaDB at '/home/ToxicFartCloud/Projects/Adamv1/vector_store'.", "name": "adam"}
+{"timestamp": "2025-10-03 16:01:59,640", "levelname": "INFO", "message": "Model routing decision", "name": "adam"}
+{"timestamp": "2025-10-03 16:01:59,640", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-03 16:02:01,006", "levelname": "INFO", "message": "Lazy-loading plugin: memory_write", "name": "adam"}
+{"timestamp": "2025-10-03 16:03:12,592", "levelname": "INFO", "message": "Got ask request: 'Write a Python function to calculate Fibonacci'", "name": "adam"}
+{"timestamp": "2025-10-03 16:03:12,592", "levelname": "INFO", "message": "Lazy-loading plugin: hardware_audit", "name": "adam"}
+{"timestamp": "2025-10-03 16:03:12,620", "levelname": "INFO", "message": "Hardware audit report saved to logs/hardware_audit.json", "name": "adam"}
+{"timestamp": "2025-10-03 16:03:12,620", "levelname": "ERROR", "message": "Plugin 'model_download' not found in available plugins.", "name": "adam"}
+{"timestamp": "2025-10-03 16:03:12,620", "levelname": "INFO", "message": "Lazy-loading plugin: model_router", "name": "adam"}
+{"timestamp": "2025-10-03 16:03:12,621", "levelname": "INFO", "message": "Model routing decision: task=code \u2192 model=mistral-7b-instruct-v0.3-q4_k_m (Complex task (code) \u2192 delegating to heavy model)", "name": "adam"}
+{"timestamp": "2025-10-03 16:03:12,621", "levelname": "CRITICAL", "message": "unhandled error in main execution: name 'resolve_model_path' is not defined", "name": "adam", "exc_info": "Traceback (most recent call last):\n  File \"/home/ToxicFartCloud/Projects/Adamv1/src/adam/core.py\", line 1170, in main\n    result = handle_ask_request(config, args)\n  File \"/home/ToxicFartCloud/Projects/Adamv1/src/adam/core.py\", line 685, in handle_ask_request\n    user_prompt = _condense_with_light(user_prompt, light_name, config)\n  File \"/home/ToxicFartCloud/Projects/Adamv1/src/adam/core.py\", line 440, in _condense_with_light\n    model_path = resolve_model_path(condenser_name)\n                 ^^^^^^^^^^^^^^^^^^\nNameError: name 'resolve_model_path' is not defined"}
+{"timestamp": "2025-10-03 16:05:25,538", "levelname": "INFO", "message": "Got ask request: 'Write a Python function to calculate Fibonacci'", "name": "adam"}
+{"timestamp": "2025-10-03 16:05:25,539", "levelname": "INFO", "message": "Lazy-loading plugin: hardware_audit", "name": "adam"}
+{"timestamp": "2025-10-03 16:05:25,562", "levelname": "INFO", "message": "Hardware audit report saved to logs/hardware_audit.json", "name": "adam"}
+{"timestamp": "2025-10-03 16:05:25,562", "levelname": "ERROR", "message": "Plugin 'model_download' not found in available plugins.", "name": "adam"}
+{"timestamp": "2025-10-03 16:05:25,562", "levelname": "INFO", "message": "Lazy-loading plugin: model_router", "name": "adam"}
+{"timestamp": "2025-10-03 16:05:25,563", "levelname": "INFO", "message": "Model routing decision: task=code \u2192 model=mistral-7b-instruct-v0.3-q4_k_m (Complex task (code) \u2192 delegating to heavy model)", "name": "adam"}
+{"timestamp": "2025-10-03 16:05:25,563", "levelname": "CRITICAL", "message": "unhandled error in main execution: name 'Path' is not defined", "name": "adam", "exc_info": "Traceback (most recent call last):\n  File \"/home/ToxicFartCloud/Projects/Adamv1/src/adam/core.py\", line 1180, in main\n    result = handle_ask_request(config, args)\n  File \"/home/ToxicFartCloud/Projects/Adamv1/src/adam/core.py\", line 695, in handle_ask_request\n    user_prompt = _condense_with_light(user_prompt, light_name, config)\n  File \"/home/ToxicFartCloud/Projects/Adamv1/src/adam/core.py\", line 450, in _condense_with_light\n    model_path = resolve_model_path(light_model_name or \"light-condenser\")\n  File \"/home/ToxicFartCloud/Projects/Adamv1/src/adam/core.py\", line 116, in resolve_model_path\n    base = Path(search_dir) / safe_name\n           ^^^^\nNameError: name 'Path' is not defined"}
+{"timestamp": "2025-10-03 16:06:25,107", "levelname": "INFO", "message": "Got ask request: 'Write a Python function to calculate Fibonacci'", "name": "adam"}
+{"timestamp": "2025-10-03 16:06:25,107", "levelname": "INFO", "message": "Lazy-loading plugin: hardware_audit", "name": "adam"}
+{"timestamp": "2025-10-03 16:06:25,130", "levelname": "INFO", "message": "Hardware audit report saved to logs/hardware_audit.json", "name": "adam"}
+{"timestamp": "2025-10-03 16:06:25,131", "levelname": "ERROR", "message": "Plugin 'model_download' not found in available plugins.", "name": "adam"}
+{"timestamp": "2025-10-03 16:06:25,131", "levelname": "INFO", "message": "Lazy-loading plugin: model_router", "name": "adam"}
+{"timestamp": "2025-10-03 16:06:25,131", "levelname": "INFO", "message": "Model routing decision: task=code \u2192 model=mistral-7b-instruct-v0.3-q4_k_m (Complex task (code) \u2192 delegating to heavy model)", "name": "adam"}
+{"timestamp": "2025-10-03 16:06:25,131", "levelname": "CRITICAL", "message": "unhandled error in main execution: name 'Path' is not defined", "name": "adam", "exc_info": "Traceback (most recent call last):\n  File \"/home/ToxicFartCloud/Projects/Adamv1/src/adam/core.py\", line 1180, in main\n    result = handle_ask_request(config, args)\n  File \"/home/ToxicFartCloud/Projects/Adamv1/src/adam/core.py\", line 695, in handle_ask_request\n    user_prompt = _condense_with_light(user_prompt, light_name, config)\n  File \"/home/ToxicFartCloud/Projects/Adamv1/src/adam/core.py\", line 450, in _condense_with_light\n    model_path = resolve_model_path(light_model_name or \"light-condenser\")\n  File \"/home/ToxicFartCloud/Projects/Adamv1/src/adam/core.py\", line 116, in resolve_model_path\n    base = Path(search_dir) / safe_name\n           ^^^^\nNameError: name 'Path' is not defined"}
+{"timestamp": "2025-10-03 16:09:43,095", "levelname": "INFO", "message": "Got ask request: 'Write a Python function to calculate Fibonacci'", "name": "adam"}
+{"timestamp": "2025-10-03 16:09:43,095", "levelname": "INFO", "message": "Lazy-loading plugin: hardware_audit", "name": "adam"}
+{"timestamp": "2025-10-03 16:09:43,117", "levelname": "INFO", "message": "Hardware audit report saved to logs/hardware_audit.json", "name": "adam"}
+{"timestamp": "2025-10-03 16:09:43,117", "levelname": "ERROR", "message": "Plugin 'model_download' not found in available plugins.", "name": "adam"}
+{"timestamp": "2025-10-03 16:09:43,117", "levelname": "INFO", "message": "Lazy-loading plugin: model_router", "name": "adam"}
+{"timestamp": "2025-10-03 16:09:43,117", "levelname": "INFO", "message": "Model routing decision: task=code \u2192 model=mistral-7b-instruct-v0.3-q4_k_m (Complex task (code) \u2192 delegating to heavy model)", "name": "adam"}
+{"timestamp": "2025-10-03 16:09:43,117", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-03 16:09:47,057", "levelname": "INFO", "message": "EmbeddingAdapter loaded with model 'all-MiniLM-L6-v2'.", "name": "adam"}
+{"timestamp": "2025-10-03 16:09:47,151", "levelname": "INFO", "message": "VectorStoreAdapter connected to ChromaDB at '/home/ToxicFartCloud/Projects/Adamv1/vector_store'.", "name": "adam"}
+{"timestamp": "2025-10-03 16:09:47,327", "levelname": "INFO", "message": "Model routing decision", "name": "adam"}
+{"timestamp": "2025-10-03 16:09:47,328", "levelname": "INFO", "message": "heavy_fallback", "name": "adam"}
+{"timestamp": "2025-10-03 16:09:47,328", "levelname": "INFO", "message": "model_router: selected mistral-7b-instruct-v0.3-q4_k_m", "name": "adam"}
+{"timestamp": "2025-10-03 16:09:47,328", "levelname": "WARNING", "message": "local_llm failed (Model not found: models/mistral-7b-instruct-v0.3-q4_k_m.gguf); falling back to ollama_llm", "name": "adam"}
+{"timestamp": "2025-10-03 16:09:47,328", "levelname": "INFO", "message": "Lazy-loading plugin: ollama_llm", "name": "adam"}
+{"timestamp": "2025-10-03 16:09:47,335", "levelname": "WARNING", "message": "Ollama call failed, using mock: Ollama API call failed: HTTP Error 404: Not Found", "name": "adam"}
+{"timestamp": "2025-10-03 16:09:47,335", "levelname": "INFO", "message": "core: using ollama_llm (mistral-7b-instruct-v0.3-q4_k_m)", "name": "adam"}
+{"timestamp": "2025-10-03 16:09:47,335", "levelname": "INFO", "message": "Lazy-loading plugin: memory_write", "name": "adam"}
+{"timestamp": "2025-10-03 16:11:39,002", "levelname": "INFO", "message": "Executing plugin hardware_audit with args: {}", "name": "adam"}
+{"timestamp": "2025-10-03 16:11:39,003", "levelname": "INFO", "message": "Lazy-loading plugin: hardware_audit", "name": "adam"}
+{"timestamp": "2025-10-03 16:11:39,025", "levelname": "INFO", "message": "Hardware audit report saved to logs/hardware_audit.json", "name": "adam"}
+{"timestamp": "2025-10-03 16:21:33,477", "levelname": "INFO", "message": "Got ask request: 'Write code'", "name": "adam"}
+{"timestamp": "2025-10-03 16:21:33,477", "levelname": "INFO", "message": "Lazy-loading plugin: hardware_audit", "name": "adam"}
+{"timestamp": "2025-10-03 16:21:33,500", "levelname": "INFO", "message": "Hardware audit report saved to logs/hardware_audit.json", "name": "adam"}
+{"timestamp": "2025-10-03 16:21:33,500", "levelname": "INFO", "message": "Lazy-loading plugin: model_registry", "name": "adam"}
+{"timestamp": "2025-10-03 16:21:33,501", "levelname": "INFO", "message": "Downloading optimal model: qwen2.5-14b-instruct-q4_k_m", "name": "adam"}
+{"timestamp": "2025-10-03 16:21:33,501", "levelname": "ERROR", "message": "Plugin 'model_download' not found in available plugins.", "name": "adam"}
+{"timestamp": "2025-10-03 16:21:33,501", "levelname": "ERROR", "message": "Model download failed: Plugin 'model_download' not found in available plugins.", "name": "adam"}
+{"timestamp": "2025-10-03 16:21:33,501", "levelname": "INFO", "message": "Lazy-loading plugin: model_router", "name": "adam"}
+{"timestamp": "2025-10-03 16:21:33,501", "levelname": "INFO", "message": "Model routing decision: task=code \u2192 model=qwen2.5-14b-instruct-q4_k_m (Complex task (code) \u2192 delegating to heavy model)", "name": "adam"}
+{"timestamp": "2025-10-03 16:21:33,501", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-03 16:21:37,892", "levelname": "INFO", "message": "EmbeddingAdapter loaded with model 'all-MiniLM-L6-v2'.", "name": "adam"}
+{"timestamp": "2025-10-03 16:21:37,994", "levelname": "INFO", "message": "VectorStoreAdapter connected to ChromaDB at '/home/ToxicFartCloud/Projects/Adamv1/vector_store'.", "name": "adam"}
+{"timestamp": "2025-10-03 16:21:38,168", "levelname": "INFO", "message": "Model routing decision", "name": "adam"}
+{"timestamp": "2025-10-03 16:21:38,168", "levelname": "INFO", "message": "heavy_fallback", "name": "adam"}
+{"timestamp": "2025-10-03 16:21:38,168", "levelname": "INFO", "message": "model_router: selected qwen2.5-14b-instruct-q4_k_m", "name": "adam"}
+{"timestamp": "2025-10-03 16:21:38,168", "levelname": "WARNING", "message": "local_llm failed (Model not found: models/qwen2.5-14b-instruct-q4_k_m.gguf); falling back to ollama_llm", "name": "adam"}
+{"timestamp": "2025-10-03 16:21:38,168", "levelname": "INFO", "message": "Lazy-loading plugin: ollama_llm", "name": "adam"}
+{"timestamp": "2025-10-03 16:21:38,175", "levelname": "WARNING", "message": "Ollama call failed, using mock: Ollama API call failed: HTTP Error 404: Not Found", "name": "adam"}
+{"timestamp": "2025-10-03 16:21:38,175", "levelname": "INFO", "message": "core: using ollama_llm (qwen2.5-14b-instruct-q4_k_m)", "name": "adam"}
+{"timestamp": "2025-10-03 16:21:38,175", "levelname": "INFO", "message": "Lazy-loading plugin: memory_write", "name": "adam"}
+{"timestamp": "2025-10-03 17:07:24,009", "levelname": "INFO", "message": "Executing plugin memory_summarize with args: {}", "name": "adam"}
+{"timestamp": "2025-10-03 17:07:24,009", "levelname": "INFO", "message": "Lazy-loading plugin: memory_summarize", "name": "adam"}
+{"timestamp": "2025-10-03 17:07:24,009", "levelname": "INFO", "message": "Starting memory summarization...", "name": "adam"}
+{"timestamp": "2025-10-03 17:07:24,532", "levelname": "INFO", "message": "ChromaVectorStore connected to collection 'adam_memory'.", "name": "adam"}
+{"timestamp": "2025-10-03 17:07:24,538", "levelname": "INFO", "message": "Retrieved 1 document chunks from memory.", "name": "adam"}
+{"timestamp": "2025-10-03 17:07:24,538", "levelname": "INFO", "message": "Calling local_llm plugin for summarization...", "name": "adam"}
+{"timestamp": "2025-10-03 17:07:24,538", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-03 17:07:24,564", "levelname": "ERROR", "message": "LLM summarization failed: Model not found: models/adam_offline.gguf", "name": "adam"}
+{"timestamp": "2025-10-03 17:09:41,215", "levelname": "INFO", "message": "Executing plugin ingest_document with args: {'file_path': 'doc1.txt'}", "name": "adam"}
+{"timestamp": "2025-10-03 17:09:41,215", "levelname": "INFO", "message": "Lazy-loading plugin: ingest_document", "name": "adam"}
+{"timestamp": "2025-10-03 17:09:41,278", "levelname": "INFO", "message": "Executing plugin ingest_document with args: {'file_path': 'doc2.txt'}", "name": "adam"}
+{"timestamp": "2025-10-03 17:09:41,278", "levelname": "INFO", "message": "Lazy-loading plugin: ingest_document", "name": "adam"}
+{"timestamp": "2025-10-03 17:10:00,117", "levelname": "INFO", "message": "Executing plugin memory_summarize with args: {}", "name": "adam"}
+{"timestamp": "2025-10-03 17:10:00,117", "levelname": "INFO", "message": "Lazy-loading plugin: memory_summarize", "name": "adam"}
+{"timestamp": "2025-10-03 17:10:00,117", "levelname": "INFO", "message": "Starting memory summarization...", "name": "adam"}
+{"timestamp": "2025-10-03 17:10:00,617", "levelname": "INFO", "message": "ChromaVectorStore connected to collection 'adam_memory'.", "name": "adam"}
+{"timestamp": "2025-10-03 17:10:00,622", "levelname": "INFO", "message": "Retrieved 1 document chunks from memory.", "name": "adam"}
+{"timestamp": "2025-10-03 17:10:00,622", "levelname": "INFO", "message": "Calling local_llm plugin for summarization...", "name": "adam"}
+{"timestamp": "2025-10-03 17:10:00,622", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-03 17:10:00,648", "levelname": "ERROR", "message": "LLM summarization failed: Model not found: models/adam_offline.gguf", "name": "adam"}
+{"timestamp": "2025-10-03 17:31:15,239", "levelname": "INFO", "message": "Executing plugin memory_summarize with args: {}", "name": "adam"}
+{"timestamp": "2025-10-03 17:31:15,240", "levelname": "INFO", "message": "Lazy-loading plugin: memory_summarize", "name": "adam"}
+{"timestamp": "2025-10-03 17:31:15,240", "levelname": "INFO", "message": "Starting memory summarization...", "name": "adam"}
+{"timestamp": "2025-10-03 17:31:15,750", "levelname": "INFO", "message": "ChromaVectorStore connected to collection 'adam_memory'.", "name": "adam"}
+{"timestamp": "2025-10-03 17:31:15,755", "levelname": "INFO", "message": "Retrieved 1 document chunks from memory.", "name": "adam"}
+{"timestamp": "2025-10-03 17:31:15,755", "levelname": "INFO", "message": "Calling local_llm plugin for summarization...", "name": "adam"}
+{"timestamp": "2025-10-03 17:31:15,755", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-03 17:31:15,779", "levelname": "ERROR", "message": "LLM summarization failed: Model not found: models/adam_offline.gguf", "name": "adam"}
+{"timestamp": "2025-10-03 17:33:27,094", "levelname": "INFO", "message": "Executing plugin memory_summarize with args: {}", "name": "adam"}
+{"timestamp": "2025-10-03 17:33:27,094", "levelname": "INFO", "message": "Lazy-loading plugin: memory_summarize", "name": "adam"}
+{"timestamp": "2025-10-03 17:33:27,094", "levelname": "INFO", "message": "Starting memory summarization...", "name": "adam"}
+{"timestamp": "2025-10-03 17:33:27,644", "levelname": "INFO", "message": "ChromaVectorStore connected to collection 'adam_memory'.", "name": "adam"}
+{"timestamp": "2025-10-03 17:33:27,649", "levelname": "INFO", "message": "Retrieved 1 document chunks from memory.", "name": "adam"}
+{"timestamp": "2025-10-03 17:33:27,649", "levelname": "INFO", "message": "Calling local_llm plugin for summarization...", "name": "adam"}
+{"timestamp": "2025-10-03 17:33:27,649", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-03 17:33:27,678", "levelname": "ERROR", "message": "Local LLM failed: name 'load_configuration' is not defined", "name": "adam", "exc_info": "Traceback (most recent call last):\n  File \"/home/ToxicFartCloud/Projects/Adamv1/plugins/local_llm.py\", line 87, in run\n    config = load_configuration()\n             ^^^^^^^^^^^^^^^^^^\nNameError: name 'load_configuration' is not defined"}
+{"timestamp": "2025-10-03 17:33:27,679", "levelname": "ERROR", "message": "LLM summarization failed: Local LLM failed: name 'load_configuration' is not defined", "name": "adam"}
+{"timestamp": "2025-10-03 17:36:04,589", "levelname": "INFO", "message": "Executing plugin memory_summarize with args: {}", "name": "adam"}
+{"timestamp": "2025-10-03 17:36:04,589", "levelname": "INFO", "message": "Lazy-loading plugin: memory_summarize", "name": "adam"}
+{"timestamp": "2025-10-03 17:36:04,589", "levelname": "INFO", "message": "Starting memory summarization...", "name": "adam"}
+{"timestamp": "2025-10-03 17:36:05,118", "levelname": "INFO", "message": "ChromaVectorStore connected to collection 'adam_memory'.", "name": "adam"}
+{"timestamp": "2025-10-03 17:36:05,123", "levelname": "INFO", "message": "Retrieved 1 document chunks from memory.", "name": "adam"}
+{"timestamp": "2025-10-03 17:36:05,123", "levelname": "INFO", "message": "Calling local_llm plugin for summarization...", "name": "adam"}
+{"timestamp": "2025-10-03 17:36:05,123", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-03 17:36:07,124", "levelname": "ERROR", "message": "Memory summarization failed: 'str' object has no attribute 'get'", "name": "adam", "exc_info": "Traceback (most recent call last):\n  File \"/home/ToxicFartCloud/Projects/Adamv1/plugins/memory_summarize.py\", line 87, in run\n    summary = llm_result.get(\"data\", {}).get(\"text\", \"Failed to generate a summary.\")\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAttributeError: 'str' object has no attribute 'get'"}
+{"timestamp": "2025-10-03 17:40:45,192", "levelname": "INFO", "message": "Executing plugin memory_summarize with args: {}", "name": "adam"}
+{"timestamp": "2025-10-03 17:40:45,192", "levelname": "INFO", "message": "Lazy-loading plugin: memory_summarize", "name": "adam"}
+{"timestamp": "2025-10-03 17:40:45,192", "levelname": "INFO", "message": "Starting memory summarization...", "name": "adam"}
+{"timestamp": "2025-10-03 17:40:45,726", "levelname": "INFO", "message": "ChromaVectorStore connected to collection 'adam_memory'.", "name": "adam"}
+{"timestamp": "2025-10-03 17:40:45,731", "levelname": "INFO", "message": "Retrieved 1 document chunks from memory.", "name": "adam"}
+{"timestamp": "2025-10-03 17:40:45,731", "levelname": "INFO", "message": "Calling local_llm plugin for summarization...", "name": "adam"}
+{"timestamp": "2025-10-03 17:40:45,731", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-03 17:40:48,579", "levelname": "ERROR", "message": "Memory summarization failed: 'str' object has no attribute 'get'", "name": "adam", "exc_info": "Traceback (most recent call last):\n  File \"/home/ToxicFartCloud/Projects/Adamv1/plugins/memory_summarize.py\", line 87, in run\n    summary = llm_result.get(\"data\", {}).get(\"text\", \"Failed to generate a summary.\")\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAttributeError: 'str' object has no attribute 'get'"}
+{"timestamp": "2025-10-03 18:11:23,961", "levelname": "INFO", "message": "Executing plugin memory_summarize with args: {}", "name": "adam"}
+{"timestamp": "2025-10-03 18:11:23,961", "levelname": "INFO", "message": "Lazy-loading plugin: memory_summarize", "name": "adam"}
+{"timestamp": "2025-10-03 18:11:23,961", "levelname": "INFO", "message": "Starting memory summarization...", "name": "adam"}
+{"timestamp": "2025-10-03 18:11:24,479", "levelname": "INFO", "message": "ChromaVectorStore connected to collection 'adam_memory'.", "name": "adam"}
+{"timestamp": "2025-10-03 18:11:24,484", "levelname": "INFO", "message": "Retrieved 1 document chunks from memory.", "name": "adam"}
+{"timestamp": "2025-10-03 18:11:24,484", "levelname": "INFO", "message": "Calling local_llm plugin for summarization...", "name": "adam"}
+{"timestamp": "2025-10-03 18:11:24,484", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-03 18:11:26,583", "levelname": "ERROR", "message": "Memory summarization failed: 'str' object has no attribute 'get'", "name": "adam", "exc_info": "Traceback (most recent call last):\n  File \"/home/ToxicFartCloud/Projects/Adamv1/plugins/memory_summarize.py\", line 87, in run\n    summary = llm_result.get(\"data\", {}).get(\"text\", \"Failed to generate a summary.\")\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAttributeError: 'str' object has no attribute 'get'"}
+{"timestamp": "2025-10-03 18:14:00,093", "levelname": "INFO", "message": "Executing plugin memory_summarize with args: {}", "name": "adam"}
+{"timestamp": "2025-10-03 18:14:00,093", "levelname": "INFO", "message": "Lazy-loading plugin: memory_summarize", "name": "adam"}
+{"timestamp": "2025-10-03 18:14:00,093", "levelname": "INFO", "message": "Starting memory summarization...", "name": "adam"}
+{"timestamp": "2025-10-03 18:14:00,609", "levelname": "INFO", "message": "ChromaVectorStore connected to collection 'adam_memory'.", "name": "adam"}
+{"timestamp": "2025-10-03 18:14:00,614", "levelname": "INFO", "message": "Retrieved 1 document chunks from memory.", "name": "adam"}
+{"timestamp": "2025-10-03 18:14:00,614", "levelname": "INFO", "message": "Calling local_llm plugin for summarization...", "name": "adam"}
+{"timestamp": "2025-10-03 18:14:00,615", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-03 18:14:02,644", "levelname": "INFO", "message": "Memory summarization completed successfully.", "name": "adam"}
+{"timestamp": "2025-10-03 18:14:44,736", "levelname": "INFO", "message": "Executing plugin memory_write.py with args: {}", "name": "adam"}
+{"timestamp": "2025-10-03 18:14:44,736", "levelname": "ERROR", "message": "Invalid plugin name format: 'memory_write.py'. Must be a valid Python identifier.", "name": "adam"}
+{"timestamp": "2025-10-03 18:15:53,448", "levelname": "INFO", "message": "Executing plugin memory_write with args: {}", "name": "adam"}
+{"timestamp": "2025-10-03 18:15:53,448", "levelname": "INFO", "message": "Lazy-loading plugin: memory_write", "name": "adam"}
+{"timestamp": "2025-10-03 18:31:17,578", "levelname": "INFO", "message": "Executing plugin backup_snapshot with args: {}", "name": "adam"}
+{"timestamp": "2025-10-03 18:31:17,578", "levelname": "INFO", "message": "Lazy-loading plugin: backup_snapshot", "name": "adam"}
+{"timestamp": "2025-10-03 18:31:17,579", "levelname": "ERROR", "message": "Plugin 'backup_snapshot' execution failed: run() missing 1 required positional argument: 'payload'", "name": "adam", "exc_info": "Traceback (most recent call last):\n  File \"/home/ToxicFartCloud/Projects/Adamv1/src/adam/plugin_manager.py\", line 135, in run_plugin\n    result = run_func(**kwargs)\nTypeError: run() missing 1 required positional argument: 'payload'"}
+{"timestamp": "2025-10-03 18:35:08,258", "levelname": "INFO", "message": "Loaded .gitignore patterns for exclusion.", "name": "adam"}
+{"timestamp": "2025-10-03 18:35:08,259", "levelname": "INFO", "message": "Creating snapshot: /home/ToxicFartCloud/Projects/Adamv1/snapshots/adam_snapshot_2025-10-03_18-35-08.zip", "name": "adam"}
+{"timestamp": "2025-10-03 18:37:06,076", "levelname": "INFO", "message": "Snapshot created successfully at /home/ToxicFartCloud/Projects/Adamv1/snapshots/adam_snapshot_2025-10-03_18-35-08.zip with 841 files.", "name": "adam"}
+{"timestamp": "2025-10-03 18:42:36,293", "levelname": "INFO", "message": "Self test log entry.", "name": "adam"}
+{"timestamp": "2025-10-03 18:48:03,365", "levelname": "INFO", "message": "Self test log entry.", "name": "adam"}
+{"timestamp": "2025-10-03 18:48:03,365", "levelname": "INFO", "message": "Lazy-loading plugin: model_router", "name": "adam"}
+{"timestamp": "2025-10-03 18:48:03,366", "levelname": "INFO", "message": "Model routing decision: task=chat \u2192 model=light-condenser (Simple task (chat) or hardware constraints \u2192 light model)", "name": "adam"}
+{"timestamp": "2025-10-03 18:48:03,366", "levelname": "INFO", "message": "Model routing decision: task=code \u2192 model=qwen2.5-14b-instruct-q4_k_m (Complex task (code) \u2192 best capable heavy model)", "name": "adam"}
+{"timestamp": "2025-10-03 18:48:07,919", "levelname": "INFO", "message": "SentenceTransformerEmbedder loaded with model 'all-MiniLM-L6-v2'.", "name": "adam"}
+{"timestamp": "2025-10-03 18:48:08,306", "levelname": "INFO", "message": "ChromaVectorStore connected to collection 'adam_memory'.", "name": "adam"}
+{"timestamp": "2025-10-03 18:48:08,475", "levelname": "INFO", "message": "Lazy-loading plugin: memory_write", "name": "adam"}
+{"timestamp": "2025-10-03 18:48:08,476", "levelname": "INFO", "message": "Writing to memory...", "name": "adam"}
+{"timestamp": "2025-10-03 18:48:10,150", "levelname": "INFO", "message": "SentenceTransformerEmbedder loaded with model 'all-MiniLM-L6-v2'.", "name": "adam"}
+{"timestamp": "2025-10-03 18:48:10,152", "levelname": "INFO", "message": "ChromaVectorStore connected to collection 'adam_memory'.", "name": "adam"}
+{"timestamp": "2025-10-03 18:48:10,222", "levelname": "INFO", "message": "Memory write successful.", "name": "adam"}

@@ -1,0 +1,23 @@
+fastapi==0.112.2
+uvicorn==0.30.6
+numpy==1.26.4
+psutil>=5.9.0
+PyYAML>=6.0
+rich>=13.7.0
+tqdm>=4.66.0
+packaging>=24.0
+
+# Inference backends (choose what you actually use; keep optional but pinned sanely)
+llama-cpp-python>=0.2.0
+ollama>=0.1.0
+
+# Vector / embedding store (CPU default)
+faiss-cpu>=1.7.0
+# faiss-gpu ; extra if you ship CUDA wheels separately
+
+# Optional: only if you’re doing model discovery/download
+huggingface-hub>=0.20.0
+# Optional: only if you allow online search (kept for dev; your runtime is offline-first)
+duckduckgo-search>=4.0.0
+
+# Note: tkinter comes from your OS Python (not pip). Ensure it’s installed system-wide.

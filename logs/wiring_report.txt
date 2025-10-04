@@ -1,0 +1,27 @@
+# Wiring Report (2025-09-20 22:23)
+Summary: IssuesFound(5)
+Inventory:
+  - Entrypoints: Adam.py (found), adam_base.py (found), Adamv2.py (found)
+  - Backend: server/app.py (found)
+  - UI: ui/UI.py (found)
+  - Plugins: count 7, registry exists
+  - Configs: config/adam.yaml exists
+  - Sidecars: sidecars/sled/* found
+Adamv2.py Wiring:
+  - sys.path bootstrap: missing; module relies on package-relative sled imports but never adds repo root
+  - ui.UI import: fails; launch_ui uses hardcoded subprocess call to /home/ToxicFartCloud/Projects/Adamv1/ui/UI.py instead of run_adam_ui
+  - Backend host/port default: uvicorn branch exposes whatever args provide (defaults 0.0.0.0:8010) and never targets server/app.py /v1/chat automatically
+  - Plugin search path: missing; no references to adam_tools.plugins or config/plugins.txt
+  - Default model path: duplicate --model_path flags with fallback /default/model/path outside models/
+Missing imports / bad paths:
+  - subprocess imported inside launch_ui and no top-level run_adam_ui import; repo root absent from sys.path prevents clean module imports
+  - Hardcoded UI absolute path prevents relocating repo or running from venv (Adamv2.py:254)
+Suggested config defaults:
+  - config/adam.yaml lacks default_model_path; add models/adam_offline.gguf to mirror orchestrator expectations
+Validator:
+  - scripts/validate_repo.py: ran (exit 1)
+  - Summary: missing project_tree.txt and gemini/runbooks/eval_cycle.md; pyenv shim warning emitted before FastAPI checks
+Proposed Patches (not applied unless --apply given):
+  - None (multiple wiring gaps need design alignment before safe patch)
+Notes:
+  - Required imports for future wiring: os, sys, socket, subprocess, time must live at module top (no inline imports)

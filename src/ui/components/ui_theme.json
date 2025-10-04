@@ -1,0 +1,10 @@
+{
+  "background": "#4858f4",
+  "panel": "#253b3a",
+  "panel_light": "#2c2c8e",
+  "border": "#3a3a5a",
+  "text_primary": "#e0e0ff",
+  "text_secondary": "#a0a0c0",
+  "accent": "#7f5af0",
+  "accent_fg": "#ffffff"
+}

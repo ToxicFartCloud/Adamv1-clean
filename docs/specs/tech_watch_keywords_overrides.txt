@@ -1,0 +1,16 @@
+# Tech Watch — Keyword Overrides (Add to tech_watch_config.json)
+# Purpose: Ensure HRM news/items are captured by the scanner.
+
++ Include the following in `keywords_any`:
+  - "HRM"
+  - "Hierarchical Reasoning Model"
+  - "hierarchical reasoning"
+  - "CEO-Worker"
+  - "nested loops"
+  - "adaptive compute"
+  - "halting"  # as in adaptive halting / early stopping
+  - "planner executor loop"
+  - "ARC-AGI"
+
+# Optional source filters (if supported):
+  - Medium (gedanken.thesis), arXiv, LangChain/LangGraph blogs, research labs (DeepMind, FAIR, MSR).

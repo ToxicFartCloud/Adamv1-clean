@@ -1,0 +1,14 @@
+Project: Adamv1
+
+1) With the agent running (see run_agent.sh), generate an MCP config:
+   cd "/home/ToxicFartCloud/Tools/mem-agent-mcp"
+   make generate-mcp-json
+
+2) Move or copy the generated mcp.json into this project:
+   cp mcp.json "/home/ToxicFartCloud/Projects/Adamv1/.mem/mcp.json"
+
+3) Point your MCP-capable client (Claude Desktop, LM Studio, etc.) at:
+   /home/ToxicFartCloud/Projects/Adamv1/.mem/mcp.json
+
+Optional: If the generator asks for a memory directory, choose:
+   /home/ToxicFartCloud/Projects/Adamv1/.mem/memory
