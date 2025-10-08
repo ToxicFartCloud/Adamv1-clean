@@ -3,31 +3,31 @@ import json
 import os
 import sys
 import re
+from pathlib import Path
 
-REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-os.chdir(REPO)
-sys.path.insert(0, REPO)
+REPO = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(REPO))
 
 
 def read(p):
     try:
-        with open(p, "r", encoding="utf-8") as f:
+        with open(REPO / p, "r", encoding="utf-8") as f:
             return f.read()
     except Exception:
         return None
 
 
 def exists(p):
-    return os.path.exists(p)
+    return (REPO / p).exists()
 
 
-def main():
-    report = {"repo": REPO, "exists": {}, "checks": [], "config": {}, "plugins": {}}
+def _build_report() -> dict:
+    report = {"repo": str(REPO), "exists": {}, "checks": [], "config": {}, "plugins": {}}
     paths = {
-        "launcher": "Adam.py",
-        "orchestrator": "adam_base.py",
-        "backend": "server/app.py",
-        "ui": "ui/UI.py",
+        "launcher": "run_adam.py",
+        "core": "src/adam/core.py",
+        "backend": "src/server/main.py",
+        "ui": "src/ui/app.py",
         "sled": "sidecars/sled/app.py",
         "plugins_list": "config/plugins.txt",
         "config_yaml": "config/adam.yaml",
@@ -35,43 +35,43 @@ def main():
     }
     for k, p in paths.items():
         report["exists"][k] = exists(p)
-    s = read("Adam.py") or ""
+    launcher_src = read("run_adam.py") or ""
     report["checks"].append(
         {
-            "name": "launcher_is_thin",
-            "ok": ("adam_base" in s and "uvicorn" not in s),
-            "details": "Adam.py should import adam_base and not contain FastAPI/uvicorn code.",
+            "name": "launcher_imports_core",
+            "ok": ("from adam.core import" in launcher_src or "import adam.core" in launcher_src),
+            "details": "run_adam.py should import the orchestrator and stay thin.",
         }
     )
-    ab = read("adam_base.py") or ""
+    core_src = read("src/adam/core.py") or ""
     report["checks"].append(
         {
-            "name": "orchestrator_has_run_ui",
-            "ok": ("def run_ui" in ab and "run_adam_ui" in ab),
-            "details": "adam_base should export run_ui and call ui/UI.py",
+            "name": "core_exports_run_ui",
+            "ok": ("def run_ui" in core_src and "ensure_backend" in core_src),
+            "details": "core.py should provide run_ui and ensure_backend.",
         }
     )
     report["checks"].append(
         {
-            "name": "orchestrator_has_ensure_backend",
-            "ok": ("def ensure_backend" in ab),
-            "details": "adam_base can autostart backend",
+            "name": "core_handles_plugins",
+            "ok": ("manager.run_plugin" in core_src),
+            "details": "core.py should delegate work through the plugin manager.",
         }
     )
-    ui = read("ui/UI.py") or ""
+    ui_src = read("src/ui/app.py") or ""
     report["checks"].append(
         {
-            "name": "ui_has_server_menu",
-            "ok": ("Server" in ui and "_start_backend" in ui and "_stop_backend" in ui),
-            "details": "UI should include Start/Stop or helpers",
+            "name": "ui_main_entry",
+            "ok": ("def main" in ui_src and "root.mainloop" in ui_src),
+            "details": "src/ui/app.py should expose the Tk main entry point.",
         }
     )
-    be = read("server/app.py") or ""
+    be = read("src/server/main.py") or ""
     report["checks"].append(
         {
             "name": "backend_has_admin_endpoints",
             "ok": (("/admin/health" in be) and ("/admin/shutdown" in be)),
-            "details": "server/app.py should expose admin endpoints",
+            "details": "src/server/main.py should expose admin endpoints",
         }
     )
     y = read("config/adam.yaml") or ""
@@ -95,8 +95,22 @@ def main():
     report["plugins"]["declared"] = plugins
     report["plugins"]["count"] = len(plugins)
     ok_all = all(c["ok"] for c in report["checks"])
-    print(json.dumps({"ok": ok_all, **report}, indent=2))
-    return 0 if ok_all else 1
+    report["ok"] = ok_all
+    return report
+
+
+def run(**_kwargs):
+    report = _build_report()
+    ok = report.get("ok", False)
+    data = report
+    error = None if ok else "Deep diagnostics failed."
+    return {"ok": ok, "data": data, "error": error}
+
+
+def main():
+    outcome = run()
+    print(json.dumps(outcome["data"], indent=2))
+    return 0 if outcome["ok"] else 1
 
 
 if __name__ == "__main__":

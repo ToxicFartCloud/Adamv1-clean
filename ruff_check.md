@@ -625,8 +625,8 @@ E701 Multiple statements on one line (colon)
 20 |            "models_dir":"models"}
 21 |     for k,p in paths.items(): report["exists"][k]=exists(p)
    |                             ^
-22 |     s = read("Adam.py") or ""
-23 |     report["checks"].append({"name":"launcher_is_thin",
+22 |     launcher_src = read("run_adam.py") or ""
+23 |     report["checks"].append({"name":"launcher_imports_core",
    |
 
 E702 Multiple statements on one line (semicolon)
@@ -687,26 +687,26 @@ E702 Multiple statements on one line (semicolon)
 18 |     os.chdir(REPO); sys.path.insert(0, REPO)
    |                   ^
 19 |     result = {"repo": REPO, "python": sys.executable, "steps": []}
-20 |     # adam_base import
+20 |     # core import
    |
 
 E701 Multiple statements on one line (colon)
   --> tools/diag_adam.py:22:8
    |
-20 |     # adam_base import
+20 |     # core import
 21 |     step = {"name":"launcher_import","ok":False,"details":""}
 22 |     try: step["ok"]=True
    |        ^
-23 |     except Exception as e: step["details"]=f"adam_base import failed: {e}"
+23 |     except Exception as e: step["details"]=f"core import failed: {e}"
 24 |     result["steps"].append(step)
    |
 
 E701 Multiple statements on one line (colon)
   --> tools/diag_adam.py:23:26
    |
-21 |     step = {"name":"launcher_import","ok":False,"details":""}
+21 |     step = {"name":"core_import","ok":False,"details":""}
 22 |     try: step["ok"]=True
-23 |     except Exception as e: step["details"]=f"adam_base import failed: {e}"
+23 |     except Exception as e: step["details"]=f"core import failed: {e}"
    |                          ^
 24 |     result["steps"].append(step)
 25 |     # run_ui present?
@@ -786,4 +786,3 @@ invalid-syntax: Expected `except` or `finally` after `try` block
 
 Found 74 errors.
 No fixes available (4 hidden fixes can be enabled with the `--unsafe-fixes` option).
-

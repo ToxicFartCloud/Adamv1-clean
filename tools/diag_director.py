@@ -13,3 +13,12 @@ def check(url: str = "http://127.0.0.1:8002") -> dict:
         ok = False
         errs.append(str(e))
     return {"ok": ok, "errors": errs}
+
+
+def run(**kwargs):
+    url = kwargs.get("url", "http://127.0.0.1:8002")
+    result = check(url)
+    ok = result.get("ok", False)
+    errors = result.get("errors") or []
+    error_msg = None if ok else "; ".join(errors) or "Unknown error"
+    return {"ok": ok, "data": {"url": url, **result}, "error": error_msg}

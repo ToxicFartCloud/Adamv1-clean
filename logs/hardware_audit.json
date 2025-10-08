@@ -4,7 +4,7 @@
   "data": {
     "os": {
       "system": "Linux",
-      "release": "6.16.4-108.bazzite.fc42.x86_64",
+      "release": "6.16.4-114.bazzite.fc42.x86_64",
       "machine": "x86_64",
       "is_macos": false,
       "is_ios": false,

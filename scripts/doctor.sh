@@ -7,7 +7,7 @@ check(){ local name="$1" ; shift
 }
 
 # 1) Adam self-test
-check "Adam self-test" bash -lc "cd \"$BASE\" && python3 Adam.py --self-test >/dev/null 2>&1"
+check "Adam self-test" bash -lc "cd \"$BASE\" && python3 run_adam.py --self-test >/dev/null 2>&1"
 
 # 2) Config present
 check "config/adam.yaml exists" test -f "$BASE/config/adam.yaml"

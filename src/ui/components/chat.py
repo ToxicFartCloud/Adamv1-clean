@@ -149,9 +149,13 @@ def _attach_chat_methods(app) -> None:
         "_update_scroll_button": _update_scroll_button,
         "_scroll_to_bottom": _scroll_to_bottom,
         "_toolbar_responsive": _toolbar_responsive,
+        "set_status": _set_status,
     }
     for name, func in methods.items():
         setattr(app, name, MethodType(func, app))
+    # Install a local bubble renderer only if none exists
+    if not hasattr(app, "_bubble"):
+        setattr(app, "_bubble", MethodType(_bubble_fallback, app))
 
 
 # --- Chat Area ---
@@ -170,6 +174,32 @@ def _build_chat_area(self) -> None:
     top = tk.Frame(container, bg=colors["background"])
     top.grid(row=0, column=0, sticky="ew", pady=(0, pad["inner"]))
     top.grid_columnconfigure(0, weight=1)
+
+    status_frame = tk.Frame(top, bg=colors["background"])
+    status_frame.pack(side="left", padx=(pad.get("inner", 8), pad.get("inner", 8)))
+
+    self.status_dot = tk.Label(
+        status_frame,
+        text="●",
+        bg=colors["background"],
+        fg=colors.get("status_idle", "#94a3b8"),
+        font=fonts.get("subtitle", fonts.get("body")),
+    )
+    self.status_dot.pack(side="left", padx=(0, 4))
+
+    self.status_label = tk.Label(
+        status_frame,
+        text="Checking…",
+        bg=colors["background"],
+        fg=colors["text_secondary"],
+        font=fonts["body"],
+    )
+    self.status_label.pack(side="left", padx=(0, pad.get("inner", 8)))
+
+    try:
+        self.set_status("idle", "Checking…")
+    except Exception:
+        pass
 
     # Search controls
     search_wrap = tk.Frame(top, bg=colors["background"])
@@ -323,6 +353,24 @@ def _build_chat_area(self) -> None:
     top.bind("<Configure>", _on_configure)
     self._toolbar_responsive()  # Initial layout
 
+    # Parameters panel (hidden by default)
+    self.params_frame = RoundedFrame(container, bg=colors["panel"])
+    params_body = tk.Frame(self.params_frame, bg=colors["panel"])
+    params_body.pack(fill="both", expand=True, padx=pad.get("inner", 6), pady=pad.get("inner", 6))
+    try:
+        _build_params_panel(self, params_body)
+    except Exception:
+        pass
+    self.params_frame.grid(
+        row=1,
+        column=0,
+        sticky="ew",
+        padx=pad.get("outer", 16),
+        pady=(0, pad.get("inner", 6)),
+    )
+    self.params_frame.grid_remove()
+    self._params_open = False
+
     chat_wrapper = RoundedFrame(container, bg=colors["panel_light"])
     chat_wrapper.grid(row=2, column=0, sticky="nsew")
     chat_body = tk.Frame(chat_wrapper, bg=colors["panel_light"])
@@ -347,6 +395,33 @@ def _build_chat_area(self) -> None:
 
     self.chat_canvas.pack(side="left", fill="both", expand=True)
     scrollbar.pack(side="right", fill="y")
+
+    # Floating “Scroll to latest” button (created once, hidden by default)
+    self._jump_btn = RoundedButton(
+        chat_wrapper,
+        text="▼  New messages",
+        command=self._scroll_to_bottom,
+        bg=colors["accent"],
+        fg=colors["accent_fg"],
+        font=fonts["button"],
+    )
+    self._jump_btn.place_forget()
+    # Update show/hide on scroll and size changes
+    self.chat_canvas.bind(
+        "<Configure>", lambda _e: self._update_scroll_button(), add="+"
+    )
+    self.chat_canvas.bind(
+        "<Enter>", lambda _e: self._update_scroll_button(), add="+"
+    )
+    self.chat_canvas.bind(
+        "<Leave>", lambda _e: self._update_scroll_button(), add="+"
+    )
+    for ev in ("<MouseWheel>", "<Button-4>", "<Button-5>"):
+        self.chat_canvas.bind(
+            ev,
+            lambda _e: (self.chat_canvas.after(0, self._update_scroll_button)),
+            add="+",
+        )
 
     print("DEBUG: _build_chat_area completed")
     # Process any pending messages...
@@ -494,16 +569,18 @@ def _build_input_area(self) -> None:
     self.input_frame.grid_columnconfigure(0, weight=1)
 
     entry_frame = RoundedFrame(
-        self.input_frame, bg=colors["panel"], radius=STYLE.get("radius", 8)
+        self.input_frame,
+        bg=colors.get("composer_bg", colors["panel"]),
+        radius=STYLE.get("radius", 8),
     )
-    entry_body = tk.Frame(entry_frame, bg=colors["panel"])
+    entry_body = tk.Frame(entry_frame, bg=colors.get("composer_bg", colors["panel"]))
     entry_body.pack(fill="both", expand=True)
 
     self.entry = tk.Text(
         entry_body,
         height=3,
         wrap="word",
-        bg=colors["panel"],
+        bg=colors.get("composer_bg", colors["panel"]),
         fg=colors["text_primary"],
         insertbackground=colors["text_primary"],
         relief="flat",
@@ -515,6 +592,40 @@ def _build_input_area(self) -> None:
     )
     self.entry.pack(fill="x", padx=2, pady=2)
     self._attach_context_menu(self.entry)
+    # Send on Enter; keep newline on Shift+Enter (handled in _handle_return)
+    self.entry.bind("<Return>", self._handle_return, add="+")
+    self.entry.bind("<Control-Return>", self._handle_return, add="+")
+    self.entry.bind("<Command-Return>", self._handle_return, add="+")
+
+    # --- Placeholder (look-only): "Message Adam…" in muted tint ---
+    self._has_placeholder = False
+    _ph_text = "Message Adam…"
+    _ph_fg = colors.get(
+        "composer_placeholder", colors.get("text_secondary", "#94a3b8")
+    )
+    _text_fg = colors.get("text_primary", "#e6e6f0")
+
+    def _apply_placeholder():
+        if self.entry.get("1.0", "end").strip():
+            return
+        self._has_placeholder = True
+        self.entry.configure(fg=_ph_fg, insertbackground=_ph_fg)
+        self.entry.delete("1.0", "end")
+        self.entry.insert("1.0", _ph_text)
+
+    def _clear_placeholder(_e=None):
+        if self._has_placeholder:
+            self.entry.delete("1.0", "end")
+        self._has_placeholder = False
+        self.entry.configure(fg=_text_fg, insertbackground=_text_fg)
+
+    def _maybe_restore_placeholder(_e=None):
+        if not self.entry.get("1.0", "end").strip():
+            _apply_placeholder()
+
+    self.entry.bind("<FocusIn>", _clear_placeholder, add="+")
+    self.entry.bind("<FocusOut>", _maybe_restore_placeholder, add="+")
+    _apply_placeholder()
 
     entry_frame.grid(row=0, column=0, sticky="nsew")
 
@@ -733,6 +844,112 @@ def _on_copy_code(self, msg_id: int) -> None:
         code_blocks = extract_code_blocks(record.get("text", ""))
         if code_blocks:
             self._copy_to_clipboard("\n\n".join(code_blocks))
+
+
+def _set_status(self, mode: str = "idle", text: str | None = None) -> None:
+    colors = STYLE.get("colors", {})
+    dot = getattr(self, "status_dot", None)
+    label = getattr(self, "status_label", None)
+    color = colors.get(f"status_{mode}", colors.get("status_idle", "#94a3b8"))
+
+    if dot is not None:
+        try:
+            dot.configure(fg=color)
+        except Exception:
+            pass
+
+    if text is not None and label is not None:
+        try:
+            label.configure(text=text)
+        except Exception:
+            pass
+
+
+# Role-aware bubble render (fallback). Uses STYLE tokens only.
+def _bubble_fallback(self, role: str, text: str) -> None:
+    pad = STYLE["spacing"]
+    colors = STYLE["colors"]
+    fonts = STYLE["fonts"]
+
+    parent = getattr(self, "chat_log", None)
+    if parent is None or not parent.winfo_exists():
+        return
+
+    # Row container (lets us align left/right cleanly)
+    row = tk.Frame(parent, bg=colors.get("panel_light", "#222230"))
+    row.pack(fill="x", padx=pad.get("inner", 8), pady=pad.get("inner", 8))
+
+    is_user = role == "user"
+    bubble_bg = colors.get(
+        "bubble_user_bg" if is_user else "bubble_assistant_bg",
+        colors.get("panel", "#222230"),
+    )
+    bubble_fg = colors.get(
+        "bubble_user_fg" if is_user else "bubble_assistant_fg",
+        colors.get("text_primary", "#e6e6f0"),
+    )
+    bubble_hover_bg = colors.get(
+        "bubble_user_bg_hover" if is_user else "bubble_assistant_bg_hover",
+        bubble_bg,
+    )
+
+    # Bubble frame
+    bubble_wrap = tk.Frame(row, bg=row["bg"])
+    bubble_wrap.pack(fill="x")
+    side = "right" if is_user else "left"
+
+    bubble = RoundedFrame(
+        bubble_wrap,
+        bg=bubble_bg,
+        bordercolor=colors.get("border", "#242d40"),
+    )
+    bubble.pack(side=side, padx=pad.get("inner", 8), pady=0)
+
+    # Hover effect for the bubble and its children
+    def _on_enter(_e=None):
+        try:
+            bubble.configure(bg=bubble_hover_bg)
+            for widget in bubble.winfo_children():
+                try:
+                    widget.configure(bg=bubble_hover_bg)
+                except Exception:
+                    pass
+        except Exception:
+            pass
+
+    def _on_leave(_e=None):
+        try:
+            bubble.configure(bg=bubble_bg)
+            for widget in bubble.winfo_children():
+                try:
+                    widget.configure(bg=bubble_bg)
+                except Exception:
+                    pass
+        except Exception:
+            pass
+
+    body = tk.Label(
+        bubble,
+        text=text or "",
+        wraplength=860,
+        justify="left",
+        anchor="w",
+        bg=bubble_bg,
+        fg=bubble_fg,
+        font=fonts.get("body"),
+    )
+    body.pack(padx=pad.get("inner", 8), pady=pad.get("inner", 8))
+
+    for widget in (bubble, body):
+        widget.bind("<Enter>", _on_enter)
+        widget.bind("<Leave>", _on_leave)
+
+    try:
+        self.chat_canvas.update_idletasks()
+        self.chat_canvas.configure(scrollregion=self.chat_canvas.bbox("all"))
+        self._scroll_to_bottom()
+    except Exception:
+        pass
 
 
 # --- Scrolling ---

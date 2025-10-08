@@ -1,0 +1,378 @@
+.
+├── adam.spec
+├── archive
+│   ├── must_have(remove_for_final)
+│   │   ├── Adam_Add_UI.pdf
+│   │   ├── Agent2Agent_Protocol.pdf
+│   │   └── director_success_gates.md
+│   └── ui_web
+│       └── app.js
+├── best_coding_model.txt
+├── build system requires.txt
+├── config
+│   ├── adam.yaml
+│   ├── mcp
+│   │   └── registry.local.json
+│   ├── models.yaml
+│   ├── plugins.sled.yaml
+│   ├── plugins.txt
+│   └── tei
+│       └── README.md
+├── data
+│   └── agent_state.json
+├── Dockerfile
+├── docs
+│   ├── context
+│   │   ├── Adam_Architecture(Conceptual).txt
+│   │   ├── Adam — Project Guidelines & Living Docs.docx
+│   │   ├── Adam — Project Guidelines & Living Docs.md
+│   │   ├── adam_system_flow_diagram.html
+│   │   ├── coding_for_adam.md
+│   │   ├── frontend.md
+│   │   └── _template
+│   │       └── CONTEXT.md
+│   ├── DECISIONS.md
+│   ├── prompts
+│   │   ├── README.md
+│   │   ├── T1-anythingllm-port-map.md
+│   │   ├── T2-api-contract.md
+│   │   ├── T3-provider-ollama.md
+│   │   ├── T4-rag-pipeline.md
+│   │   └── T5-tools-mcp.md
+│   ├── runbooks
+│   │   ├── completed
+│   │   ├── MCP_SETUP.md
+│   │   ├── mem-agent.md
+│   │   ├── PLUGINS_GUIDE.md
+│   │   ├── README.md
+│   │   ├── SLED_SETUP.md
+│   │   └── ui-hosting-smoke.md
+│   ├── specs
+│   │   ├── adam_network_layout.txt
+│   │   ├── adrs
+│   │   │   └── ADR-0001-template.md
+│   │   ├── anythingllm-port-map.md
+│   │   ├── api-contracts.md
+│   │   ├── external_tester_bot_spec.txt
+│   │   ├── future_references.txt
+│   │   ├── GMKtec_Offload_Server_Checklist.md
+│   │   ├── GMKtec_Offload_Server_Checklist.txt
+│   │   ├── keep_an_eye_on.txt
+│   │   ├── market_watcher_bot_spec.txt
+│   │   ├── mini_distillation_spec.txt
+│   │   ├── model_router_policy_spec.txt
+│   │   ├── observe_eval_spec.txt
+│   │   ├── packaging_spec.txt
+│   │   ├── prompt_optimization_loop_spec.txt
+│   │   ├── provider-ollama.md
+│   │   ├── rag-pipeline.md
+│   │   ├── rag_starter_spec.txt
+│   │   ├── README.md
+│   │   ├── remote_access_spec.txt
+│   │   ├── runbook_market_watch_spec.txt
+│   │   ├── task_index.txt
+│   │   ├── tech_watch_bot_spec.txt
+│   │   ├── tech_watch_keywords_overrides.txt
+│   │   ├── third_party
+│   │   │   └── anythingllm
+│   │   │       └── ANYTHINGLLM_LICENSE.txt
+│   │   ├── tools-mcp.md
+│   │   └── ui-hosting.md
+│   └── zip
+│       ├── Adam_Context_Notes_Pack.zip
+│       ├── adam_runbooks.zip
+│       └── sled_pilot.zip
+├── eval
+│   ├── director_eval.jsonl
+│   ├── evaluations.jsonl
+│   ├── feedback_tags.json
+│   ├── items.jsonl
+│   ├── README.md
+│   ├── run.py
+│   └── tasks.jsonl
+├── LICENSE
+├── logs
+│   ├── adam.log
+│   ├── audit.jsonl
+│   ├── backend.log
+│   ├── creative_cortex.log
+│   ├── hardware_audit.json
+│   ├── mcp_server.log
+│   ├── memory.log
+│   ├── memory_search.log
+│   ├── memory_summarize.log
+│   ├── ollama_llm.log
+│   ├── plugins
+│   │   └── sled_client.log
+│   ├── sled_server.jsonl
+│   ├── snapshot.log
+│   └── wiring_report.txt
+├── models
+│   ├── DeepSeek-Coder-V2-Lite-Instruct-Q8_0.gguf
+│   ├── light-condenser.gguf
+│   ├── meta-llama-3-70b-instruct.Q4_K_M.gguf
+│   ├── Qwen2.5-Coder-14B-Q5_K_M.gguf
+│   ├── qwen2.5-coder-14b-q5km.gguf -> DeepSeek-Coder-V2-Lite-Instruct-Q8_0.gguf
+│   └── Qwen2.5-Coder-32B-Instruct-Q4_K_M.gguf
+├── packaging
+│   ├── adam.desktop
+│   └── adam.spec
+├── plugins
+│   ├── agent_coder.py
+│   ├── agent_critic.py
+│   ├── agent_interpreter.py
+│   ├── agent_researcher.py
+│   ├── agent_router.py
+│   ├── agent_tester.py
+│   ├── creative_cortex.py
+│   ├── example_echo.py
+│   ├── group_chat.py
+│   ├── hardware_audit.py
+│   ├── ingest_document.py
+│   ├── __init__.py
+│   ├── local_llm.py
+│   ├── memory_search.py
+│   ├── memory_summarize.py
+│   ├── memory_write.py
+│   ├── model_registry.py
+│   ├── model_router.py
+│   ├── mode_registry_web.py
+│   ├── nsp_supervisor.py
+│   ├── ollama_llm.py
+│   ├── __pycache__
+│   │   ├── hardware_audit.cpython-313.pyc
+│   │   ├── local_llm.cpython-313.pyc
+│   │   ├── memory_write.cpython-313.pyc
+│   │   ├── model_router.cpython-313.pyc
+│   │   └── ollama_llm.cpython-313.pyc
+│   ├── README.md
+│   └── sled_client.py
+├── Project Index.md
+├── pyproject.toml
+├── README.md
+├── requirements.txt
+├── ruff_check.md
+├── run_adam.py
+├── run_ui.py
+├── scripts
+│   ├── automation
+│   │   ├── adamctl
+│   │   ├── adam-diag.service
+│   │   ├── auto_snapshot.sh
+│   │   ├── ci_smoke_runner.py
+│   │   ├── diag_cron.sh
+│   │   ├── eval_runner.py
+│   │   └── proposal_worker.py
+│   ├── diagnostics
+│   ├── doctor.sh
+│   ├── fix_imports.py
+│   ├── lint.sh
+│   ├── ui_doctor.sh
+│   └── validate_repo.py
+├── server
+│   └── requirements.txt
+├── SHA256SUMS.txt
+├── sidecars
+│   ├── director
+│   │   ├── model_director.py
+│   │   ├── planner.py
+│   │   ├── registry.py
+│   │   ├── task_routing.py
+│   │   └── yaml_compat.py
+│   ├── github_publisher
+│   │   ├── adapter.py
+│   │   └── __init__.py
+│   ├── __init__.py
+│   └── sled
+│       ├── app.py
+│       ├── __init__.py
+│       └── sled_decode.py
+├── src
+│   ├── adam
+│   │   ├── adapters
+│   │   │   ├── adapters.py
+│   │   │   ├── __init__.py
+│   │   │   └── __pycache__
+│   │   │       └── __init__.cpython-313.pyc
+│   │   ├── backends
+│   │   │   ├── base.py
+│   │   │   ├── chroma.py
+│   │   │   ├── faiss.py
+│   │   │   ├── __init__.py
+│   │   │   └── mock.py
+│   │   ├── core.py
+│   │   ├── health.py
+│   │   ├── __init__.py
+│   │   ├── integrations
+│   │   │   ├── director_client.py
+│   │   │   └── __init__.py
+│   │   ├── logs
+│   │   │   └── adam.log
+│   │   ├── plugin_manager.py
+│   │   ├── plugins.py
+│   │   ├── __pycache__
+│   │   │   ├── core.cpython-313.pyc
+│   │   │   ├── __init__.cpython-313.pyc
+│   │   │   ├── plugin_manager.cpython-313.pyc
+│   │   │   └── tools.cpython-313.pyc
+│   │   ├── tools.py
+│   │   └── utils
+│   │       ├── config.py
+│   │       ├── embedder.py
+│   │       ├── hardware_audit_legacy.py
+│   │       ├── hardware_audit.py
+│   │       ├── __init__.py
+│   │       ├── plugin_utils.py
+│   │       ├── __pycache__
+│   │       │   ├── hardware_audit.cpython-313.pyc
+│   │       │   ├── __init__.cpython-313.pyc
+│   │       │   └── token_counter.cpython-313.pyc
+│   │       ├── token_counter.py
+│   │       └── tool_base.py
+│   ├── adam.egg-info
+│   │   ├── dependency_links.txt
+│   │   ├── entry_points.txt
+│   │   ├── PKG-INFO
+│   │   ├── requires.txt
+│   │   ├── SOURCES.txt
+│   │   └── top_level.txt
+│   ├── config
+│   │   ├── __init__.py
+│   │   └── memory_config.yaml
+│   ├── data
+│   │   └── __init__.py
+│   ├── logs
+│   │   └── __init__.py
+│   ├── server
+│   │   ├── config_loader.py
+│   │   ├── __init__.py
+│   │   ├── main.py
+│   │   ├── __pycache__
+│   │   │   ├── config_loader.cpython-313.pyc
+│   │   │   ├── __init__.cpython-313.pyc
+│   │   │   └── main.cpython-313.pyc
+│   │   └── ui
+│   │       ├── assets
+│   │       │   ├── Adam.ico
+│   │       │   ├── favicon.ico
+│   │       │   ├── script.js
+│   │       │   └── style.css
+│   │       └── index.html
+│   ├── ui
+│   │   ├── app.py
+│   │   ├── assets
+│   │   │   ├── Adam.ico
+│   │   │   ├── Adam.png
+│   │   │   ├── favicon.ico
+│   │   │   ├── __init__.py
+│   │   │   └── screen.png
+│   │   ├── chats.json
+│   │   ├── components
+│   │   │   ├── chat.py
+│   │   │   ├── history.py
+│   │   │   ├── __init__.py
+│   │   │   ├── layout.py
+│   │   │   ├── menu.py
+│   │   │   ├── model_selector.py
+│   │   │   ├── model_sync.py
+│   │   │   ├── __pycache__
+│   │   │   │   ├── chat.cpython-313.pyc
+│   │   │   │   ├── history.cpython-313.pyc
+│   │   │   │   ├── __init__.cpython-313.pyc
+│   │   │   │   ├── layout.cpython-313.pyc
+│   │   │   │   ├── model_selector.cpython-313.pyc
+│   │   │   │   ├── model_sync.cpython-313.pyc
+│   │   │   │   ├── renderer.cpython-313.pyc
+│   │   │   │   ├── search.cpython-313.pyc
+│   │   │   │   ├── settings.cpython-313.pyc
+│   │   │   │   ├── shortcuts.cpython-313.pyc
+│   │   │   │   ├── sidebar.cpython-313.pyc
+│   │   │   │   ├── style.cpython-313.pyc
+│   │   │   │   ├── theme.cpython-313.pyc
+│   │   │   │   └── widgets.cpython-313.pyc
+│   │   │   ├── renderer.py
+│   │   │   ├── search.py
+│   │   │   ├── settings.py
+│   │   │   ├── shortcuts.py
+│   │   │   ├── sidebar.py
+│   │   │   ├── style.py
+│   │   │   ├── theme.py
+│   │   │   ├── ui_theme.json
+│   │   │   └── widgets.py
+│   │   ├── fallback_ui.py
+│   │   ├── __init__.py
+│   │   ├── __pycache__
+│   │   │   ├── app.cpython-313.pyc
+│   │   │   ├── fallback_ui.cpython-313.pyc
+│   │   │   ├── __init__.cpython-313.pyc
+│   │   │   └── state.cpython-313.pyc
+│   │   ├── state.py
+│   │   ├── ui_theme.json
+│   │   └── utils
+│   │       ├── __init__.py
+│   │       ├── paths.py
+│   │       ├── __pycache__
+│   │       │   ├── __init__.cpython-313.pyc
+│   │       │   ├── paths.cpython-313.pyc
+│   │       │   └── validation.cpython-313.pyc
+│   │       └── validation.py
+│   └── vector_store
+│       ├── 15241317-316f-4d3c-b272-ad5303220999
+│       │   ├── data_level0.bin
+│       │   ├── header.bin
+│       │   ├── length.bin
+│       │   └── link_lists.bin
+│       ├── chroma.sqlite3
+│       └── __init__.py
+├── test_adam_plugins.sh
+├── test_adapters.py
+├── tests
+│   ├── conftest.py
+│   ├── __init__.py
+│   ├── README.md
+│   ├── test_first_wave_plugins.py
+│   ├── test_mcp_adapter.py
+│   ├── test_plugins_scaffold.py
+│   └── test_sled_decode.py
+├── tools
+│   ├── approval_cmd.py
+│   ├── backup_snapshot.py
+│   ├── deep_diag.py
+│   ├── diag_adam.py
+│   ├── diag_director.py
+│   ├── example_backup.py
+│   ├── git_ops.py
+│   ├── guard_approval.py
+│   ├── mcp
+│   │   ├── file-io
+│   │   │   └── README.md
+│   │   └── web-fetch
+│   │       └── README.md
+│   ├── model_download.py
+│   ├── model_update.py
+│   ├── proc_app.py
+│   ├── proc_ps.py
+│   ├── __pycache__
+│   │   ├── approval_cmd.cpython-313.pyc
+│   │   ├── deep_diag.cpython-313.pyc
+│   │   ├── diag_adam.cpython-313.pyc
+│   │   └── diag_director.cpython-313.pyc
+│   ├── registry.json
+│   ├── server-bootstrap
+│   │   ├── README.md
+│   │   └── server-env-notes.md
+│   ├── tei
+│   │   └── README.md
+│   ├── web_search.py
+│   └── wmgr.py
+├── tree.txt
+├── ui_data
+│   ├── chats
+│   │   ├── 1758618077.txt
+│   │   ├── 1758803968.txt
+│   │   └── 1758967322.txt
+│   └── saved_chats.jsonl
+└── vector_store
+    └── chroma.sqlite3
+
+72 directories, 304 files

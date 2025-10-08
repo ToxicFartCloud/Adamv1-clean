@@ -163,6 +163,26 @@ def attach_menubar(app) -> None:
 
         theme_menu.add_command(label="Save as…", command=lambda: _save_theme_as(app))
 
+        # Mode (Dark/Light) — visual only
+        try:
+            app._theme_mode_var = tk.StringVar(value="dark")
+        except Exception:
+            app._theme_mode_var = tk.StringVar()
+        mode_menu = tk.Menu(theme_menu, tearoff=0)
+        theme_menu.add_cascade(label="Mode", menu=mode_menu)
+        mode_menu.add_radiobutton(
+            label="Dark",
+            variable=app._theme_mode_var,
+            value="dark",
+            command=lambda: app.set_theme_mode("dark"),
+        )
+        mode_menu.add_radiobutton(
+            label="Light",
+            variable=app._theme_mode_var,
+            value="light",
+            command=lambda: app.set_theme_mode("light"),
+        )
+
         # Presets
         presets_menu = tk.Menu(theme_menu, tearoff=0)
         theme_menu.add_cascade(label="Presets…", menu=presets_menu)

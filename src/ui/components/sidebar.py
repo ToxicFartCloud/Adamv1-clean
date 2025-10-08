@@ -187,6 +187,56 @@ def render_sidebar(app) -> None:
             padx=(0, pad["inner"]) if text != "Delete" else (0, 0),
         )
 
+    # Search
+    search_frame = tk.Frame(sidebar_body, bg=colors["panel"])
+    search_frame.pack(side="top", fill="x", padx=pad["widget"], pady=(0, pad["inner"]))
+
+    app.search_entry = tk.Entry(
+        search_frame,
+        bg=colors.get("panel_light", colors["panel"]),
+        fg=colors["text_primary"],
+        highlightthickness=1,
+        highlightbackground=colors["border"],
+        relief="flat",
+        font=fonts["body"],
+        insertbackground=colors["text_primary"],
+    )
+    app.search_entry.pack(fill="x", padx=pad["inner"], pady=(0, pad["inner"]))
+
+    # --- Placeholder (look-only) for search ---
+    try:
+        from .theme import STYLE as _STYLE_REF
+
+        _ph_fg = _STYLE_REF["colors"].get("composer_placeholder", "#94a3b8")
+        _tx_fg = _STYLE_REF["colors"].get("text_primary", "#e2e8f0")
+    except Exception:
+        _ph_fg, _tx_fg = "#94a3b8", "#e2e8f0"
+
+    app._search_has_ph = False
+    _ph_text = "Search chats"
+
+    def _search_apply_placeholder():
+        if app.search_entry.get().strip():
+            return
+        app._search_has_ph = True
+        app.search_entry.configure(fg=_ph_fg, insertbackground=_ph_fg)
+        app.search_entry.delete(0, "end")
+        app.search_entry.insert(0, _ph_text)
+
+    def _search_clear_placeholder(_e=None):
+        if app._search_has_ph:
+            app.search_entry.delete(0, "end")
+        app._search_has_ph = False
+        app.search_entry.configure(fg=_tx_fg, insertbackground=_tx_fg)
+
+    def _search_maybe_restore(_e=None):
+        if not app.search_entry.get().strip():
+            _search_apply_placeholder()
+
+    app.search_entry.bind("<FocusIn>", _search_clear_placeholder, add="+")
+    app.search_entry.bind("<FocusOut>", _search_maybe_restore, add="+")
+    _search_apply_placeholder()
+
     # Chat List
     app.chat_list = tk.Listbox(
         sidebar_body,
@@ -206,6 +256,7 @@ def render_sidebar(app) -> None:
         padx=pad["widget"],
         pady=(0, pad["widget"]),
     )
+    _wire_listbox_hover(app.chat_list)
 
     app.chat_list.bind("<<ListboxSelect>>", app._on_chat_selected)
     app.chat_list.bind(
@@ -386,6 +437,90 @@ def _rename_selected_chat_dialog_impl(self) -> None:
         self._save_chats()
     self._populate_chat_list()
     self._select_chat_in_list(cid)
+
+
+# --- Sidebar Row Hover Shim (Listbox look-only) ---
+def _wire_listbox_hover(lb):
+    """
+    Visually highlight the row under the mouse without changing
+    the real selection unless the user clicks.
+    """
+
+    try:
+        from .theme import STYLE  # uses the tokens you just added
+    except Exception:
+        STYLE = {"colors": {}}
+    colors = STYLE.get("colors", {})
+    hover_bg = colors.get("sidebar_row_hover_bg", "#15213d")
+    active_bg = colors.get("sidebar_row_active_bg", "#1a2a4a")
+    text_fg = colors.get("text_primary", "#e2e8f0")
+
+    lb._hover_idx = None
+    lb._saved_sel = ()
+    lb._was_hovering = False
+
+    def _save_selection():
+        sel = lb.curselection()
+        lb._saved_sel = tuple(sel) if sel else ()
+
+    def _restore_selection():
+        lb.configure(selectbackground=active_bg, selectforeground=text_fg)
+        lb.selection_clear(0, "end")
+        for idx in lb._saved_sel:
+            try:
+                lb.selection_set(idx)
+            except Exception:
+                pass
+
+    def _set_hover(idx):
+        lb.configure(selectbackground=hover_bg, selectforeground=text_fg)
+        lb.selection_clear(0, "end")
+        try:
+            lb.selection_set(idx)
+        except Exception:
+            pass
+
+    def _nearest_index(event):
+        try:
+            return lb.nearest(event.y)
+        except Exception:
+            return None
+
+    def _on_motion(event):
+        idx = _nearest_index(event)
+        if idx is None:
+            return
+        if not lb._was_hovering:
+            _save_selection()
+            lb._was_hovering = True
+        _set_hover(idx)
+
+    def _on_leave(_event=None):
+        if lb._was_hovering:
+            _restore_selection()
+            lb._was_hovering = False
+
+    def _on_click(event):
+        idx = _nearest_index(event)
+        if idx is None:
+            return
+        lb.configure(selectbackground=active_bg, selectforeground=text_fg)
+        _restore_selection()
+        try:
+            lb.selection_set(idx)
+        except Exception:
+            pass
+        lb._was_hovering = False
+
+    lb.bind("<Motion>", _on_motion, add="+")
+    lb.bind("<Leave>", _on_leave, add="+")
+    lb.bind("<Button-1>", _on_click, add="+")
+
+    try:
+        lb.configure(cursor="hand2")
+        lb.configure(selectbackground=active_bg, selectforeground=text_fg)
+    except Exception:
+        pass
 
 
 __all__ = ["render_sidebar"]

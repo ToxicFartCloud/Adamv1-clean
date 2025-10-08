@@ -1,16 +1,16 @@
 # Wiring Report (2025-09-20 22:23)
 Summary: IssuesFound(5)
 Inventory:
-  - Entrypoints: Adam.py (found), adam_base.py (found), Adamv2.py (found)
-  - Backend: server/app.py (found)
-  - UI: ui/UI.py (found)
+  - Entrypoints: run_adam.py (found), src/adam/core.py (found)
+  - Backend: src/server/main.py (found)
+  - UI: src/ui/app.py (found)
   - Plugins: count 7, registry exists
   - Configs: config/adam.yaml exists
   - Sidecars: sidecars/sled/* found
 Adamv2.py Wiring:
   - sys.path bootstrap: missing; module relies on package-relative sled imports but never adds repo root
-  - ui.UI import: fails; launch_ui uses hardcoded subprocess call to /home/ToxicFartCloud/Projects/Adamv1/ui/UI.py instead of run_adam_ui
-  - Backend host/port default: uvicorn branch exposes whatever args provide (defaults 0.0.0.0:8010) and never targets server/app.py /v1/chat automatically
+  - src.ui.app import: fails; legacy launcher uses a hardcoded subprocess call to the deprecated UI module instead of run_adam_ui
+  - Backend host/port default: uvicorn branch exposes whatever args provide (defaults 0.0.0.0:8010) and never targets src/server/main.py /v1/chat automatically
   - Plugin search path: missing; no references to adam_tools.plugins or config/plugins.txt
   - Default model path: duplicate --model_path flags with fallback /default/model/path outside models/
 Missing imports / bad paths:

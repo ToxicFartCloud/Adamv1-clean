@@ -1,0 +1,30 @@
+UI Refresh Notes — Current Session
+
+Date: 2025-XX-XX
+
+Major Updates
+- Responsive scaling now lerps the CTk widget scale with a debounced (60 ms) resize handler.
+- Sidebar moved into a PanedWindow: draggable sash, remembered width, collapsible stub with always-visible “+” button.
+- Sidebar list rows render as rounded buttons with kabob menus, compact titles, and rename/delete handlers.
+- Composer rebuilt around a centered frame: tk.Text input with character wrap, auto-grow up to 8 lines, vertical scrollbar, and rounded toolbar buttons (📎, 🖼️, 🎤, ⋯, 🗖, ✈️).
+- Context menus added to composer input, sidebar search, and message code blocks (Cut/Copy/Paste/Select All).
+- Global radii doubled across bubbles, sidebar shells, dropdowns, and action buttons for softer visuals.
+
+Resize & Layout Behavior
+- Window launches at 2400×1600 (min 980×620); composer width clamps to available content width while staying centered.
+- Wrap length, composer compact toggle, and sidebar compact labels recalc on resize without jitter.
+- Tk callback logger writes stack traces to tk_errors.log for easier debugging.
+
+Composer Details
+- tk.Text grows to 2× height (4→8 lines); once capped, scrollbar shows and caret stays visible.
+- Character wrapping enforced after width/resize changes to keep long tokens inside the frame.
+- Overflow menu placeholder remains for future attach/image/voice actions.
+
+Sidebar & Navigation
+- Collapse button in header flips between “−/+”; hiding swaps sidebar for the stub pane and restores prior width on expand.
+- Stub pane keeps a persistent toggle visible even when collapsed.
+
+Next Steps / Follow-Ups
+- Wire kabob “Move to” submenu when Projects pane ships.
+- Connect overflow actions to real commands and consider theming the stub button.
+- Audit light theme to ensure new rounded components inherit correct colors.

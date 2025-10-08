@@ -9,11 +9,13 @@ from __future__ import annotations
 import logging
 from pathlib import Path
 import tkinter as tk
+import customtkinter as ctk
+from tkinter import ttk
 from types import SimpleNamespace
-
+from typing import List, Dict, Optional
 
 # Global exception handler for harmless Tcl errors
-def _handle_tk_exception(exc, val, tb):
+def _handle_tk_exception(self, exc, val, tb):
     error_msg = str(val)
     if "can't delete Tcl command" in error_msg or "bad window path name" in error_msg:
         return  # Ignore harmless cleanup errors

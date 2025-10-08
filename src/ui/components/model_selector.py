@@ -59,14 +59,31 @@ def render_model_selector(app, parent: tk.Misc, colors: Mapping[str, str]) -> No
     app.model_menu.configure(
         bg=colors["panel"],
         fg=colors["text_primary"],
+        activebackground=colors.get("panel_light", colors["panel"]),
+        activeforeground=colors["text_primary"],
         highlightthickness=1,
         highlightbackground=colors["border"],
+        relief="flat",
         bd=0,
+        cursor="hand2",
+        width=24,
     )
 
-    # Rebuild underlying menu to wire our handler
+    # Rebuild underlying menu to wire our handler + tint hover
     menu = app.model_menu["menu"]
     menu.delete(0, "end")
+    try:
+        menu.configure(
+            tearoff=0,
+            bg=colors["panel"],
+            fg=colors["text_primary"],
+            activebackground=colors.get("panel_light", colors["panel"]),
+            activeforeground=colors["text_primary"],
+            relief="flat",
+            bd=0,
+        )
+    except Exception:
+        pass
     for label in options:
         menu.add_command(
             label=label, command=lambda v=label: _apply_model_choice(app, v)

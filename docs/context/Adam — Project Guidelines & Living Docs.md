@@ -2,33 +2,33 @@
 _Last updated: 2025-09-22_
 
 ## Current Goals & Roadmap
-- **Stabilize core run path**: Adam.py (launcher) → adam_base.py (orchestrator) → UI → backend.
+- **Stabilize core run path**: run_adam.py (launcher) → src/adam/core.py (orchestrator) → UI → backend.
 - **Keep offline-first**: no cloud keys or paid APIs in artifacts; local models via `models/`.
 - **Operator UX**: UI Start/Stop backend toggle; on-demand autostart in orchestrator.
 - **Diagnostics-first**: quick and deep repo checks to prevent drift.
 - **Next**: plugin hygiene (silence missing ones or implement), minimal RAG backend, nightly eval hook.
 
 ## Architecture Notes
-- **Launcher (`Adam.py`)**: Thin wrapper; cds to repo root, seeds `sys.path`, delegates to `adam_base.main`, defaults to `--ui` if no args.
-- **Orchestrator (`adam_base.py`)**: CLI, config load/merge, JSON logging (guarded `asctime`), `run_ui` with **`ensure_backend`** (starts `uvicorn server.app:app` on 127.0.0.1:8000 if down), plugin discovery.
-- **Backend (`server/app.py`)**: FastAPI on **127.0.0.1:8000**; exposes `/admin/health` and `/admin/shutdown` for UI control.
-- **UI (`ui/UI.py`)**: Tk app; **Server** menu (Start ▶ / Stop ■) calling backend start/shutdown.
+- **Launcher (`run_adam.py`)**: Thin wrapper; cds to repo root, seeds `sys.path`, delegates to `adam.core.main`, defaults to `--ui` if no args.
+- **Orchestrator (`src/adam/core.py`)**: CLI, config load/merge, JSON logging, `run_ui` with **`ensure_backend`** (starts `uvicorn server.main:app` on 127.0.0.1:8000 if down), plugin discovery.
+- **Backend (`src/server/main.py`)**: FastAPI on **127.0.0.1:8000**; exposes `/admin/health` and `/admin/shutdown` for UI control.
+- **UI (`src/ui/app.py`)**: Tk app orchestrating layout/theme/components with callback hooks into core.
 - **Sidecars**: SLED runner at `sidecars/sled/app.py` (separate port, optional). Future: embeddings/RAG sidecar.
 - **Config**: `config/adam.yaml` includes `default_model_path`; repo maintains `models/` dir.
 - **Diagnostics**: `scripts/diagnostics/diag_adam.py` (smoke), `scripts/diagnostics/deep_diag.py` (wiring).
 
 ## Policies
 - **Offline-only ops** for Adam; artifacts avoid cloud creds/APIs.
-- **No edits to `Adam.py`** unless explicitly approved; prefer orchestrator + plugins/sidecars.
+- **No edits to `run_adam.py`** unless explicitly approved; prefer orchestrator + plugins/sidecars.
 - **Edit protocol**: ≤2 steps per file, show line numbers & context, def before/after, imports **outside** code blocks.
 - **Living doc visibility**: share **Updated/Added** snippets by default; show entire doc only on request.
 - **Eval gates & rollback**: keep self-test green; use snapshots to revert when a regression is detected.
 
 ## Operations
 ### Runbook (Quick Start)
-- `python3 Adam.py --self-test` → should print only “missing plugin” notices.
-- `python3 Adam.py --ui` → opens UI; orchestrator auto-starts backend if down.
-- Backend manual: `python3 -m uvicorn server.app:app --host 127.0.0.1 --port 8000`.
+- `python3 run_adam.py --self-test` → should print only “missing plugin” notices.
+- `python3 run_adam.py --ui` → opens UI; orchestrator auto-starts backend if down.
+- Backend manual: `python3 -m uvicorn server.main:app --host 127.0.0.1 --port 8000`.
 - Health: `curl -s http://127.0.0.1:8000/admin/health` or root `/`.
 
 ### UI Server Toggle

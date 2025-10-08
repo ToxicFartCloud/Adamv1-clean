@@ -745,3 +745,250 @@
 {"timestamp": "2025-10-03 18:48:10,150", "levelname": "INFO", "message": "SentenceTransformerEmbedder loaded with model 'all-MiniLM-L6-v2'.", "name": "adam"}
 {"timestamp": "2025-10-03 18:48:10,152", "levelname": "INFO", "message": "ChromaVectorStore connected to collection 'adam_memory'.", "name": "adam"}
 {"timestamp": "2025-10-03 18:48:10,222", "levelname": "INFO", "message": "Memory write successful.", "name": "adam"}
+{"timestamp": "2025-10-04 03:01:37,713", "levelname": "INFO", "message": "{\"event\": \"backend_starting\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-04 03:01:38,214", "levelname": "INFO", "message": "{\"event\": \"backend_ready\"}", "name": "adam"}
+{"timestamp": "2025-10-04 03:05:34,774", "levelname": "INFO", "message": "{\"event\": \"backend_ok\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-04 03:08:44,203", "levelname": "INFO", "message": "{\"event\": \"backend_ok\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-04 03:08:44,215", "levelname": "INFO", "message": "{\"event\": \"backend_ok\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-04 03:13:26,607", "levelname": "INFO", "message": "{\"event\": \"backend_ok\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-04 03:31:11,913", "levelname": "INFO", "message": "{\"event\": \"backend_ok\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-04 03:41:53,167", "levelname": "INFO", "message": "{\"event\": \"backend_ok\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-04 04:06:33,027", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 04:06:33,100", "levelname": "INFO", "message": "Primary LLM backend set to local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 04:06:33,101", "levelname": "INFO", "message": "Got ask request: 'hello'", "name": "adam"}
+{"timestamp": "2025-10-04 04:06:33,101", "levelname": "INFO", "message": "Lazy-loading plugin: hardware_audit", "name": "adam"}
+{"timestamp": "2025-10-04 04:06:33,135", "levelname": "INFO", "message": "Hardware audit report saved to logs/hardware_audit.json", "name": "adam"}
+{"timestamp": "2025-10-04 04:06:33,135", "levelname": "INFO", "message": "Lazy-loading plugin: model_router", "name": "adam"}
+{"timestamp": "2025-10-04 04:06:33,136", "levelname": "INFO", "message": "Model routing decision: task=chat \u2192 model=light-condenser (Simple task (chat) or hardware constraints \u2192 light model)", "name": "adam"}
+{"timestamp": "2025-10-04 04:06:38,938", "levelname": "INFO", "message": "SentenceTransformerEmbedder loaded with model 'all-MiniLM-L6-v2'.", "name": "adam"}
+{"timestamp": "2025-10-04 04:06:39,450", "levelname": "INFO", "message": "ChromaVectorStore connected to collection 'adam_memory'.", "name": "adam"}
+{"timestamp": "2025-10-04 04:06:41,128", "levelname": "INFO", "message": "Lazy-loading plugin: memory_write", "name": "adam"}
+{"timestamp": "2025-10-04 04:06:41,128", "levelname": "INFO", "message": "Writing to memory...", "name": "adam"}
+{"timestamp": "2025-10-04 04:06:42,861", "levelname": "INFO", "message": "SentenceTransformerEmbedder loaded with model 'all-MiniLM-L6-v2'.", "name": "adam"}
+{"timestamp": "2025-10-04 04:06:42,863", "levelname": "INFO", "message": "ChromaVectorStore connected to collection 'adam_memory'.", "name": "adam"}
+{"timestamp": "2025-10-04 04:06:42,939", "levelname": "INFO", "message": "Memory write successful.", "name": "adam"}
+{"timestamp": "2025-10-04 04:13:14,498", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 04:13:14,571", "levelname": "INFO", "message": "Primary LLM backend set to local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 04:13:14,571", "levelname": "INFO", "message": "{\"event\": \"backend_ok\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-04 04:13:24,190", "levelname": "INFO", "message": "UI request received", "name": "adam"}
+{"timestamp": "2025-10-04 04:13:24,190", "levelname": "INFO", "message": "Got ask request: 'hello adam'", "name": "adam"}
+{"timestamp": "2025-10-04 04:13:24,190", "levelname": "INFO", "message": "Lazy-loading plugin: hardware_audit", "name": "adam"}
+{"timestamp": "2025-10-04 04:13:24,217", "levelname": "INFO", "message": "Hardware audit report saved to logs/hardware_audit.json", "name": "adam"}
+{"timestamp": "2025-10-04 04:13:24,217", "levelname": "INFO", "message": "Lazy-loading plugin: model_router", "name": "adam"}
+{"timestamp": "2025-10-04 04:13:24,218", "levelname": "INFO", "message": "Model routing decision: task=chat \u2192 model=light-condenser (Simple task (chat) or hardware constraints \u2192 light model)", "name": "adam"}
+{"timestamp": "2025-10-04 04:13:28,345", "levelname": "INFO", "message": "SentenceTransformerEmbedder loaded with model 'all-MiniLM-L6-v2'.", "name": "adam"}
+{"timestamp": "2025-10-04 04:13:28,778", "levelname": "INFO", "message": "ChromaVectorStore connected to collection 'adam_memory'.", "name": "adam"}
+{"timestamp": "2025-10-04 04:13:30,545", "levelname": "INFO", "message": "Lazy-loading plugin: memory_write", "name": "adam"}
+{"timestamp": "2025-10-04 04:13:30,545", "levelname": "INFO", "message": "Writing to memory...", "name": "adam"}
+{"timestamp": "2025-10-04 04:13:31,840", "levelname": "INFO", "message": "SentenceTransformerEmbedder loaded with model 'all-MiniLM-L6-v2'.", "name": "adam"}
+{"timestamp": "2025-10-04 04:13:31,842", "levelname": "INFO", "message": "ChromaVectorStore connected to collection 'adam_memory'.", "name": "adam"}
+{"timestamp": "2025-10-04 04:13:31,897", "levelname": "INFO", "message": "Memory write successful.", "name": "adam"}
+{"timestamp": "2025-10-04 04:13:31,897", "levelname": "INFO", "message": "Writing to memory...", "name": "adam"}
+{"timestamp": "2025-10-04 04:13:33,271", "levelname": "INFO", "message": "SentenceTransformerEmbedder loaded with model 'all-MiniLM-L6-v2'.", "name": "adam"}
+{"timestamp": "2025-10-04 04:13:33,273", "levelname": "INFO", "message": "ChromaVectorStore connected to collection 'adam_memory'.", "name": "adam"}
+{"timestamp": "2025-10-04 04:13:33,328", "levelname": "INFO", "message": "Memory write successful.", "name": "adam"}
+{"timestamp": "2025-10-04 04:13:53,073", "levelname": "INFO", "message": "UI request received", "name": "adam"}
+{"timestamp": "2025-10-04 04:13:53,073", "levelname": "INFO", "message": "Got ask request: 'can you run /diag'", "name": "adam"}
+{"timestamp": "2025-10-04 04:13:53,093", "levelname": "INFO", "message": "Hardware audit report saved to logs/hardware_audit.json", "name": "adam"}
+{"timestamp": "2025-10-04 04:13:53,093", "levelname": "INFO", "message": "Model routing decision: task=chat \u2192 model=light-condenser (Simple task (chat) or hardware constraints \u2192 light model)", "name": "adam"}
+{"timestamp": "2025-10-04 04:13:54,365", "levelname": "INFO", "message": "SentenceTransformerEmbedder loaded with model 'all-MiniLM-L6-v2'.", "name": "adam"}
+{"timestamp": "2025-10-04 04:13:54,367", "levelname": "INFO", "message": "ChromaVectorStore connected to collection 'adam_memory'.", "name": "adam"}
+{"timestamp": "2025-10-04 04:13:55,392", "levelname": "INFO", "message": "Writing to memory...", "name": "adam"}
+{"timestamp": "2025-10-04 04:13:56,666", "levelname": "INFO", "message": "SentenceTransformerEmbedder loaded with model 'all-MiniLM-L6-v2'.", "name": "adam"}
+{"timestamp": "2025-10-04 04:13:56,668", "levelname": "INFO", "message": "ChromaVectorStore connected to collection 'adam_memory'.", "name": "adam"}
+{"timestamp": "2025-10-04 04:13:56,727", "levelname": "INFO", "message": "Memory write successful.", "name": "adam"}
+{"timestamp": "2025-10-04 04:13:56,727", "levelname": "INFO", "message": "Writing to memory...", "name": "adam"}
+{"timestamp": "2025-10-04 04:13:57,997", "levelname": "INFO", "message": "SentenceTransformerEmbedder loaded with model 'all-MiniLM-L6-v2'.", "name": "adam"}
+{"timestamp": "2025-10-04 04:13:57,999", "levelname": "INFO", "message": "ChromaVectorStore connected to collection 'adam_memory'.", "name": "adam"}
+{"timestamp": "2025-10-04 04:13:58,055", "levelname": "INFO", "message": "Memory write successful.", "name": "adam"}
+{"timestamp": "2025-10-04 04:35:02,407", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 04:35:02,480", "levelname": "INFO", "message": "Primary LLM backend set to local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 04:35:02,481", "levelname": "INFO", "message": "{\"event\": \"backend_ok\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-04 04:35:12,070", "levelname": "INFO", "message": "UI request received", "name": "adam"}
+{"timestamp": "2025-10-04 04:35:12,071", "levelname": "INFO", "message": "Got ask request: 'hello adam'", "name": "adam"}
+{"timestamp": "2025-10-04 04:35:12,071", "levelname": "INFO", "message": "Lazy-loading plugin: hardware_audit", "name": "adam"}
+{"timestamp": "2025-10-04 04:35:12,098", "levelname": "INFO", "message": "Hardware audit report saved to logs/hardware_audit.json", "name": "adam"}
+{"timestamp": "2025-10-04 04:35:12,098", "levelname": "INFO", "message": "Lazy-loading plugin: model_router", "name": "adam"}
+{"timestamp": "2025-10-04 04:35:12,098", "levelname": "INFO", "message": "Model routing decision: task=chat \u2192 model=light-condenser (Simple task (chat) or hardware constraints \u2192 light model)", "name": "adam"}
+{"timestamp": "2025-10-04 04:35:16,147", "levelname": "INFO", "message": "SentenceTransformerEmbedder loaded with model 'all-MiniLM-L6-v2'.", "name": "adam"}
+{"timestamp": "2025-10-04 04:35:16,573", "levelname": "INFO", "message": "ChromaVectorStore connected to collection 'adam_memory'.", "name": "adam"}
+{"timestamp": "2025-10-04 04:35:18,634", "levelname": "INFO", "message": "Lazy-loading plugin: memory_write", "name": "adam"}
+{"timestamp": "2025-10-04 04:35:18,634", "levelname": "INFO", "message": "Writing to memory...", "name": "adam"}
+{"timestamp": "2025-10-04 04:35:19,893", "levelname": "INFO", "message": "SentenceTransformerEmbedder loaded with model 'all-MiniLM-L6-v2'.", "name": "adam"}
+{"timestamp": "2025-10-04 04:35:19,895", "levelname": "INFO", "message": "ChromaVectorStore connected to collection 'adam_memory'.", "name": "adam"}
+{"timestamp": "2025-10-04 04:35:19,951", "levelname": "INFO", "message": "Memory write successful.", "name": "adam"}
+{"timestamp": "2025-10-04 04:35:19,951", "levelname": "INFO", "message": "Writing to memory...", "name": "adam"}
+{"timestamp": "2025-10-04 04:35:21,199", "levelname": "INFO", "message": "SentenceTransformerEmbedder loaded with model 'all-MiniLM-L6-v2'.", "name": "adam"}
+{"timestamp": "2025-10-04 04:35:21,201", "levelname": "INFO", "message": "ChromaVectorStore connected to collection 'adam_memory'.", "name": "adam"}
+{"timestamp": "2025-10-04 04:35:21,256", "levelname": "INFO", "message": "Memory write successful.", "name": "adam"}
+{"timestamp": "2025-10-04 04:35:27,539", "levelname": "INFO", "message": "UI request received", "name": "adam"}
+{"timestamp": "2025-10-04 04:36:20,684", "levelname": "INFO", "message": "UI request received", "name": "adam"}
+{"timestamp": "2025-10-04 04:55:40,575", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 04:55:40,647", "levelname": "INFO", "message": "Primary LLM backend set to local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 04:55:40,648", "levelname": "INFO", "message": "{\"event\": \"backend_ok\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-04 04:56:09,142", "levelname": "INFO", "message": "UI request received", "name": "adam"}
+{"timestamp": "2025-10-04 04:56:09,143", "levelname": "INFO", "message": "Got ask request: 'hello'", "name": "adam"}
+{"timestamp": "2025-10-04 04:56:09,143", "levelname": "INFO", "message": "Lazy-loading plugin: hardware_audit", "name": "adam"}
+{"timestamp": "2025-10-04 04:56:09,170", "levelname": "INFO", "message": "Hardware audit report saved to logs/hardware_audit.json", "name": "adam"}
+{"timestamp": "2025-10-04 04:56:09,170", "levelname": "INFO", "message": "Lazy-loading plugin: model_router", "name": "adam"}
+{"timestamp": "2025-10-04 04:56:09,170", "levelname": "INFO", "message": "Model routing decision: task=chat \u2192 model=light-condenser (Simple task (chat) or hardware constraints \u2192 light model)", "name": "adam"}
+{"timestamp": "2025-10-04 04:56:13,224", "levelname": "INFO", "message": "SentenceTransformerEmbedder loaded with model 'all-MiniLM-L6-v2'.", "name": "adam"}
+{"timestamp": "2025-10-04 04:56:13,648", "levelname": "INFO", "message": "ChromaVectorStore connected to collection 'adam_memory'.", "name": "adam"}
+{"timestamp": "2025-10-04 04:56:15,479", "levelname": "INFO", "message": "Lazy-loading plugin: memory_write", "name": "adam"}
+{"timestamp": "2025-10-04 04:56:15,480", "levelname": "INFO", "message": "Writing to memory...", "name": "adam"}
+{"timestamp": "2025-10-04 04:56:16,943", "levelname": "INFO", "message": "SentenceTransformerEmbedder loaded with model 'all-MiniLM-L6-v2'.", "name": "adam"}
+{"timestamp": "2025-10-04 04:56:16,945", "levelname": "INFO", "message": "ChromaVectorStore connected to collection 'adam_memory'.", "name": "adam"}
+{"timestamp": "2025-10-04 04:56:17,010", "levelname": "INFO", "message": "Memory write successful.", "name": "adam"}
+{"timestamp": "2025-10-04 04:56:17,011", "levelname": "INFO", "message": "Writing to memory...", "name": "adam"}
+{"timestamp": "2025-10-04 04:56:18,329", "levelname": "INFO", "message": "SentenceTransformerEmbedder loaded with model 'all-MiniLM-L6-v2'.", "name": "adam"}
+{"timestamp": "2025-10-04 04:56:18,331", "levelname": "INFO", "message": "ChromaVectorStore connected to collection 'adam_memory'.", "name": "adam"}
+{"timestamp": "2025-10-04 04:56:18,387", "levelname": "INFO", "message": "Memory write successful.", "name": "adam"}
+{"timestamp": "2025-10-04 04:56:26,830", "levelname": "INFO", "message": "UI request received", "name": "adam"}
+{"timestamp": "2025-10-04 04:57:12,557", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 04:57:12,628", "levelname": "INFO", "message": "Primary LLM backend set to local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 04:57:12,631", "levelname": "INFO", "message": "Self test log entry.", "name": "adam"}
+{"timestamp": "2025-10-04 04:57:12,631", "levelname": "INFO", "message": "Lazy-loading plugin: model_router", "name": "adam"}
+{"timestamp": "2025-10-04 04:57:12,631", "levelname": "INFO", "message": "Model routing decision: task=chat \u2192 model=light-condenser (Simple task (chat) or hardware constraints \u2192 light model)", "name": "adam"}
+{"timestamp": "2025-10-04 04:57:12,631", "levelname": "INFO", "message": "Model routing decision: task=code \u2192 model=qwen2.5-14b-instruct-q4_k_m (Complex task (code) \u2192 best capable heavy model)", "name": "adam"}
+{"timestamp": "2025-10-04 04:57:17,023", "levelname": "INFO", "message": "SentenceTransformerEmbedder loaded with model 'all-MiniLM-L6-v2'.", "name": "adam"}
+{"timestamp": "2025-10-04 04:57:17,453", "levelname": "INFO", "message": "ChromaVectorStore connected to collection 'adam_memory'.", "name": "adam"}
+{"timestamp": "2025-10-04 04:57:17,616", "levelname": "INFO", "message": "Lazy-loading plugin: memory_write", "name": "adam"}
+{"timestamp": "2025-10-04 04:57:17,616", "levelname": "INFO", "message": "Writing to memory...", "name": "adam"}
+{"timestamp": "2025-10-04 04:57:19,234", "levelname": "INFO", "message": "SentenceTransformerEmbedder loaded with model 'all-MiniLM-L6-v2'.", "name": "adam"}
+{"timestamp": "2025-10-04 04:57:19,236", "levelname": "INFO", "message": "ChromaVectorStore connected to collection 'adam_memory'.", "name": "adam"}
+{"timestamp": "2025-10-04 04:57:19,322", "levelname": "INFO", "message": "Memory write successful.", "name": "adam"}
+{"timestamp": "2025-10-04 21:30:16,727", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 21:30:16,814", "levelname": "INFO", "message": "Primary LLM backend set to local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 21:30:16,815", "levelname": "INFO", "message": "{\"event\": \"backend_ok\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-04 21:31:33,783", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 21:31:33,865", "levelname": "INFO", "message": "Primary LLM backend set to local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 21:31:33,866", "levelname": "INFO", "message": "{\"event\": \"backend_ok\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-04 21:33:16,018", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 21:33:16,095", "levelname": "INFO", "message": "Primary LLM backend set to local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 21:33:16,096", "levelname": "INFO", "message": "{\"event\": \"backend_ok\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-04 21:47:38,990", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 21:47:39,071", "levelname": "INFO", "message": "Primary LLM backend set to local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 21:47:39,071", "levelname": "INFO", "message": "{\"event\": \"backend_ok\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-04 21:53:45,526", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 21:53:45,601", "levelname": "INFO", "message": "Primary LLM backend set to local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 21:53:45,601", "levelname": "INFO", "message": "Got ask request: 'What is the capital of France?'", "name": "adam"}
+{"timestamp": "2025-10-04 21:53:45,601", "levelname": "INFO", "message": "Lazy-loading plugin: hardware_audit", "name": "adam"}
+{"timestamp": "2025-10-04 21:53:45,628", "levelname": "INFO", "message": "Hardware audit report saved to logs/hardware_audit.json", "name": "adam"}
+{"timestamp": "2025-10-04 21:53:45,628", "levelname": "INFO", "message": "Lazy-loading plugin: model_router", "name": "adam"}
+{"timestamp": "2025-10-04 21:53:45,629", "levelname": "INFO", "message": "Model routing decision: task=chat \u2192 model=light-condenser (Simple task (chat) or hardware constraints \u2192 light model)", "name": "adam"}
+{"timestamp": "2025-10-04 21:53:50,270", "levelname": "INFO", "message": "SentenceTransformerEmbedder loaded with model 'all-MiniLM-L6-v2'.", "name": "adam"}
+{"timestamp": "2025-10-04 21:53:50,724", "levelname": "INFO", "message": "ChromaVectorStore connected to collection 'adam_memory'.", "name": "adam"}
+{"timestamp": "2025-10-04 21:53:52,927", "levelname": "INFO", "message": "Lazy-loading plugin: memory_write", "name": "adam"}
+{"timestamp": "2025-10-04 21:53:52,927", "levelname": "INFO", "message": "Writing to memory...", "name": "adam"}
+{"timestamp": "2025-10-04 21:53:54,557", "levelname": "INFO", "message": "SentenceTransformerEmbedder loaded with model 'all-MiniLM-L6-v2'.", "name": "adam"}
+{"timestamp": "2025-10-04 21:53:54,559", "levelname": "INFO", "message": "ChromaVectorStore connected to collection 'adam_memory'.", "name": "adam"}
+{"timestamp": "2025-10-04 21:53:54,616", "levelname": "INFO", "message": "Memory write successful.", "name": "adam"}
+{"timestamp": "2025-10-04 22:07:33,405", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 22:07:33,478", "levelname": "INFO", "message": "Primary LLM backend set to local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 22:07:33,478", "levelname": "INFO", "message": "{\"event\": \"backend_starting\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-04 22:07:33,979", "levelname": "INFO", "message": "{\"event\": \"backend_ready\"}", "name": "adam"}
+{"timestamp": "2025-10-04 22:38:32,895", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 22:38:32,969", "levelname": "INFO", "message": "Primary LLM backend set to local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 22:38:32,969", "levelname": "INFO", "message": "{\"event\": \"backend_ok\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-04 23:06:41,636", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 23:06:41,708", "levelname": "INFO", "message": "Primary LLM backend set to local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 23:06:41,709", "levelname": "INFO", "message": "{\"event\": \"backend_ok\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-04 23:18:41,277", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 23:18:41,350", "levelname": "INFO", "message": "Primary LLM backend set to local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 23:18:41,350", "levelname": "INFO", "message": "{\"event\": \"backend_ok\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-04 23:25:33,783", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 23:25:33,855", "levelname": "INFO", "message": "Primary LLM backend set to local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 23:25:33,856", "levelname": "INFO", "message": "{\"event\": \"backend_ok\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-04 23:26:36,872", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 23:26:36,947", "levelname": "INFO", "message": "Primary LLM backend set to local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 23:26:36,948", "levelname": "INFO", "message": "{\"event\": \"backend_ok\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-04 23:28:55,647", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 23:28:55,721", "levelname": "INFO", "message": "Primary LLM backend set to local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 23:28:55,721", "levelname": "INFO", "message": "{\"event\": \"backend_ok\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-04 23:33:06,724", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 23:33:06,801", "levelname": "INFO", "message": "Primary LLM backend set to local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 23:33:06,801", "levelname": "INFO", "message": "{\"event\": \"backend_ok\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-04 23:33:28,311", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 23:33:28,393", "levelname": "INFO", "message": "Primary LLM backend set to local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 23:33:28,393", "levelname": "INFO", "message": "{\"event\": \"backend_ok\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-04 23:42:03,789", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 23:42:03,877", "levelname": "INFO", "message": "Primary LLM backend set to local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 23:42:03,877", "levelname": "INFO", "message": "{\"event\": \"backend_ok\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-04 23:42:59,871", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 23:42:59,954", "levelname": "INFO", "message": "Primary LLM backend set to local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 23:42:59,955", "levelname": "INFO", "message": "{\"event\": \"backend_ok\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-04 23:53:13,505", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 23:53:13,590", "levelname": "INFO", "message": "Primary LLM backend set to local_llm", "name": "adam"}
+{"timestamp": "2025-10-04 23:53:13,591", "levelname": "INFO", "message": "{\"event\": \"backend_ok\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-05 00:02:47,365", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-05 00:02:47,445", "levelname": "INFO", "message": "Primary LLM backend set to local_llm", "name": "adam"}
+{"timestamp": "2025-10-05 00:02:47,445", "levelname": "INFO", "message": "{\"event\": \"backend_ok\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-05 00:15:02,946", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-05 00:15:03,022", "levelname": "INFO", "message": "Primary LLM backend set to local_llm", "name": "adam"}
+{"timestamp": "2025-10-05 00:15:03,022", "levelname": "INFO", "message": "{\"event\": \"backend_ok\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-05 00:20:42,112", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-05 00:20:42,190", "levelname": "INFO", "message": "Primary LLM backend set to local_llm", "name": "adam"}
+{"timestamp": "2025-10-05 00:20:42,190", "levelname": "INFO", "message": "{\"event\": \"backend_ok\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-05 00:22:20,967", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-05 00:22:21,042", "levelname": "INFO", "message": "Primary LLM backend set to local_llm", "name": "adam"}
+{"timestamp": "2025-10-05 00:22:21,042", "levelname": "INFO", "message": "{\"event\": \"backend_ok\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-05 00:26:21,315", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-05 00:26:21,388", "levelname": "INFO", "message": "Primary LLM backend set to local_llm", "name": "adam"}
+{"timestamp": "2025-10-05 00:26:21,389", "levelname": "INFO", "message": "{\"event\": \"backend_ok\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-05 01:06:20,942", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-05 01:06:21,018", "levelname": "INFO", "message": "Primary LLM backend set to local_llm", "name": "adam"}
+{"timestamp": "2025-10-05 01:06:21,018", "levelname": "INFO", "message": "{\"event\": \"backend_ok\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-06 05:32:18,231", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-06 05:32:18,347", "levelname": "INFO", "message": "Primary LLM backend set to local_llm", "name": "adam"}
+{"timestamp": "2025-10-06 05:32:18,348", "levelname": "INFO", "message": "{\"event\": \"backend_starting\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-06 05:32:18,849", "levelname": "INFO", "message": "{\"event\": \"backend_ready\"}", "name": "adam"}
+{"timestamp": "2025-10-06 05:32:18,909", "levelname": "CRITICAL", "message": "unhandled error in main execution: couldn't connect to display \":0\"", "name": "adam", "exc_info": "Traceback (most recent call last):\n  File \"/home/ToxicFartCloud/Projects/Adamv1.clean/src/adam/core.py\", line 1325, in main\n    return run_ui(\n        app_host=args.ui_host,\n        app_port=args.ui_port,\n        config=config,\n    )\n  File \"/home/ToxicFartCloud/Projects/Adamv1.clean/src/adam/core.py\", line 992, in run_ui\n    root = tk.Tk()\n  File \"/usr/lib64/python3.13/tkinter/__init__.py\", line 2465, in __init__\n    self.tk = _tkinter.create(screenName, baseName, className, interactive, wantobjects, useTk, sync, use)\n              ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n_tkinter.TclError: couldn't connect to display \":0\""}
+{"timestamp": "2025-10-05 22:33:14,297", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-05 22:33:14,372", "levelname": "INFO", "message": "Primary LLM backend set to local_llm", "name": "adam"}
+{"timestamp": "2025-10-05 22:33:14,373", "levelname": "INFO", "message": "{\"event\": \"backend_ok\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-06 00:03:39,234", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-06 00:03:39,308", "levelname": "INFO", "message": "Primary LLM backend set to local_llm", "name": "adam"}
+{"timestamp": "2025-10-06 00:03:39,308", "levelname": "INFO", "message": "{\"event\": \"backend_ok\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-06 00:09:26,818", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-06 00:09:26,900", "levelname": "INFO", "message": "Primary LLM backend set to local_llm", "name": "adam"}
+{"timestamp": "2025-10-06 00:09:26,901", "levelname": "INFO", "message": "{\"event\": \"backend_ok\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-06 00:21:11,532", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-06 00:21:11,612", "levelname": "INFO", "message": "Primary LLM backend set to local_llm", "name": "adam"}
+{"timestamp": "2025-10-06 00:21:11,612", "levelname": "INFO", "message": "{\"event\": \"backend_ok\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-06 00:21:55,212", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-06 00:21:55,285", "levelname": "INFO", "message": "Primary LLM backend set to local_llm", "name": "adam"}
+{"timestamp": "2025-10-06 00:21:55,285", "levelname": "INFO", "message": "{\"event\": \"backend_ok\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-06 00:21:59,792", "levelname": "CRITICAL", "message": "unhandled error in main execution: cannot use geometry manager pack inside . which already has slaves managed by grid", "name": "adam", "exc_info": "Traceback (most recent call last):\n  File \"/usr/lib64/python3.13/tkinter/__init__.py\", line 2074, in __call__\n    return self.func(*args)\n           ~~~~~~~~~^^^^^^^\n  File \"/var/home/ToxicFartCloud/Projects/Adamv1.clean/src/ui/components/widgets.py\", line 111, in _on_click\n    self.command()\n    ~~~~~~~~~~~~^^\n  File \"/var/home/ToxicFartCloud/Projects/Adamv1.clean/src/ui/components/chat.py\", line 659, in _toggle_params_panel\n    self.params_frame.grid()\n    ^^^^^^^^^^^^^^^^^\nAttributeError: 'types.SimpleNamespace' object has no attribute 'params_frame'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/var/home/ToxicFartCloud/Projects/Adamv1.clean/src/ui/app.py\", line 125, in main\n    root.mainloop()\n    ~~~~~~~~~~~~~^^\n  File \"/usr/lib64/python3.13/tkinter/__init__.py\", line 1599, in mainloop\n    self.tk.mainloop(n)\n    ~~~~~~~~~~~~~~~~^^^\n  File \"/usr/lib64/python3.13/tkinter/__init__.py\", line 2078, in __call__\n    self.widget._report_exception()\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/usr/lib64/python3.13/tkinter/__init__.py\", line 1788, in _report_exception\n    root.report_callback_exception(exc, val, tb)\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^\nTypeError: _handle_tk_exception() takes 3 positional arguments but 4 were given\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/var/home/ToxicFartCloud/Projects/Adamv1.clean/src/adam/core.py\", line 1325, in main\n    return run_ui(\n        app_host=args.ui_host,\n        app_port=args.ui_port,\n        config=config,\n    )\n  File \"/var/home/ToxicFartCloud/Projects/Adamv1.clean/src/adam/core.py\", line 993, in run_ui\n    return run_adam_ui(root, **run_params)\n  File \"/var/home/ToxicFartCloud/Projects/Adamv1.clean/src/ui/app.py\", line 131, in main\n    result = launch_fallback_ui(root, submit_callback, reason=str(e))\n  File \"/var/home/ToxicFartCloud/Projects/Adamv1.clean/src/ui/fallback_ui.py\", line 149, in launch_fallback_ui\n    ui = FallbackUI(root, submit_callback=submit_callback, reason=reason)\n  File \"/var/home/ToxicFartCloud/Projects/Adamv1.clean/src/ui/fallback_ui.py\", line 42, in __init__\n    header.pack(fill=\"x\", padx=12, pady=(12, 6))\n    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib64/python3.13/tkinter/__init__.py\", line 2602, in pack_configure\n    self.tk.call(\n    ~~~~~~~~~~~~^\n          ('pack', 'configure', self._w)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n          + self._options(cnf, kw))\n          ^^^^^^^^^^^^^^^^^^^^^^^^^\n_tkinter.TclError: cannot use geometry manager pack inside . which already has slaves managed by grid"}
+{"timestamp": "2025-10-06 00:30:46,109", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-06 00:30:46,188", "levelname": "INFO", "message": "Primary LLM backend set to local_llm", "name": "adam"}
+{"timestamp": "2025-10-06 00:30:46,189", "levelname": "INFO", "message": "{\"event\": \"backend_ok\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-06 00:31:51,377", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-06 00:31:51,450", "levelname": "INFO", "message": "Primary LLM backend set to local_llm", "name": "adam"}
+{"timestamp": "2025-10-06 00:31:51,450", "levelname": "INFO", "message": "{\"event\": \"backend_ok\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-06 02:28:55,341", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-06 02:28:55,413", "levelname": "INFO", "message": "Primary LLM backend set to local_llm", "name": "adam"}
+{"timestamp": "2025-10-06 02:28:55,413", "levelname": "INFO", "message": "{\"event\": \"backend_ok\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-07 00:48:10,018", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-07 00:48:10,137", "levelname": "INFO", "message": "Primary LLM backend set to local_llm", "name": "adam"}
+{"timestamp": "2025-10-07 00:48:10,138", "levelname": "INFO", "message": "{\"event\": \"backend_starting\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}
+{"timestamp": "2025-10-07 00:48:10,639", "levelname": "INFO", "message": "{\"event\": \"backend_ready\"}", "name": "adam"}
+{"timestamp": "2025-10-07 00:48:59,827", "levelname": "INFO", "message": "UI request received", "name": "adam"}
+{"timestamp": "2025-10-07 00:48:59,827", "levelname": "INFO", "message": "Got ask request: 'gdsvdscxv'", "name": "adam"}
+{"timestamp": "2025-10-07 00:48:59,828", "levelname": "INFO", "message": "Lazy-loading plugin: hardware_audit", "name": "adam"}
+{"timestamp": "2025-10-07 00:48:59,864", "levelname": "INFO", "message": "Hardware audit report saved to logs/hardware_audit.json", "name": "adam"}
+{"timestamp": "2025-10-07 00:48:59,864", "levelname": "INFO", "message": "Lazy-loading plugin: model_router", "name": "adam"}
+{"timestamp": "2025-10-07 00:48:59,865", "levelname": "INFO", "message": "Model routing decision: task=chat \u2192 model=light-condenser (Simple task (chat) or hardware constraints \u2192 light model)", "name": "adam"}
+{"timestamp": "2025-10-07 00:49:05,354", "levelname": "INFO", "message": "SentenceTransformerEmbedder loaded with model 'all-MiniLM-L6-v2'.", "name": "adam"}
+{"timestamp": "2025-10-07 00:49:05,912", "levelname": "INFO", "message": "ChromaVectorStore connected to collection 'adam_memory'.", "name": "adam"}
+{"timestamp": "2025-10-07 00:49:09,280", "levelname": "INFO", "message": "Lazy-loading plugin: memory_write", "name": "adam"}
+{"timestamp": "2025-10-07 00:49:09,281", "levelname": "INFO", "message": "Writing to memory...", "name": "adam"}
+{"timestamp": "2025-10-07 00:49:10,608", "levelname": "INFO", "message": "SentenceTransformerEmbedder loaded with model 'all-MiniLM-L6-v2'.", "name": "adam"}
+{"timestamp": "2025-10-07 00:49:10,610", "levelname": "INFO", "message": "ChromaVectorStore connected to collection 'adam_memory'.", "name": "adam"}
+{"timestamp": "2025-10-07 00:49:10,669", "levelname": "INFO", "message": "Memory write successful.", "name": "adam"}
+{"timestamp": "2025-10-07 00:49:10,669", "levelname": "INFO", "message": "Writing to memory...", "name": "adam"}
+{"timestamp": "2025-10-07 00:49:11,970", "levelname": "INFO", "message": "SentenceTransformerEmbedder loaded with model 'all-MiniLM-L6-v2'.", "name": "adam"}
+{"timestamp": "2025-10-07 00:49:11,972", "levelname": "INFO", "message": "ChromaVectorStore connected to collection 'adam_memory'.", "name": "adam"}
+{"timestamp": "2025-10-07 00:49:12,027", "levelname": "INFO", "message": "Memory write successful.", "name": "adam"}
+{"timestamp": "2025-10-07 02:52:57,042", "levelname": "INFO", "message": "Lazy-loading plugin: local_llm", "name": "adam"}
+{"timestamp": "2025-10-07 02:52:57,120", "levelname": "INFO", "message": "Primary LLM backend set to local_llm", "name": "adam"}
+{"timestamp": "2025-10-07 02:52:57,120", "levelname": "INFO", "message": "{\"event\": \"backend_ok\", \"host\": \"127.0.0.1\", \"port\": 8000}", "name": "adam"}

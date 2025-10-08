@@ -2,7 +2,7 @@
 Type=Application
 Name=Adam (Chat UI)
 Comment=Open the Adam assistant UI
-Exec=/usr/bin/python3 /home/ToxicFartCloud/Projects/Adamv1/Adam.py --ui
+Exec=/usr/bin/python3 /home/ToxicFartCloud/Projects/Adamv1/run_adam.py --ui
 Icon=/home/ToxicFartCloud/Projects/Adamv1/ui/Adam.png
 Terminal=false
 Categories=Utility;Development;

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Adam · Multimodal Assistant</title>
+    <meta name="color-scheme" content="light dark" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <noscript class="noscript">JavaScript is required to use Adam.</noscript>
+    <div class="app" data-sidebar-open="true" data-theme="system">
+      <aside class="sidebar" id="sidebar" aria-label="Chat sidebar">
+        <header class="sidebar__header">
+          <div class="sidebar__brand" aria-label="Adam home">
+            <span class="sidebar__logo" aria-hidden="true">🧠</span>
+            <span class="sidebar__title">Adam</span>
+          </div>
+          <button class="sidebar__collapse" id="sidebarCollapse" type="button" aria-label="Collapse sidebar">
+            ⇤
+          </button>
+        </header>
+        <button class="sidebar__new-chat" id="newChatButton" type="button">
+          ➕ New Chat
+        </button>
+        <div class="sidebar__search">
+          <label class="sr-only" for="chatSearch">Search conversations</label>
+          <input
+            class="sidebar__search-input"
+            id="chatSearch"
+            type="search"
+            name="search"
+            placeholder="Search chats"
+            autocomplete="off"
+          />
+        </div>
+        <nav class="sidebar__nav" aria-label="Chat history">
+          <ul class="chat-items" id="chatList"></ul>
+        </nav>
+        <div class="sidebar__footer">
+          <button class="sidebar__settings" id="settingsToggle" type="button" aria-haspopup="dialog">
+            👤 Settings
+          </button>
+        </div>
+      </aside>
+      <div class="sidebar-overlay" id="sidebarOverlay" hidden></div>
+      <div class="main" role="region" aria-label="Conversation">
+        <header class="main__header">
+          <button class="hamburger" id="sidebarToggle" type="button" aria-label="Toggle chat sidebar" aria-expanded="true">
+            ☰
+          </button>
+          <div class="main__brand">
+            <span class="main__logo" aria-hidden="true">🤖</span>
+            <span class="main__title">Adam — Multimodal Assistant</span>
+          </div>
+          <div class="main__status" role="status" aria-live="polite">
+            <span class="status-dot" id="apiStatusDot" aria-hidden="true"></span>
+            <span class="status-label" id="apiStatusLabel">Checking…</span>
+          </div>
+        </header>
+        <main class="chat-pane" id="chatPane">
+          <section class="message-stream" id="messageStream" aria-live="polite" aria-label="Conversation messages"></section>
+          <div class="quick-replies hidden" id="quickReplies" aria-label="Suggested prompts"></div>
+          <div class="typing-indicator" id="typingIndicator" hidden>
+            <div class="typing-indicator__dots" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <span class="typing-indicator__label">Adam is thinking…</span>
+            <button class="typing-indicator__stop" id="stopStreamButton" type="button" hidden>⏹️ Stop</button>
+          </div>
+        </main>
+        <form class="composer" id="messageForm" autocomplete="off" novalidate>
+          <div class="composer__bar">
+            <div class="composer__actions" aria-label="Insert attachments">
+              <button class="composer__action" type="button" id="fileButton" title="Attach file">📎</button>
+              <input class="sr-only" type="file" id="fileInput" multiple accept=".pdf,.csv,.txt,.json" />
+              <button class="composer__action" type="button" id="imageButton" title="Attach image">🖼️</button>
+              <input class="sr-only" type="file" id="imageInput" accept="image/png,image/jpeg,image/webp" />
+              <button class="composer__action" type="button" id="voiceButton" title="Record voice">🎤</button>
+            </div>
+            <label class="sr-only" for="messageInput">Message</label>
+            <textarea
+              class="composer__input"
+              id="messageInput"
+              name="message"
+              rows="1"
+              placeholder="Message Adam..."
+              spellcheck="true"
+            ></textarea>
+            <button class="composer__send" id="sendButton" type="submit" aria-live="polite" aria-label="Send message">
+              <span class="send-icon" aria-hidden="true">✈️</span>
+              <span class="stop-icon" aria-hidden="true">⏹️</span>
+            </button>
+          </div>
+          <div class="composer__attachments" id="attachmentPreview" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+    <div class="settings" id="settingsPanel" role="dialog" aria-modal="true" aria-labelledby="settingsTitle" hidden>
+      <div class="settings__content">
+        <header class="settings__header">
+          <h2 class="settings__title" id="settingsTitle">Settings</h2>
+          <button class="settings__close" id="settingsClose" type="button" aria-label="Close settings">×</button>
+        </header>
+        <section class="settings__section">
+          <h3 class="settings__section-title">Theme</h3>
+          <div class="settings__option-group" role="radiogroup" aria-label="Theme selection">
+            <label class="settings__option"><input type="radio" name="theme" value="dark" /> Dark</label>
+            <label class="settings__option"><input type="radio" name="theme" value="light" /> Light</label>
+            <label class="settings__option"><input type="radio" name="theme" value="system" checked /> System</label>
+          </div>
+        </section>
+        <section class="settings__section">
+          <h3 class="settings__section-title">Language</h3>
+          <label class="settings__option">
+            <span class="settings__label">Default language</span>
+            <select id="languageSelect" class="settings__select">
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="fr">Français</option>
+              <option value="de">Deutsch</option>
+              <option value="zh">中文</option>
+              <option value="jp">日本語</option>
+            </select>
+          </label>
+        </section>
+        <footer class="settings__footer">
+          <div class="settings__status">
+            <span class="status-dot" id="settingsStatusDot" aria-hidden="true"></span>
+            <span class="status-label" id="settingsStatusLabel">Status unknown</span>
+          </div>
+          <button class="settings__close secondary" id="settingsDone" type="button">Done</button>
+        </footer>
+      </div>
+    </div>
+    <script src="script.js" defer></script>
+  </body>
+</html>

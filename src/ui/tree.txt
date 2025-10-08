@@ -1,0 +1,63 @@
+.
+├── app_ctk.py
+├── app.py
+├── assets
+│   ├── Adam.ico
+│   ├── Adam.png
+│   ├── favicon.ico
+│   ├── __init__.py
+│   └── screen.png
+├── chats.json
+├── components
+│   ├── chat.py
+│   ├── history.py
+│   ├── __init__.py
+│   ├── layout.py
+│   ├── menu.py
+│   ├── model_selector.py
+│   ├── model_sync.py
+│   ├── __pycache__
+│   │   ├── chat.cpython-313.pyc
+│   │   ├── history.cpython-313.pyc
+│   │   ├── __init__.cpython-313.pyc
+│   │   ├── layout.cpython-313.pyc
+│   │   ├── model_selector.cpython-313.pyc
+│   │   ├── model_sync.cpython-313.pyc
+│   │   ├── renderer.cpython-313.pyc
+│   │   ├── search.cpython-313.pyc
+│   │   ├── settings.cpython-313.pyc
+│   │   ├── shortcuts.cpython-313.pyc
+│   │   ├── sidebar.cpython-313.pyc
+│   │   ├── style.cpython-313.pyc
+│   │   ├── theme.cpython-313.pyc
+│   │   └── widgets.cpython-313.pyc
+│   ├── renderer.py
+│   ├── search.py
+│   ├── settings.py
+│   ├── shortcuts.py
+│   ├── sidebar.py
+│   ├── style.py
+│   ├── theme.py
+│   ├── ui_theme.json
+│   └── widgets.py
+├── context.md
+├── fallback_ui.py
+├── __init__.py
+├── __pycache__
+│   ├── app.cpython-313.pyc
+│   ├── fallback_ui.cpython-313.pyc
+│   ├── __init__.cpython-313.pyc
+│   └── state.cpython-313.pyc
+├── state.py
+├── tree.txt
+├── ui_theme.json
+└── utils
+    ├── __init__.py
+    ├── paths.py
+    ├── __pycache__
+    │   ├── __init__.cpython-313.pyc
+    │   ├── paths.cpython-313.pyc
+    │   └── validation.cpython-313.pyc
+    └── validation.py
+
+7 directories, 54 files

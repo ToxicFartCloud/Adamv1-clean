@@ -7,7 +7,7 @@ import pkgutil
 import re
 import sys
 from pathlib import Path
-from typing import Any, Dict, Set
+from typing import Any, Dict, Optional, Set
 
 logger = logging.getLogger("adam")
 
@@ -20,6 +20,10 @@ PLUGINS_PACKAGE = "plugins"
 
 # Enforce strict plugin naming: must be a valid Python identifier
 _PLUGIN_NAME_PATTERN = re.compile(r"^[a-zA-Z_][a-zA-Z0-9_]*$")
+
+
+class PluginLoadError(Exception):
+    """Raised when a plugin cannot be loaded."""
 
 
 class PluginManager:
@@ -69,6 +73,49 @@ class PluginManager:
         """Return a copy of the set of discovered plugin names."""
         return self._available_plugins.copy()
 
+    def _get_plugin_module(self, plugin_name: str) -> Optional[object]:
+        """Return the module for the given plugin name, loading it if needed."""
+        if not _PLUGIN_NAME_PATTERN.match(plugin_name):
+            raise PluginLoadError(
+                f"Invalid plugin name format: '{plugin_name}'. Must be a valid Python identifier."
+            )
+
+        if plugin_name not in self._available_plugins:
+            raise PluginLoadError(f"Plugin '{plugin_name}' not found in available plugins.")
+
+        if plugin_name in self._loaded_plugins:
+            return self._loaded_plugins[plugin_name]
+
+        try:
+            logger.info(f"Lazy-loading plugin: {plugin_name}")
+            module_name = f"{PLUGINS_PACKAGE}.{plugin_name}"
+            module_path = PLUGINS_PATH / f"{plugin_name}.py"
+            if not module_path.exists():
+                raise PluginLoadError(f"Plugin file not found at {module_path}")
+            spec = importlib.util.spec_from_file_location(module_name, module_path)
+            if spec is None or spec.loader is None:
+                raise PluginLoadError(
+                    f"Could not create spec for plugin '{plugin_name}'"
+                )
+            plugin_module = importlib.util.module_from_spec(spec)
+            sys.modules[module_name] = plugin_module
+            spec.loader.exec_module(plugin_module)
+            self._loaded_plugins[plugin_name] = plugin_module
+            return plugin_module
+        except PluginLoadError:
+            raise
+        except Exception as exc:
+            raise PluginLoadError(f"Failed to import plugin '{plugin_name}': {exc}")
+
+    def ensure_plugin_loaded(self, plugin_name: str) -> bool:
+        """Attempt to load the plugin at startup; return True on success."""
+        try:
+            self._get_plugin_module(plugin_name)
+            return True
+        except PluginLoadError as exc:
+            logger.error(str(exc))
+            return False
+
     def run_plugin(self, plugin_name: str, **kwargs) -> Dict[str, Any]:
         """
         Lazily loads and executes a plugin's run function.
@@ -89,42 +136,11 @@ class PluginManager:
                 "error": str     # Error message (if failed), None otherwise
             }
         """
-        # Enforce strict plugin name format to prevent injection or path traversal
-        if not _PLUGIN_NAME_PATTERN.match(plugin_name):
-            error_msg = f"Invalid plugin name format: '{plugin_name}'. Must be a valid Python identifier."
-            logger.error(error_msg)
-            return {"ok": False, "data": None, "error": error_msg}
-
-        # Validate plugin is in the discovered set
-        if plugin_name not in self._available_plugins:
-            error_msg = f"Plugin '{plugin_name}' not found in available plugins."
-            logger.error(error_msg)
-            return {"ok": False, "data": None, "error": error_msg}
-
-        # Check cache first
-        if plugin_name in self._loaded_plugins:
-            plugin_module = self._loaded_plugins[plugin_name]
-        else:
-            # Perform lazy import from the plugins directory to avoid namespace conflicts
-            try:
-                logger.info(f"Lazy-loading plugin: {plugin_name}")
-                module_name = f"{PLUGINS_PACKAGE}.{plugin_name}"
-                module_path = PLUGINS_PATH / f"{plugin_name}.py"
-                if not module_path.exists():
-                    raise ImportError(f"Plugin file not found at {module_path}")
-                spec = importlib.util.spec_from_file_location(module_name, module_path)
-                if spec is None or spec.loader is None:
-                    raise ImportError(
-                        f"Could not create spec for plugin '{plugin_name}'"
-                    )
-                plugin_module = importlib.util.module_from_spec(spec)
-                sys.modules[module_name] = plugin_module
-                spec.loader.exec_module(plugin_module)
-                self._loaded_plugins[plugin_name] = plugin_module
-            except Exception as e:
-                error_msg = f"Failed to import plugin '{plugin_name}': {e}"
-                logger.error(error_msg)
-                return {"ok": False, "data": None, "error": error_msg}
+        try:
+            plugin_module = self._get_plugin_module(plugin_name)
+        except PluginLoadError as exc:
+            logger.error(str(exc))
+            return {"ok": False, "data": None, "error": str(exc)}
 
         # Ensure the plugin exports a callable 'run' function
         if not hasattr(plugin_module, "run"):

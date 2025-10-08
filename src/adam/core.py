@@ -24,7 +24,7 @@
 # THE SOFTWARE.
 
 """
-adam_base.py -- Central Orchestrator for the Adam Project.
+core.py -- Central Orchestrator for the Adam Project.
 
 This file serves as the core orchestration engine for the Adam project.
 It is designed to be a lean, offline-first, and extensible foundation.
@@ -33,7 +33,7 @@ and retrieval logic, is delegated to external, hot-swappable plugins.
 
 Architectural Philosophy:
 -------------------------
-The core principle is decoupling the "how" from the "what". The adam_base.py
+The core principle is decoupling the "how" from the "what". The core
 orchestrator knows "what" to do (e.g., "embed text", "search a transcript"),
 but it delegates the "how" (e.g., using a local GGUF model, querying a local
 PgVector database) to specialized plugins. This ensures the core remains stable
@@ -63,7 +63,7 @@ Plugins are the primary mechanism for extending Adam's capabilities.
      and `error` provides a human-readable message on failure.
 
 4. Invoke the plugin from the CLI:
-   python adam_base.py --plugin my_tool --args '{"some_arg": "value"}'
+   python run_adam.py --plugin my_tool --args '{"some_arg": "value"}'
 
 -------------------------
 
@@ -100,6 +100,7 @@ import importlib
 import inspect
 import os
 import pathlib
+import re
 import socket
 import subprocess
 import sys
@@ -138,6 +139,11 @@ LOG_FILE = LOG_DIR / "adam.log"
 # Use string constants for backends since we no longer import plugin functions directly
 LOCAL_BACKEND = "local_llm"
 OLLAMA_BACKEND = "ollama_llm"
+MOCK_BACKEND = "mock_llm"
+
+_ACTIVE_PRIMARY_BACKEND = LOCAL_BACKEND
+_USE_MOCK_LLM = False
+_LLM_INIT_DONE = False
 
 if str(MODULE_DIR) not in sys.path:
     sys.path.insert(0, str(MODULE_DIR))
@@ -319,47 +325,125 @@ def discover_plugins(with_metadata: bool = False) -> list[dict]:
     return [{"name": name} for name in plugin_names]
 
 
+def initialize_llm_backends(force: bool = False) -> None:
+    """Ensure at least one LLM backend is ready, falling back to a mock model."""
+
+    global _ACTIVE_PRIMARY_BACKEND, _USE_MOCK_LLM, _LLM_INIT_DONE
+
+    if _LLM_INIT_DONE and not force:
+        return
+
+    logger = logging.getLogger("adam")
+    _LLM_INIT_DONE = True
+    _USE_MOCK_LLM = False
+
+    if manager.ensure_plugin_loaded(LOCAL_BACKEND):
+        _ACTIVE_PRIMARY_BACKEND = LOCAL_BACKEND
+        logger.info("Primary LLM backend set to local_llm")
+        return
+
+    logger.warning("local_llm unavailable at startup; attempting ollama_llm")
+    if manager.ensure_plugin_loaded(OLLAMA_BACKEND):
+        _ACTIVE_PRIMARY_BACKEND = OLLAMA_BACKEND
+        logger.info("Primary LLM backend set to ollama_llm")
+        return
+
+    logger.error("No LLM plugins available; using mock_llm fallback")
+    _ACTIVE_PRIMARY_BACKEND = MOCK_BACKEND
+    _USE_MOCK_LLM = True
+
+
 def _call_llm_with_fallback(
     prompt: str, model_name: str, config: dict, llm_params: dict
 ) -> dict:
-    """Tries the local_llm plugin, falling back to ollama_llm on failure."""
+    """Attempt local_llm, then ollama_llm, then a mock response."""
+
     logger = logging.getLogger("adam")
+    initialize_llm_backends()
 
     # Ensure non-streaming execution for RAG flow
     execution_params = {**llm_params, "stream": False}
 
-    # Attempt 1: Try the primary local_llm plugin
-    try:
-        model_path = resolve_model_path(model_name)
-    except Exception as e:
-        logger.error(f"Model path resolution failed for {model_name}: {e}")
-        model_path = f"models/{model_name}.gguf"
+    if _USE_MOCK_LLM:
+        return _mock_llm_response(prompt)
 
-    local_result = manager.run_plugin(
-        "local_llm",
-        prompt=prompt,
-        model_path=model_path,
-        **execution_params,
-    )
-    if local_result.get("ok"):
-        local_result["llm_backend"] = LOCAL_BACKEND
-        local_result["model_name"] = model_name
-        return local_result
+    def _invoke_backend(backend: str) -> dict:
+        if backend == LOCAL_BACKEND:
+            if not manager.ensure_plugin_loaded(LOCAL_BACKEND):
+                return {"ok": False, "error": "local_llm unavailable"}
+            try:
+                model_path = resolve_model_path(model_name)
+            except Exception as exc:
+                logger.error(
+                    "Model path resolution failed for %s: %s", model_name, exc
+                )
+                model_path = f"models/{model_name}.gguf"
 
-    logger.warning(
-        "local_llm failed (%s); falling back to ollama_llm", local_result.get("error")
+            result = manager.run_plugin(
+                LOCAL_BACKEND,
+                prompt=prompt,
+                model_path=model_path,
+                **execution_params,
+            )
+        elif backend == OLLAMA_BACKEND:
+            if not manager.ensure_plugin_loaded(OLLAMA_BACKEND):
+                return {"ok": False, "error": "ollama_llm unavailable"}
+            result = manager.run_plugin(
+                OLLAMA_BACKEND,
+                prompt=prompt,
+                model=model_name,
+                **execution_params,
+            )
+        else:
+            return _mock_llm_response(prompt)
+
+        if result.get("ok"):
+            result["llm_backend"] = backend
+            result["model_name"] = model_name
+        return result
+
+    backend_sequence = []
+    if _ACTIVE_PRIMARY_BACKEND == LOCAL_BACKEND:
+        backend_sequence = [LOCAL_BACKEND, OLLAMA_BACKEND]
+    elif _ACTIVE_PRIMARY_BACKEND == OLLAMA_BACKEND:
+        backend_sequence = [OLLAMA_BACKEND, LOCAL_BACKEND]
+    else:
+        backend_sequence = [LOCAL_BACKEND, OLLAMA_BACKEND]
+
+    seen = set()
+    for backend in backend_sequence:
+        if backend in seen:
+            continue
+        seen.add(backend)
+        result = _invoke_backend(backend)
+        if result.get("ok"):
+            return result
+        logger.warning("%s failed (%s)", backend, result.get("error"))
+
+    logger.error("All LLM backends failed; using mock response")
+    return _mock_llm_response(prompt)
+
+
+def _mock_llm_response(prompt: str) -> dict:
+    """Return a deterministic, safe response when no real LLM backends are available."""
+
+    snippet_lines = (prompt or "").strip().splitlines()
+    snippet = " ".join(snippet_lines) if snippet_lines else "(no prompt provided)"
+    snippet = snippet[:400] + ("..." if len(snippet) > 400 else "")
+
+    message = (
+        "Mock response (LLM unavailable).\n\n"
+        "I'm running in fallback mode because neither local_llm nor ollama_llm could load.\n"
+        f"Prompt echo: {snippet}"
     )
 
-    # Attempt 2: Fallback to the ollama_llm plugin
-    ollama_result = manager.run_plugin(
-        "ollama_llm",
-        prompt=prompt,
-        model=model_name,
-        **execution_params,
-    )
-    ollama_result["llm_backend"] = OLLAMA_BACKEND
-    ollama_result["model_name"] = model_name
-    return ollama_result
+    return {
+        "ok": True,
+        "data": message,
+        "error": None,
+        "llm_backend": MOCK_BACKEND,
+        "model_name": "adam-mock-llm",
+    }
 
 
 def _condense_with_light(text: str, light_model_name: str, config: dict) -> str:
@@ -634,14 +718,232 @@ def ensure_backend(app_host: str, app_port: int, timeout_s: int = 8) -> bool:
     return False
 
 
-def run_ui(app_host: str = "127.0.0.1", app_port: int = 8000) -> int:
-    """Launch the Tk UI, auto-starting the FastAPI backend if needed."""
+def run_ui(
+    app_host: str = "127.0.0.1",
+    app_port: int = 8000,
+    config: typing.Optional[dict] = None,
+) -> int:
+    """Launch the Tk UI and route submissions through the core orchestrator."""
     log_path = os.path.join(os.path.expanduser("~"), ".cache", "adam", "launcher.log")
     os.makedirs(os.path.dirname(log_path), exist_ok=True)
     with open(log_path, "a", encoding="utf-8") as fh:
         fh.write(
             f"[{time.strftime('%F %T')}] python={sys.executable} cwd={os.getcwd()} file={os.path.abspath(__file__)}\n"
         )
+
+    runtime_config = config if config is not None else load_configuration()
+    ui_state: typing.Dict[str, typing.Any] = {"app": None}
+    logger = logging.getLogger("adam")
+
+    def _push_to_ui(message: str) -> None:
+        app = ui_state.get("app")
+        if app and hasattr(app, "receive_response"):
+            try:
+                app.receive_response(message)
+            except Exception:
+                logger.exception("Failed to deliver response to UI")
+        else:
+            logger.warning("UI not ready; dropping response: %s", message[:120])
+
+    COMMAND_ALIASES = {
+        "diag": "diag_adam",
+        "diag_adam": "diag_adam",
+        "deepdiag": "deep_diag",
+        "deep_diag": "deep_diag",
+        "diag-director": "diag_director",
+        "diag_director": "diag_director",
+    }
+
+    def _format_structured(payload: typing.Any) -> str:
+        if payload is None:
+            return "(no data)"
+        if isinstance(payload, (dict, list)):
+            try:
+                return json.dumps(payload, indent=2)
+            except Exception:
+                return str(payload)
+        return str(payload)
+
+    def _format_command_response(name: str, result: typing.Any, kind: str) -> str:
+        if isinstance(result, dict):
+            ok = bool(result.get("ok"))
+            error = result.get("error")
+            data = result.get("data")
+        else:
+            ok = False
+            error = str(result)
+            data = None
+
+        status = "✅" if ok else "⚠️"
+        lines = [f"{status} {kind} /{name}"]
+
+        if error and not ok:
+            lines.append(f"Error: {error}")
+
+        if data not in (None, ""):
+            lines.append(_format_structured(data))
+
+        return "\n\n".join(filter(None, lines))
+
+    def _execute_command(command: str) -> bool:
+        normalized = command.strip().lower()
+        if not normalized:
+            return False
+
+        available_plugins = manager.get_available_plugins()
+        if normalized in available_plugins:
+            result = manager.run_plugin(normalized)
+            _push_to_ui(_format_command_response(normalized, result, "plugin"))
+            return True
+
+        tool_name = COMMAND_ALIASES.get(normalized, normalized)
+        try:
+            from adam.tools import run_tool as _run_tool
+
+            result = _run_tool(tool_name)
+        except Exception as exc:  # pragma: no cover - tooling optional
+            result = {"ok": False, "data": None, "error": str(exc)}
+
+        is_dict = isinstance(result, dict)
+        ok = bool(result.get("ok")) if is_dict else False
+
+        if ok:
+            _push_to_ui(_format_command_response(tool_name, result, "tool"))
+            return True
+
+        error_msg = ""
+        if is_dict:
+            error_msg = result.get("error") or ""
+        if not error_msg:
+            error_msg = str(result)
+
+        lower_error = error_msg.lower()
+        missing_clues = any(
+            phrase in lower_error
+            for phrase in [
+                "not found",
+                "does not have",
+                "unavailable",
+                "unknown tool",
+                "no such tool",
+            ]
+        )
+
+        if missing_clues:
+            suggestion = (
+                f"⚠️ tool /{tool_name} is not available."
+                "\nWould you like me to draft it?"
+                " Let me know the objective, required inputs, and expected outputs so I can scaffold the tool."
+            )
+            _push_to_ui(suggestion)
+        else:
+            _push_to_ui(_format_command_response(tool_name, result, "tool"))
+
+        return True
+
+    def _derive_model_options() -> list[tuple[str, str]]:
+        router_cfg = runtime_config.get("model_router", {}) if runtime_config else {}
+        options: list[tuple[str, str]] = []
+        default_model = router_cfg.get("default_model")
+        heavy_model = router_cfg.get("heavy_model")
+        if default_model:
+            options.append((f"{default_model} (default)", default_model))
+        if heavy_model and heavy_model != default_model:
+            options.append((f"{heavy_model} (heavy)", heavy_model))
+        return options
+
+    def _on_ready(app) -> None:
+        ui_state["app"] = app
+
+        try:
+            model_options = _derive_model_options()
+            if model_options and hasattr(app, "_set_available_models"):
+                app._set_available_models(model_options)
+        except Exception:
+            logger.exception("Failed to seed model options for UI")
+
+        backend_label = _ACTIVE_PRIMARY_BACKEND
+        if _USE_MOCK_LLM:
+            backend_label = f"{backend_label} (fallback)"
+
+        intro_lines = [
+            "Adam UI connected to core.",
+            f"Primary backend: {backend_label}",
+        ]
+        try:
+            available = manager.get_available_plugins()
+            intro_lines.append(
+                "Loaded plugins: " + ", ".join(sorted(available)) if available else "No plugins discovered"
+            )
+        except Exception:
+            intro_lines.append("Plugin discovery unavailable")
+
+        _push_to_ui("\n".join(intro_lines))
+
+    def _format_citations(
+        citations: typing.Iterable[typing.Mapping[str, typing.Any]]
+    ) -> str:
+        lines = []
+        for idx, citation in enumerate(citations or [], start=1):
+            label = (
+                citation.get("title")
+                or citation.get("source")
+                or citation.get("document_id")
+            )
+            if not label:
+                label = json.dumps(citation)
+            lines.append(f"{idx}. {label}")
+        return "\n".join(lines)
+
+    def _submit_callback(user_text: str) -> None:
+        try:
+            logger.info("UI request received")
+
+            commands = set(
+                re.findall(r"(?<!:)\B/([a-zA-Z0-9_\-]+)", user_text or "")
+            )
+            if commands:
+                for cmd in commands:
+                    _execute_command(cmd)
+                return
+
+            result = ask_question(
+                question=user_text,
+                heavy=False,
+                config=copy.deepcopy(runtime_config),
+            )
+
+            if isinstance(result, dict):
+                if result.get("ok"):
+                    answer = result.get("answer", "(no response)")
+                    citations = result.get("citations") or []
+                    backend = result.get("llm_backend") or "local_llm"
+                    model = result.get("model_used") or result.get("model_name")
+
+                    response_lines = [answer.strip() or "(no response)"]
+                    if model or backend:
+                        response_lines.append("")
+                        response_lines.append(
+                            f"Model: {model or 'unknown'} ({backend})"
+                        )
+                    if citations:
+                        response_lines.append("")
+                        response_lines.append("Sources:")
+                        response_lines.append(_format_citations(citations))
+
+                    _push_to_ui(
+                        "\n".join(line for line in response_lines if line is not None)
+                    )
+                else:
+                    error_msg = result.get("error") or "Unknown error"
+                    _push_to_ui(f"(error) {error_msg}")
+            else:
+                chunks = list(result)
+                aggregated = "".join(chunks).strip() or "(no response)"
+                _push_to_ui(aggregated)
+        except Exception as exc:  # pragma: no cover - defensive
+            logger.exception("UI submission failed: %s", exc)
+            _push_to_ui(f"(error) {exc}")
 
     ok = ensure_backend(app_host, app_port)
     if not ok:
@@ -667,12 +969,16 @@ def run_ui(app_host: str = "127.0.0.1", app_port: int = 8000) -> int:
 
     import tkinter as tk
 
-    run_params = {}
+    run_params: typing.Dict[str, typing.Any] = {}
     sig = inspect.signature(run_adam_ui)
     if "app_host" in sig.parameters:
         run_params["app_host"] = app_host
     if "app_port" in sig.parameters:
         run_params["app_port"] = app_port
+    if "submit_callback" in sig.parameters:
+        run_params["submit_callback"] = _submit_callback
+    if "on_ready" in sig.parameters:
+        run_params["on_ready"] = _on_ready
 
     params_iter = iter(sig.parameters.values())
     first_param = next(params_iter, None)
@@ -983,6 +1289,7 @@ def main():
     # Setup logging and configuration
     setup_logging()
     config = load_configuration()
+    initialize_llm_backends()
 
     result = {}
 
@@ -1015,7 +1322,11 @@ def main():
             print(json.dumps(report, indent=2))
             return
         elif args.ui:
-            return run_ui(app_host=args.ui_host, app_port=args.ui_port)
+            return run_ui(
+                app_host=args.ui_host,
+                app_port=args.ui_port,
+                config=config,
+            )
     except Exception as e:
         import traceback
 
